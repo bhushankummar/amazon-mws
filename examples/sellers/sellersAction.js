@@ -7,7 +7,7 @@ var amazonAWS = require('../../lib/amazon-mws')(accessKey, accessSecret);
 
 var sellerRequest = function () {
 
-    amazonAWS.sellers.listMarketplaceParticipations({
+    amazonAWS.sellers.action({
         'Action': 'ListMarketplaceParticipations',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN'
