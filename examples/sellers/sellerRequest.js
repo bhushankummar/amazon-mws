@@ -9,8 +9,8 @@ var sellerRequest = function () {
 
     amazonAWS.sellers.listMarketplaceParticipations({
         'Action': 'ListMarketplaceParticipations',
-        'SellerId': 'AUV38W4NKU8JH',
-        'MWSAuthToken': 'amzn.mws.06ad6265-74e6-cdea-f3da-2541b634587d'
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);

@@ -1,9 +1,9 @@
-# spreedly-api 
+# amazon-mws
 [![Build Status](https://travis-ci.org/bhushankumarl/spreedly-api.svg?branch=master)](https://travis-ci.org/bhushankumarl/spreedly-api)
 
-This API supported Amazon MWS's v1 standard REST-style API that accepts/returns JSON requests and Here is the [API reference] (https://docs.spreedly.com/reference/api/v1)
+This API supported Amazon MWS's v1 standard REST-style API that accepts/returns JSON requests and Here is the [API reference] (http://docs.developer.amazonservices.com/en_IN/dev_guide/DG_IfNew.html)
 
-You can find [examples here](https://github.com/bhushankumarl/spreedly-api/tree/master/examples). This will help you for faster implmentation of 'spreedly-api'
+You can find [examples here](https://github.com/bhushankumarl/amazon-mws/tree/master/examples/sellers). This will help you for faster implmentation of 'amazon-mws'
 
 ## Installation
 ```bash
@@ -29,10 +29,10 @@ var amazonMws = require('amazon-mws')('accessKey')('accessSecret');
 
 #### List Marketplace Participations
 ```js
-    amazonMws.seller.create({
-        'gateway': {
-            'gateway_type': 'test'
-        }
+    amazonMws.sellers.listMarketplaceParticipations({
+        'Action': 'ListMarketplaceParticipations',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);

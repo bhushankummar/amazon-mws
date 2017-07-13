@@ -1,6 +1,6 @@
 {
   "name": "amazon-mws",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Amazon MWS API wrapper",
   "keywords": [
     "Amazon MWS",
@@ -21,7 +21,7 @@
   "engines": {
     "node": ">= v0.10.0"
   },
-  "main": "lib/mws.js",
+  "main": "lib/amazon-mws.js",
   "devDependencies": {},
   "dependencies": {
     "bluebird": "^2.10.2",
