@@ -23,13 +23,14 @@ $ npm install
 Set your Access Key and Access Secret.
 
 ```js
-var amazonMws = require('amazon-mws')('accessKey')('accessSecret');
+var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID')('AWS_SECRET_ACCESS_KEY');
 ```
 ### Sellers
 
 #### List Marketplace Participations
 ```js
-    amazonMws.sellers.action({
+    amazonMws.sellers.search({
+        'Version': '2011-07-01',
         'Action': 'ListMarketplaceParticipations',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN'
