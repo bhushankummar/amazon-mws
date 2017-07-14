@@ -5,15 +5,13 @@ var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 
 var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
 
-var productRequest = function () {
+var feedRequest = function () {
 
-    amazonMws.products.search({
-        'Version': '2011-10-01',
-        'Action': 'ListMatchingProducts',
+    amazonMws.feeds.search({
+        'Version': '2009-01-01',
+        'Action': 'GetFeedSubmissionList',
         'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
-        'Query': 'k'
+        'MWSAuthToken': 'MWS_AUTH_TOKEN'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -23,4 +21,4 @@ var productRequest = function () {
     });
 };
 
-productRequest();
+feedRequest();
