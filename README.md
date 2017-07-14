@@ -1,9 +1,9 @@
 # amazon-mws
 [![Build Status](https://travis-ci.org/bhushankumarl/amazon-mws.svg?branch=master)](https://travis-ci.org/bhushankumarl/spreedly-api)
 
-This API supported Amazon MWS's v1 standard REST-style API that accepts/returns JSON requests and Here is the [API reference] (http://docs.developer.amazonservices.com/en_IN/dev_guide/DG_IfNew.html)
+This API supported Amazon Marketplace Web Service's(MWS) standard REST-style API that accepts/returns JSON requests and Here is the [API reference] (http://docs.developer.amazonservices.com/en_IN/dev_guide/DG_IfNew.html)
 
-You can find [examples here](https://github.com/bhushankumarl/amazon-mws/tree/master/examples/sellers). This will help you for faster implmentation of 'amazon-mws'
+You can find [examples here](https://github.com/bhushankumarl/amazon-mws/tree/master/examples/sellers). This will help you for faster implmentation of Amazon Marketplace Web Service's(MWS).
 
 ## Installation
 ```bash
@@ -59,6 +59,25 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
         }
         console.log('response', response);
         // asynchronously called
+    });
+```
+### Products
+
+#### List Matching Products
+```js
+    amazonAWS.products.search({
+        'Version': '2011-10-01',
+        'Action': 'ListMatchingProducts',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID',
+        'Query':'k'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
     });
 ```
 
