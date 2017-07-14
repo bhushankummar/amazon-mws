@@ -65,7 +65,7 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
 
 #### List Matching Products
 ```js
-    amazonAWS.products.search({
+    amazonMws.products.search({
         'Version': '2011-10-01',
         'Action': 'ListMatchingProducts',
         'SellerId': 'SELLER_ID',
