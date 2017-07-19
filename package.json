@@ -1,6 +1,6 @@
 {
   "name": "amazon-mws",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Amazon MWS API wrapper",
   "keywords": [
     "Amazon MWS",
@@ -11,8 +11,9 @@
     "Amazon MWS Orders",
     "Amazon MWS Products",
     "Amazon MWS Sellers",
-    "api",
-    "amazon-mws-node-api"
+    "node-api",
+    "amazon-mws-node-api",
+    "Amazon Marketplace Web Service"
   ],
   "homepage": "https://github.com/bhushankumarl/amazon-mws",
   "author": "Bhushankumar Lilapara<bhushankumar.lilapara@gmail.com>",
