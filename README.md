@@ -9,6 +9,14 @@ You can find [examples here](https://github.com/bhushankumarl/amazon-mws/tree/ma
 $ npm install amazon-mws --save
 ```
 
+## Debugging
+
+Run the DEBUG:
+
+```bash
+$ export DEBUG=MWS:*
+```
+
 ## Development
 
 Run the installation:
@@ -16,6 +24,7 @@ Run the installation:
 ```bash
 $ npm install
 ```
+
 
 ## Configuration
 

@@ -7,14 +7,20 @@ var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
 
 var productRequest = function () {
 
-    amazonMws.products.search({
+    var ASINList = ['ASIN.1', 'ASIN.2'];
+    var data = {
         'Version': '2011-10-01',
-        'Action': 'ListMatchingProducts',
-        'SellerId': 'AUV38W4NKU8JH',
-        'MWSAuthToken': 'amzn.mws.06ad6265-74e6-cdea-f3da-2541b634587d',
-        'MarketplaceId': 'ATVPDKIKX0DER',
-        'Query': 'k'
-    }, function (error, response) {
+        'Action': 'GetMatchingProduct',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID'
+    };
+    var index = 1;
+    for (var i in ASINList) {
+        data['ASINList.ASIN.' + index] = ASINList[i];
+        index++;
+    }
+    amazonMws.products.search(data, function (error, response) {
         if (error) {
             console.log('error products', error);
             return;
