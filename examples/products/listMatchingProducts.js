@@ -10,9 +10,9 @@ var productRequest = function () {
     amazonMws.products.search({
         'Version': '2011-10-01',
         'Action': 'ListMatchingProducts',
-        'SellerId': 'AUV38W4NKU8JH',
-        'MWSAuthToken': 'amzn.mws.06ad6265-74e6-cdea-f3da-2541b634587d',
-        'MarketplaceId': 'ATVPDKIKX0DER',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID',
         'Query': 'k'
     }, function (error, response) {
         if (error) {
