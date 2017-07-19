@@ -1,3 +1,6 @@
+0.0.8 Future Release
+  - Matching keywords
+  
 0.0.7 July 19, 2017
   - Simplify JSON Object, Added Debug Module
   - Add Example for Get Matching Product and Get Matching Product for Multiple ASIN
