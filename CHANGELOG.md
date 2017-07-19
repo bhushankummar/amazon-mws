@@ -1,3 +1,7 @@
+0.0.7 July 19, 2017
+  - Simplify JSON Object, Added Debug Module
+  - Add Example for Get Matching Product and Get Matching Product for Multiple ASIN
+  
 0.0.6 July 14, 2017
   - Add Orders API, Feeds API, Finances API, FulfillmentInboundShipment API, FulfillmentInventory API
   
