@@ -46,6 +46,7 @@
     "bluebird": "^2.10.2",
     "crypto": "0.0.3",
     "debug": "^2.6.8",
+    "fast-csv": "^2.4.0",
     "lodash.isplainobject": "^4.0.6",
     "object-assign": "^4.1.0",
     "qs": "^2.4.2",

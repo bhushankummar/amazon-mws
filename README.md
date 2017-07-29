@@ -188,5 +188,40 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
     });
 ```
 
+### Reports
+
+#### Get Report List
+```js
+    amazonMws.reports.search({
+        'Version': '2009-01-01',
+        'Action': 'GetReportList',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'ReportTypeList.Type.1': 'REPORT_TYPE_LIST'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });
+```
+
+#### Get Report
+```js
+    amazonMws.reports.search({
+        'Version': '2009-01-01',
+        'Action': 'GetReport',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'ReportId':'REPORT_ID'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });
+```
 Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushankumar.lilapara@gmail.com).
 

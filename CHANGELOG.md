@@ -1,5 +1,5 @@
 0.0.8 Future Release
-  - Matching keywords
+  - Matching keywords, Get Report List, Get Report
   
 0.0.7 July 19, 2017
   - Simplify JSON Object, Added Debug Module
