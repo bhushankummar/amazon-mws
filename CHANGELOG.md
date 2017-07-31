@@ -1,3 +1,6 @@
+0.0.9 Future Release
+  - Added ResponseMetadata (RequestId) in success response
+  
 0.0.8 Future Release
   - Matching keywords, Get Report List, Get Report
   
