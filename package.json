@@ -1,6 +1,6 @@
 {
   "name": "amazon-mws",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Amazon MWS API wrapper",
   "keywords": [
     "Amazon MWS",
@@ -47,10 +47,9 @@
     "crypto": "0.0.3",
     "debug": "^2.6.8",
     "fast-csv": "^2.4.0",
-    "lodash.isplainobject": "^4.0.6",
+    "lodash": "^4.17.4",
     "object-assign": "^4.1.0",
     "qs": "^2.4.2",
-    "underscore": "^1.8.3",
     "xml2json": "^0.11.0"
   },
   "license": "MIT",

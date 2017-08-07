@@ -1,7 +1,10 @@
-0.0.9 Future Release
+0.0.10
+  - Update dependency, Add Promise example
+
+0.0.9 July 31, 2017
   - Added ResponseMetadata (RequestId) in success response
   
-0.0.8 Future Release
+0.0.8 July 29, 2017
   - Matching keywords, Get Report List, Get Report
   
 0.0.7 July 19, 2017

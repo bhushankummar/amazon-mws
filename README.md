@@ -4,6 +4,9 @@ This API supported Amazon Marketplace Web Service(MWS)'s standard REST-style API
 
 You can find [examples here](https://github.com/bhushankumarl/amazon-mws/tree/master/examples). This will help you for faster implmentation of Amazon Marketplace Web Service's(MWS).
 
+##### It supports pure JSON response.
+##### All methods support Promise and Callback
+
 ## Installation
 ```bash
 $ npm install amazon-mws --save
@@ -148,6 +151,22 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
             return;
         }
         console.log('response', response);
+    });
+```
+
+#### List Matching Products Using Promise
+```js
+    amazonMws.products.search({
+        'Version': '2011-10-01',
+        'Action': 'GetMatchingProduct',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID',
+        'ASINList.ASIN.1': 'ASIN_1'
+    }).then(function (response) {
+        console.log('response', response);
+    }).catch(function (error) {
+        console.log('error products', error);
     });
 ```
 
