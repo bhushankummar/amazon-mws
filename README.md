@@ -17,8 +17,19 @@ $ npm install amazon-mws --save
 Run the DEBUG:
 
 ```bash
-$ export DEBUG=MWS:*
+export DEBUG=MWS:*
 ```
+
+
+## Usage
+
+Run the DEBUG:
+
+```bash
+export AWS_ACCESS_KEY_ID=KEY
+export AWS_SECRET_ACCESS_KEY=SECRET
+```
+
 
 ## Development
 
