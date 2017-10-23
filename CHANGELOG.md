@@ -1,3 +1,8 @@
+0.0.11
+  - ListInventorySupply Bug fix
+  - Add SubmitFeed API
+  - LICENCE Details
+
 0.0.10
   - Update dependency, Add Promise example
 
