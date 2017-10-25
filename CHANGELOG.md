@@ -1,3 +1,9 @@
+0.0.12
+  - Enhance SubmitFeed API
+  - Add GetFeedSubmissionResult Example
+  - Add FulfillmentOutboundShipment Feature
+  - Add List All Fulfillment Orders API
+
 0.0.11
   - ListInventorySupply Bug fix
   - Add SubmitFeed API
