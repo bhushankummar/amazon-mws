@@ -1,12 +1,13 @@
 {
   "name": "amazon-mws",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Amazon MWS API wrapper",
   "keywords": [
     "Amazon MWS",
     "Amazon MWS Feeds",
     "Amazon MWS Finances",
     "Amazon MWS Fulfillment Inbound Shipment",
+    "Amazon MWS Fulfillment Outbound Shipment",
     "Amazon MWS Fulfillment Inventory",
     "Amazon MWS Orders",
     "Amazon MWS Products",

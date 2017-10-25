@@ -26,8 +26,6 @@ export DEBUG=MWS:*
 
 ## Usage
 
-Run the DEBUG:
-
 ```bash
 export AWS_ACCESS_KEY_ID=KEY
 export AWS_SECRET_ACCESS_KEY=SECRET
@@ -79,6 +77,24 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
     });
 ```
 
+#### Get Feed Submission Result
+```js
+    var FeedSubmissionId = '10101010XXX';
+    amazonMws.feeds.search({
+        'Version': '2009-01-01',
+        'Action': 'GetFeedSubmissionResult',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'FeedSubmissionId': FeedSubmissionId
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });
+```
+
 ### Finances
 
 #### List Financial Event Groups
@@ -109,6 +125,26 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
         'MarketplaceId': 'MARKET_PLACE_ID',
         'SellerSKUList.Id.1': 'us001'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });
+```
+
+
+### FulfillmentOutboundShipment
+
+#### List All Fulfillment Orders
+```js
+    amazonMws.fulfillmentOutboundShipment.search({
+        'Version': '2010-10-01',
+        'Action': 'ListAllFulfillmentOrders',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'QueryStartDateTime': new Date(13, 12, 2016)
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
