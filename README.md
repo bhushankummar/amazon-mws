@@ -303,5 +303,16 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
         console.log('response', response);
     });
 ```
+
+#### Additionally all api returns Throttling: Limits to how often you can submit requests
+Reference : http://docs.developer.amazonservices.com/en_CA/dev_guide/DG_Throttling.html
+```json
+{ 
+  "x-mws-quota-max": "60.0",
+  "x-mws-quota-remaining": "38.0",
+  "x-mws-quota-resetson": "2017-12-08T08:21:00.000Z",
+  "x-mws-timestamp": "2017-12-08T07:52:15.567Z"
+}
+```
 Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushankumar.lilapara@gmail.com).
 

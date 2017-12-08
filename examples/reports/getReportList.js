@@ -12,7 +12,7 @@ var reportRequest = function () {
         'Action': 'GetReportList',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ReportTypeList.Type.1': 'REPORT_TYPE_LIST'
+        //'ReportTypeList.Type.1': 'REPORT_TYPE_LIST' //optional
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
