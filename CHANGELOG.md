@@ -1,3 +1,7 @@
+0.0.13
+  - Add the MWS Version Detail
+  - Additional error & exception handling
+
 0.0.12
   - Enhance SubmitFeed API
   - Add GetFeedSubmissionResult Example
