@@ -50,7 +50,7 @@
     "fast-csv": "^2.4.0",
     "fs": "0.0.1-security",
     "lodash": "^4.17.4",
-    "node-expat": "^2.3.16",
+    "node-expat": "2.3.16",
     "object-assign": "^4.1.0",
     "qs": "^2.4.2",
     "xml2json": "^0.11.0"
