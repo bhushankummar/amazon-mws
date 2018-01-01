@@ -7,7 +7,7 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var fulfillmentOutboundShipmentRequest = function () {
 
-    amazonMws.fulfillmentOutboundShipment.search({
+    amazonMws.fulfillmentOutboundShipment.create({
         'Version': '2010-10-01',
         'Action': 'CreateFulfillmentOrder',
         'SellerId': 'SELLER_ID',

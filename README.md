@@ -156,7 +156,7 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
 
 #### Create Fulfillment Order
 ```js
-    amazonMws.fulfillmentOutboundShipment.search({
+    amazonMws.fulfillmentOutboundShipment.create({
             'Version': '2010-10-01',
             'Action': 'CreateFulfillmentOrder',
             'SellerId': 'SELLER_ID',
