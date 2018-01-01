@@ -3,7 +3,7 @@
 var accessKey = process.env.AWS_ACCESS_KEY_ID || 'YOUR_KEY';
 var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 
-var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
+var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var productRequest = function () {
 
