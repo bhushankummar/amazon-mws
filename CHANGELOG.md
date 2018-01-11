@@ -1,8 +1,13 @@
-0.0.13
+0.0.14
+  - Additional error & exception handling
+  - Add the support for CreateFulfillmentOrder action
+  - Added typeScript example of reports
+
+0.0.13 December 08, 2017
   - Add the MWS Version Detail
   - Additional error & exception handling
 
-0.0.12
+0.0.12 November 25, 2017
   - Enhance SubmitFeed API
   - Add GetFeedSubmissionResult Example
   - Add FulfillmentOutboundShipment Feature
