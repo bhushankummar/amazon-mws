@@ -5,7 +5,17 @@ var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 
 var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
+/**
+ * This example has been written to override/set the default options before making the request.
+ */
+
 var orderRequest = function () {
+    amazonMws.setApiKey(accessKey, accessSecret);
+    amazonMws.setHost('YOUR HOST');
+
+    // amazonMws.setHost('YOUR HOST', 443); // Alternate way
+    // amazonMws.setHost('YOUR HOST', 443, 'https'); // Alternate way
+
     amazonMws.orders.search({
         'Version': '2013-09-01',
         'Action': 'ListOrders',

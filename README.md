@@ -253,6 +253,7 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
         console.log('response', response);
     });
 ```
+
 ### Products
 
 #### List Matching Products
@@ -354,6 +355,31 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
         'ReportId':'REPORT_ID'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });
+```
+
+#### Get Report
+###### Override/set the default options before making the request.
+```js
+    amazonMws.setApiKey(accessKey, accessSecret);
+    amazonMws.setHost('YOUR HOST');
+
+    // amazonMws.setHost('YOUR HOST', 443); // Alternate way
+    // amazonMws.setHost('YOUR HOST', 443, 'https'); // Alternate way
+
+    amazonMws.orders.search({
+        'Version': '2013-09-01',
+        'Action': 'ListOrders',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId.Id.1': 'MARKET_PLEACE_ID_1',
+        'LastUpdatedAfter': new Date(13, 12, 2016)
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
