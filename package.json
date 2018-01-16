@@ -47,7 +47,7 @@
         "bluebird": "^3.5.1",
         "debug": "^3.1.0",
         "fast-csv": "^2.4.0",
-        "fs": "0.0.1-security",
+        "fs-extra": "^5.0.0",
         "lodash": "^4.17.4",
         "node-expat": "2.3.16",
         "object-assign": "^4.1.0",
