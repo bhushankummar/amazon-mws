@@ -254,6 +254,23 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
     });
 ```
 
+#### List Order Items
+```js
+    amazonMws.orders.search({
+        'Version': '2013-09-01',
+        'Action': 'ListOrderItems',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'AmazonOrderId': 'AMAZON_ORDER_ID'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });
+```
+
 ### Products
 
 #### List Matching Products
