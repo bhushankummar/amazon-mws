@@ -3,16 +3,15 @@
 var accessKey = process.env.AWS_ACCESS_KEY_ID || 'YOUR_KEY';
 var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 
-var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
+var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
-var financeRequest = function () {
-
-    amazonMws.finances.search({
-        'Version': '2015-05-01',
-        'Action': 'ListFinancialEventGroups',
+var orderRequest = function () {
+    amazonMws.orders.search({
+        'Version': '2013-09-01',
+        'Action': 'ListOrderItems',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'FinancialEventGroupStartedAfter': new Date(13, 12, 2016)
+        'AmazonOrderId': 'AMAZON_ORDER_ID'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -22,4 +21,4 @@ var financeRequest = function () {
     });
 };
 
-financeRequest();
+orderRequest();

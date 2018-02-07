@@ -3,16 +3,16 @@
 var accessKey = process.env.AWS_ACCESS_KEY_ID || 'YOUR_KEY';
 var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 
-var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
+var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
-var fulfillmentOutboundShipmentRequest = function () {
+var financeRequest = function () {
 
-    amazonMws.fulfillmentOutboundShipment.search({
-        'Version': '2010-10-01',
-        'Action': 'ListAllFulfillmentOrders',
+    amazonMws.finances.search({
+        'Version': '2015-05-01',
+        'Action': 'ListFinancialEventGroups',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'QueryStartDateTime': new Date(13, 12, 2016)
+        'FinancialEventGroupStartedAfter': new Date(13, 12, 2016)
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -22,4 +22,4 @@ var fulfillmentOutboundShipmentRequest = function () {
     });
 };
 
-fulfillmentOutboundShipmentRequest();
+financeRequest();
