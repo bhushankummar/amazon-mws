@@ -1,10 +1,16 @@
 0.0.14
   - Clean code
+  - Added typeScript example of reports
   - Additional error & exception handling
   - Add the support for CreateFulfillmentOrder action
   - Added typeScript example of reports
   - Added javaScript example of Filter Orders
   - Added javaScript example of override/set the default options before making the request.
+  - Bug Fix : Parallel request
+  - Update to latest packages and remove deprecate packages
+  - Add support upto NODE 8
+  - Added ListOrderItems example of Orders
+
 
 0.0.13 December 08, 2017
   - Add the MWS Version Detail

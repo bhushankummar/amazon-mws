@@ -1,4 +1,4 @@
-// Type definitions for trello-node-api
+// Type definitions for amazon-mws
 
 declare class AmazonMWSReports {
 
