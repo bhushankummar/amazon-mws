@@ -1,3 +1,7 @@
+0.0.15
+  - Bug fixed ResponseMetadata (RequestId) in success response
+  - Added throttling details in non-xml response 
+  
 0.0.14
   - Clean code
   - Added typeScript example of reports
@@ -10,7 +14,6 @@
   - Update to latest packages and remove deprecate packages
   - Add support upto NODE 8
   - Added ListOrderItems example of Orders
-
 
 0.0.13 December 08, 2017
   - Add the MWS Version Detail
