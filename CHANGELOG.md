@@ -1,3 +1,6 @@
+0.0.16
+  - Added example of MerchantFulfillment
+
 0.0.15
   - Bug fixed ResponseMetadata (RequestId) in success response
   - Added throttling details in non-xml response 

@@ -8,7 +8,7 @@
         "@types/es6-promise": "0.0.33",
         "babel-eslint": "^8.0.1",
         "babel-preset-node6": "^11.0.0",
-        "amazon-mws": "^0.0.13",
+        "amazon-mws": "^0.0.16",
         "node-expat": "^2.3.16"
     },
     "devDependencies": {}
