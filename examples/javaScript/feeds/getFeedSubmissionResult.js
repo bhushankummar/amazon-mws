@@ -3,17 +3,17 @@
 var accessKey = process.env.AWS_ACCESS_KEY_ID || 'YOUR_KEY';
 var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 
-var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
+var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
-var fulfillmentInboundShipmentRequest = function () {
+var feedRequest = function () {
 
-    amazonMws.fulfillmentInboundShipment.search({
-        'Version': '2010-10-01',
-        'Action': 'GetInboundGuidanceForSKU',
+    var FeedSubmissionId = '10101010XXX';
+    amazonMws.feeds.search({
+        'Version': '2009-01-01',
+        'Action': 'GetFeedSubmissionResult',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
-        'SellerSKUList.Id.1': 'us001'
+        'FeedSubmissionId': FeedSubmissionId
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -23,4 +23,4 @@ var fulfillmentInboundShipmentRequest = function () {
     });
 };
 
-fulfillmentInboundShipmentRequest();
+feedRequest();

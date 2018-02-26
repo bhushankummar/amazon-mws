@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AmazonEnvelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="amznenvelope.xsd">
+<Header>
+<DocumentVersion>1.01</DocumentVersion>
+<MerchantIdentifier>AUV38W4NKU8JH</MerchantIdentifier>
+</Header>
+<MessageType>Inventory</MessageType>
+<Message>
+<MessageID>1</MessageID>
+<OperationType>Update</OperationType>
+<Inventory>
+<SKU>TestProduct_Do_Not_Order_Pin</SKU>
+<Quantity>4</Quantity>
+<FulfillmentLatency>1</FulfillmentLatency>
+</Inventory>
+</Message>
+</AmazonEnvelope>
