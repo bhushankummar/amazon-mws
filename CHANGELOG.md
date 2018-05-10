@@ -1,5 +1,7 @@
 0.0.16
   - Added example of MerchantFulfillment
+  - Added support for the comma delimiter report
+  - Added example of Comma delimiter report
 
 0.0.15
   - Bug fixed ResponseMetadata (RequestId) in success response
