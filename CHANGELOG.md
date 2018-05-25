@@ -1,3 +1,6 @@
+0.0.17
+  - Extend support for TypeScript typed definition : feeds, finances, fulfillmentInboundShipment, fulfillmentInventory, fulfillmentOutboundShipment, merchantFulfillment, orders, products, sellers
+
 0.0.16
   - Added example of MerchantFulfillment
   - Added support for the comma delimiter report
