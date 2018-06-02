@@ -1,0 +1,10 @@
+###
+### mocha.opts
+###
+
+--silly
+--full-trace
+--recursive
+--timeout 10000
+--reporter spec
+./test/specs/*.js

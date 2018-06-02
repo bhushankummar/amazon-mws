@@ -11,7 +11,7 @@ var reportRequest = function () {
         'Action': 'GetReport',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ReportId':'REPORT_ID'
+        'ReportId': 'REPORT_ID'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);

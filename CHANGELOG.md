@@ -1,3 +1,8 @@
+0.0.18
+  - Add basic Test cases
+  - Add jshint lint checking
+  - Code Reformatting
+
 0.0.17
   - Extend support for TypeScript typed definition : feeds, finances, fulfillmentInboundShipment, fulfillmentInventory, fulfillmentOutboundShipment, merchantFulfillment, orders, products, sellers
 

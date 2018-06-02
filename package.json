@@ -1,61 +1,66 @@
 {
-    "name": "amazon-mws",
-    "version": "0.0.17",
-    "description": "Amazon MWS API wrapper",
-    "keywords": [
-        "Amazon MWS",
-        "Amazon MWS Feeds",
-        "Amazon MWS Finances",
-        "Amazon MWS Fulfillment Inbound Shipment",
-        "Amazon MWS Fulfillment Outbound Shipment",
-        "Amazon MWS Fulfillment Inventory",
-        "Amazon MWS Orders",
-        "Amazon MWS Products",
-        "Amazon MWS Sellers",
-        "node-mws",
-        "amazon-mws-node-api",
-        "Amazon Marketplace Web Service",
-        "mws",
-        "mws-products",
-        "mws-sellers",
-        "mws-orders",
-        "mws-finances",
-        "mws-inventory",
-        "mws-shipment",
-        "mws-api",
-        "mws-sdk",
-        "mws-client",
-        "mws-node-api",
-        "mws-node"
-    ],
-    "homepage": "https://github.com/bhushankumarl/amazon-mws",
-    "author": "Bhushankumar Lilapara<bhushankumar.lilapara@gmail.com>",
-    "contributors": [
-        "Bhushankumar Lilapara (bhushankumar.lilapara@gmail.com)"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/bhushankumarl/amazon-mws.git"
-    },
-    "bugs:": "https://github.com/bhushankumarl/amazon-mws/issues",
-    "engines": {
-        "node": ">= v0.10.0"
-    },
-    "main": "lib/amazon-mws.js",
-    "devDependencies": {},
-    "dependencies": {
-        "bluebird": "^3.5.1",
-        "debug": "^3.1.0",
-        "fast-csv": "^2.4.0",
-        "fs-extra": "^5.0.0",
-        "lodash": "^4.17.4",
-        "node-expat": "2.3.16",
-        "object-assign": "^4.1.0",
-        "qs": "^6.5.1",
-        "xml2json": "^0.11.0"
-    },
-    "license": "MIT",
-    "scripts": {
-        "lint": "jshintrc"
-    }
+  "name": "amazon-mws",
+  "version": "0.0.18",
+  "description": "Amazon MWS API wrapper",
+  "keywords": [
+    "Amazon MWS",
+    "Amazon MWS Feeds",
+    "Amazon MWS Finances",
+    "Amazon MWS Fulfillment Inbound Shipment",
+    "Amazon MWS Fulfillment Outbound Shipment",
+    "Amazon MWS Fulfillment Inventory",
+    "Amazon MWS Orders",
+    "Amazon MWS Products",
+    "Amazon MWS Sellers",
+    "node-mws",
+    "amazon-mws-node-api",
+    "Amazon Marketplace Web Service",
+    "mws",
+    "mws-products",
+    "mws-sellers",
+    "mws-orders",
+    "mws-finances",
+    "mws-inventory",
+    "mws-shipment",
+    "mws-api",
+    "mws-sdk",
+    "mws-client",
+    "mws-node-api",
+    "mws-node"
+  ],
+  "homepage": "https://github.com/bhushankumarl/amazon-mws",
+  "author": "Bhushankumar Lilapara<bhushankumar.lilapara@gmail.com>",
+  "contributors": [
+    "Bhushankumar Lilapara (bhushankumar.lilapara@gmail.com)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bhushankumarl/amazon-mws.git"
+  },
+  "bugs:": "https://github.com/bhushankumarl/amazon-mws/issues",
+  "engines": {
+    "node": ">= v0.10.0"
+  },
+  "main": "lib/amazon-mws.js",
+  "devDependencies": {
+    "jshint": "^2.9.5"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "chai": "^4.1.2",
+    "debug": "^3.1.0",
+    "fast-csv": "^2.4.0",
+    "fs-extra": "^5.0.0",
+    "lodash": "^4.17.4",
+    "mocha": "^5.2.0",
+    "node-expat": "2.3.16",
+    "object-assign": "^4.1.0",
+    "qs": "^6.5.1",
+    "xml2json": "^0.11.0"
+  },
+  "license": "MIT",
+  "scripts": {
+    "lint": "jshint ./",
+    "test": "mocha"
+  }
 }
