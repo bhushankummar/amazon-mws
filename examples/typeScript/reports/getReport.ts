@@ -6,6 +6,11 @@ import * as MwsApi from 'amazon-mws';
 const amazonMws = new MwsApi();
 amazonMws.setApiKey(accessKey, accessSecret);
 
+/**
+ * This will not provide you Throttling details in Header.
+ * Amazon MWS itself not providing Throttling detail in GetReport call.
+ */
+
 const reportRequest = async () => {
 
     try {
@@ -20,7 +25,6 @@ const reportRequest = async () => {
     } catch (error: any) {
         console.log('error ', error);
     }
-
 
 };
 

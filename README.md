@@ -438,6 +438,7 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
 
 #### Get Report
 ###### This will provide you JSON report/data.
+###### This will not provide you Throttling details in Header.
 ```js
     amazonMws.reports.search({
         'Version': '2009-01-01',

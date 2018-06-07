@@ -5,6 +5,11 @@ var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 
 var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
+/**
+ * This will not provide you Throttling details in Header.
+ * Amazon MWS itself not providing Throttling detail in GetReport call.
+ */
+
 var reportRequest = function () {
     amazonMws.reports.search({
         'Version': '2009-01-01',
