@@ -1,5 +1,5 @@
 'use strict';
-var fs = require("fs");
+var fs = require('fs');
 
 var accessKey = process.env.AWS_ACCESS_KEY_ID || 'YOUR_KEY';
 var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
@@ -15,15 +15,15 @@ function GetFeedSubmissionResultRaw(FeedSubmissionId) {
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
         'FeedSubmissionId': FeedSubmissionId,
-        __RAW__ : true 
-    }, (error, response) => { 
+        __RAW__: true
+    }, function (error, response) {
         if (error) {
             console.log('error ', error);
             return;
         }
-        fs.writeFileSync('response.txt',response.data)
+        fs.writeFileSync('response.txt', response.data);
         console.log('Headers', response.Headers);
     });
-};
+}
 
 GetFeedSubmissionResultRaw('10101010XXX');
