@@ -2,6 +2,8 @@
   - Add basic Test cases
   - Add jshint lint checking
   - Code Reformatting
+  - Add support for parsing special characters
+  - Add support for API which retrun data as binary file format
 
 0.0.17
   - Extend support for TypeScript typed definition : feeds, finances, fulfillmentInboundShipment, fulfillmentInventory, fulfillmentOutboundShipment, merchantFulfillment, orders, products, sellers
