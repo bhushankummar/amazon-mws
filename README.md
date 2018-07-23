@@ -346,6 +346,44 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
 
 ### Products
 
+#### Get Lowest Priced Offers For ASIN
+```js
+    amazonMws.products.searchFor({
+        'Version': '2011-10-01',
+        'Action': 'GetLowestPricedOffersForASIN',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID',
+        'ASIN': 'ASIN',
+        'ItemCondition': 'New'
+    }, function (error, response) {
+        if (error) {
+            console.log('error products', error);
+            return;
+        }
+        console.log('response ', response);
+    });
+```
+
+#### Get Lowest Priced Offers For SKU
+```js
+    amazonMws.products.searchFor({
+        'Version': '2011-10-01',
+        'Action': 'GetLowestPricedOffersForSKU',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID',
+        'SellerSKU': 'SELLER_SKU',
+        'ItemCondition': 'New'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response ', response);
+    });
+```
+
 #### List Matching Products
 ```js
     amazonMws.products.search({

@@ -8,15 +8,15 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 var productRequest = function () {
     amazonMws.products.searchFor({
         'Version': '2011-10-01',
-        'Action': 'GetLowestPricedOffersForSKU',
+        'Action': 'GetLowestPricedOffersForASIN',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
         'MarketplaceId': 'MARKET_PLACE_ID',
-        'SellerSKU': 'SELLER_SKU',
+        'ASIN': 'ASIN',
         'ItemCondition': 'New'
     }, function (error, response) {
         if (error) {
-            console.log('error ', error);
+            console.log('error products', error);
             return;
         }
         console.log('response ', response);
