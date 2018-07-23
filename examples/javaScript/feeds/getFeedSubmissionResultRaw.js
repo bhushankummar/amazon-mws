@@ -8,10 +8,10 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 var fse = require('fs-extra');
 
 /**
- * Use __RAW__ to get the raw response in response->data; \
+ * Use __RAW__ to get the raw response in response->data;
  * This along  with __CHARSET__ do not get written in the request.
  * */
-function GetFeedSubmissionResultRaw(FeedSubmissionId) {
+function feedRequest(FeedSubmissionId) {
 
     amazonMws.feeds.search({
         'Version': '2009-01-01',
@@ -30,4 +30,4 @@ function GetFeedSubmissionResultRaw(FeedSubmissionId) {
     });
 }
 
-GetFeedSubmissionResultRaw('10101010XXX');
+feedRequest('10101010XXX');
