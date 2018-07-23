@@ -7,7 +7,7 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var productRequest = function () {
 
-    amazonMws.products.search({
+    amazonMws.products.searchFor({
         'Version': '2011-10-01',
         'Action': 'GetLowestPricedOffersForSKU',
         'SellerId': 'SELLER_ID',
