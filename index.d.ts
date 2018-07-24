@@ -41,7 +41,7 @@ declare class Orders extends BaseAmazonMWS {
 }
 
 declare class Products extends BaseAmazonMWS {
-
+    searchFor(params: any): Promise<any>;
 }
 
 declare class Reports extends BaseAmazonMWS {

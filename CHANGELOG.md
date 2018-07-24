@@ -5,6 +5,7 @@
   - Add support for parsing special characters
   - Add support for API which return data as binary file format
   - Extend support for GetLowestPricedOffersForASIN, GetLowestPricedOffersForSKU and other product methods
+  - Added test cases for Feeds, Finances, Fulfillment Inventory, Fulfillment Outbound Shipment, Products, Orders, Sellers
 
 0.0.17
   - Extend support for TypeScript typed definition : feeds, finances, fulfillmentInboundShipment, fulfillmentInventory, fulfillmentOutboundShipment, merchantFulfillment, orders, products, sellers

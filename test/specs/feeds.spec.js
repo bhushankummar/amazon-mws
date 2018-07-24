@@ -29,7 +29,6 @@ describe('Feeds', function () {
         var response = await amazonMws.feeds.search(options);
 
         expect(response).to.be.a('object');
-        expect(response).to.be.a('object');
         expect(response).to.have.property('FeedSubmissionInfo').to.be.a('array');
         expect(response).to.have.property('ResponseMetadata').to.be.a('object');
         expect(response).to.have.property('ResponseMetadata').to.have.property('RequestId');

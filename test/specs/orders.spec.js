@@ -31,7 +31,6 @@ describe('Orders', function () {
         var response = await amazonMws.orders.search(options);
 
         expect(response).to.be.a('object');
-        expect(response).to.be.a('object');
         expect(response).to.have.property('Orders').to.be.a('object');
         expect(response).to.have.property('ResponseMetadata').to.be.a('object');
         expect(response).to.have.property('ResponseMetadata').to.have.property('RequestId');

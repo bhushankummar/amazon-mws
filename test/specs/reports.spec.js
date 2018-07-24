@@ -27,7 +27,6 @@ describe('Reports', function () {
         var response = await amazonMws.reports.search(options);
 
         expect(response).to.be.a('object');
-        expect(response).to.be.a('object');
         expect(response).to.have.property('ReportInfo').to.be.a('array');
         expect(response).to.have.property('ResponseMetadata').to.be.a('object');
         expect(response).to.have.property('ResponseMetadata').to.have.property('RequestId');

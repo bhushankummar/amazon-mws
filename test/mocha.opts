@@ -8,4 +8,4 @@
 --recursive
 --timeout 10000
 --reporter spec
-./test/specs/*.js
+./test/specs/*.spec.js
