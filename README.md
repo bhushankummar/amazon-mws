@@ -36,13 +36,23 @@ export AWS_ACCESS_KEY_ID=KEY
 export AWS_SECRET_ACCESS_KEY=SECRET
 ```
 
-## Configuration
+## Configuration Using JavaScript
 
 Set your Access Key and Access Secret.
 
 ```js
 var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY');
 ```
+
+## Configuration Using TypeScript
+
+```
+import * as MwsApi from 'amazon-mws';
+
+const amazonMws = new MwsApi();
+amazonMws.setApiKey(accessKey, accessSecret);
+```
+
 
 ### Feeds
 
@@ -521,6 +531,31 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
         }
         console.log('response', response);
     });
+```
+
+#### Get Report
+###### Using TypeScript.
+```
+    const accessKey = process.env.AWS_ACCESS_KEY_ID || 'YOUR_KEY';
+    const accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
+    
+    import * as MwsApi from 'amazon-mws';
+    
+    const amazonMws = new MwsApi();
+    amazonMws.setApiKey(accessKey, accessSecret);
+    
+    try {
+        const response: any = await amazonMws.reports.search({
+            'Version': '2009-01-01',
+            'Action': 'GetReport',
+            'SellerId': 'SELLER_ID',
+            'MWSAuthToken': 'MWS_AUTH_TOKEN',
+            'ReportId': 'REPORT_ID'
+        });
+        console.log('response', response);
+    } catch (error: any) {
+        console.log('error ', error);
+    } 
 ```
 
 #### Additionally all api returns Throttling: Limits to how often you can submit requests
