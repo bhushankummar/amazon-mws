@@ -66,6 +66,6 @@
   "license": "MIT",
   "scripts": {
     "lint": "jshint ./",
-    "test.mocha": "mocha"
+    "test.mocha": "npm run lint && mocha"
   }
 }

@@ -46,7 +46,7 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
 
 ## Configuration Using TypeScript
 
-```
+```typescript
 import * as MwsApi from 'amazon-mws';
 
 const amazonMws = new MwsApi();
@@ -448,7 +448,6 @@ amazonMws.setApiKey(accessKey, accessSecret);
             return;
         }
         console.log('response', response);
-        // asynchronously called
     });
 ```
 
@@ -466,7 +465,6 @@ amazonMws.setApiKey(accessKey, accessSecret);
             return;
         }
         console.log('response', response);
-        // asynchronously called
     });
 ```
 
@@ -535,7 +533,7 @@ amazonMws.setApiKey(accessKey, accessSecret);
 
 #### Get Report
 ###### Using TypeScript.
-```
+```typescript
     const accessKey = process.env.AWS_ACCESS_KEY_ID || 'YOUR_KEY';
     const accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
     

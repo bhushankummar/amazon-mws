@@ -6,6 +6,6 @@
 --silly
 --full-trace
 --recursive
---timeout 10000
+--timeout 20000
 --reporter spec
 ./test/specs/*.spec.js
