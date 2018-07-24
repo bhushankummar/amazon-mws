@@ -11,7 +11,7 @@ var reportRequest = function () {
         'Version': '2009-01-01',
         'Action': 'GetReportList',
         'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN'
         //'ReportTypeList.Type.1': 'REPORT_TYPE_LIST' //optional
     }, function (error, response) {
         if (error) {

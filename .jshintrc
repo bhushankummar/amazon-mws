@@ -6,7 +6,15 @@
     "exports": true,
     "module": true,
     "Buffer": true,
-    "JSON": true
+    "JSON": true,
+    "async": true,
+    /* MOCHA */
+    "describe": false,
+    "it": false,
+    "before": false,
+    "beforeEach": false,
+    "after": false,
+    "afterEach": false
   },
   "maxparams": 6,
   "maxdepth": 15,
@@ -40,7 +48,7 @@
   "smarttabs": true,
   "indent": 2,
   "latedef": "nofunc",
-  "unused": false,
+  "unused": true,
   "enforceall": true,
   "-W024": true,
   "-W089": false,
