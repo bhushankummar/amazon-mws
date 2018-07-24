@@ -34,7 +34,7 @@ describe('Fulfillment Inbound Shipment', function () {
         var response = await amazonMws.fulfillmentInboundShipment.search(options);
 
         expect(response).to.be.a('object');
-        expect(response).to.have.property('FinancialEventGroupList').to.be.a('object');
+        expect(response).to.have.property('SKUInboundGuidanceList').to.be.a('object');
         expect(response).to.have.property('ResponseMetadata').to.be.a('object');
         expect(response).to.have.property('ResponseMetadata').to.have.property('RequestId');
         expect(response).to.have.property('Headers').to.be.a('object');
