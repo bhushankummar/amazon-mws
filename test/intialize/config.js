@@ -5,5 +5,6 @@ module.exports = {
     SellerId: process.env.SELLER_ID,
     MWSAuthToken: process.env.MWS_AUTH_TOKEN,
     MarketplaceId: process.env.MARKETPLACE_ID,
-    ASIN: process.env.ASIN
+    ASIN: process.env.ASIN,
+    SKU: process.env.SKU
 };

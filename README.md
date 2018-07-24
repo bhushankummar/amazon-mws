@@ -15,6 +15,11 @@ You can find [examples here](https://github.com/bhushankumarl/amazon-mws/tree/ma
 $ npm install amazon-mws --save
 ```
 
+## Test Cases
+```bash
+$ npm run test.mocha
+```
+
 ## Debugging
 
 Run the DEBUG:

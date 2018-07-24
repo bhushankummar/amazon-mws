@@ -8,31 +8,29 @@ var expect = chai.expect;
 
 var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
 
-describe('Orders', function () {
+describe('Feeds', function () {
 
     before(function () {
         expect(accessKey).to.be.a('string');
         expect(accessSecret).to.be.a('string');
     });
 
-    it('It should get list of orders using ListOrders Action', async function () {
+    it('It should get Feed Submission list using GetFeedSubmissionList Action', async function () {
         var options = {
-            'Version': '2013-09-01',
-            'Action': 'ListOrders',
+            'Version': '2009-01-01',
+            'Action': 'GetFeedSubmissionList',
             'SellerId': config.SellerId,
-            'MWSAuthToken': config.MWSAuthToken,
-            'MarketplaceId.Id.1': config.MarketplaceId,
-            'LastUpdatedAfter': new Date(13, 12, 2016)
+            'MWSAuthToken': config.MWSAuthToken
         };
+
         expect(options.SellerId).to.be.a('string');
         expect(options.MWSAuthToken).to.be.a('string');
-        expect(options['MarketplaceId.Id.1']).to.be.a('string');
 
-        var response = await amazonMws.orders.search(options);
+        var response = await amazonMws.feeds.search(options);
 
         expect(response).to.be.a('object');
         expect(response).to.be.a('object');
-        expect(response).to.have.property('Orders').to.be.a('object');
+        expect(response).to.have.property('FeedSubmissionInfo').to.be.a('array');
         expect(response).to.have.property('ResponseMetadata').to.be.a('object');
         expect(response).to.have.property('ResponseMetadata').to.have.property('RequestId');
         expect(response).to.have.property('Headers').to.be.a('object');

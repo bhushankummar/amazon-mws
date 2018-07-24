@@ -8,31 +8,30 @@ var expect = chai.expect;
 
 var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
 
-describe('Orders', function () {
+describe('Finances', function () {
 
     before(function () {
         expect(accessKey).to.be.a('string');
         expect(accessSecret).to.be.a('string');
     });
 
-    it('It should get list of orders using ListOrders Action', async function () {
+    it('It should get list of Financial Event Groups using ListFinancialEventGroups Action', async function () {
         var options = {
-            'Version': '2013-09-01',
-            'Action': 'ListOrders',
+            'Version': '2015-05-01',
+            'Action': 'ListFinancialEventGroups',
             'SellerId': config.SellerId,
             'MWSAuthToken': config.MWSAuthToken,
-            'MarketplaceId.Id.1': config.MarketplaceId,
-            'LastUpdatedAfter': new Date(13, 12, 2016)
+            'FinancialEventGroupStartedAfter': new Date(13, 12, 2016)
         };
+
         expect(options.SellerId).to.be.a('string');
         expect(options.MWSAuthToken).to.be.a('string');
-        expect(options['MarketplaceId.Id.1']).to.be.a('string');
 
-        var response = await amazonMws.orders.search(options);
+        var response = await amazonMws.finances.search(options);
 
         expect(response).to.be.a('object');
         expect(response).to.be.a('object');
-        expect(response).to.have.property('Orders').to.be.a('object');
+        expect(response).to.have.property('FinancialEventGroupList').to.be.a('object');
         expect(response).to.have.property('ResponseMetadata').to.be.a('object');
         expect(response).to.have.property('ResponseMetadata').to.have.property('RequestId');
         expect(response).to.have.property('Headers').to.be.a('object');

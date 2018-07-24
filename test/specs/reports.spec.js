@@ -25,6 +25,7 @@ describe('Reports', function () {
         expect(options.SellerId).to.be.a('string');
 
         var response = await amazonMws.reports.search(options);
+
         expect(response).to.be.a('object');
         expect(response).to.be.a('object');
         expect(response).to.have.property('ReportInfo').to.be.a('array');

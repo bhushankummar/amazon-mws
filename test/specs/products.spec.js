@@ -8,7 +8,7 @@ var expect = chai.expect;
 
 var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
 
-describe('Reports', function () {
+describe('Products', function () {
 
     before(function () {
         expect(accessKey).to.be.a('string');

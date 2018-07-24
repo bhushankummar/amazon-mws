@@ -2,6 +2,7 @@
 ### mocha.opts
 ###
 
+--bail
 --silly
 --full-trace
 --recursive
