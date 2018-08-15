@@ -8,18 +8,19 @@ amazonMws.setApiKey(accessKey, accessSecret);
 
 const reportRequest = async () => {
 
-    let response = await amazonMws.reports.search({
-        'Version': '2009-01-01',
-        'Action': 'GetReportList',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        //'ReportTypeList.Type.1': 'REPORT_TYPE_LIST' //optional
-    }).catch(error => {
-        if (error) {
-            console.log('error', error);
-        }
-    });
-    console.log('response', response);
+    try {
+        const response: any = await amazonMws.reports.search({
+            'Version': '2009-01-01',
+            'Action': 'GetReportList',
+            'SellerId': 'SELLER_ID',
+            'MWSAuthToken': 'MWS_AUTH_TOKEN',
+            //'ReportTypeList.Type.1': 'REPORT_TYPE_LIST' //optional
+        });
+        console.log('response', response);
+    } catch (error: any) {
+        console.log('error ', error);
+    }
+
 };
 
 reportRequest();

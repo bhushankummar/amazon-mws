@@ -1,3 +1,20 @@
+0.0.18
+  - Add basic Test cases
+  - Add jshint lint checking
+  - Code Reformatting
+  - Add support for parsing special characters
+  - Add support for API which return data as binary file format
+  - Extend support for GetLowestPricedOffersForASIN, GetLowestPricedOffersForSKU and other product methods
+  - Added test cases for Feeds, Finances, Fulfillment Inventory, Fulfillment Outbound Shipment, Fulfillment Inbound Shipment, Products, Orders, Sellers
+
+0.0.17
+  - Extend support for TypeScript typed definition : feeds, finances, fulfillmentInboundShipment, fulfillmentInventory, fulfillmentOutboundShipment, merchantFulfillment, orders, products, sellers
+
+0.0.16
+  - Added example of MerchantFulfillment
+  - Added support for the comma delimiter report
+  - Added example of Comma delimiter report
+
 0.0.15
   - Bug fixed ResponseMetadata (RequestId) in success response
   - Added throttling details in non-xml response 

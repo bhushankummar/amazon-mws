@@ -2,7 +2,7 @@
 <AmazonEnvelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="amznenvelope.xsd">
 <Header>
 <DocumentVersion>1.01</DocumentVersion>
-<MerchantIdentifier>AUV38W4NKU8JH</MerchantIdentifier>
+<MerchantIdentifier>XXXXXXXXXXXXXXX</MerchantIdentifier>
 </Header>
 <MessageType>Inventory</MessageType>
 <Message>

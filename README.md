@@ -15,6 +15,11 @@ You can find [examples here](https://github.com/bhushankumarl/amazon-mws/tree/ma
 $ npm install amazon-mws --save
 ```
 
+## Test Cases
+```bash
+$ npm run test.mocha
+```
+
 ## Debugging
 
 Run the DEBUG:
@@ -31,13 +36,23 @@ export AWS_ACCESS_KEY_ID=KEY
 export AWS_SECRET_ACCESS_KEY=SECRET
 ```
 
-## Configuration
+## Configuration Using JavaScript
 
 Set your Access Key and Access Secret.
 
 ```js
 var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY');
 ```
+
+## Configuration Using TypeScript
+
+```
+import * as MwsApi from 'amazon-mws';
+
+const amazonMws = new MwsApi();
+amazonMws.setApiKey(accessKey, accessSecret);
+```
+
 
 ### Feeds
 
@@ -214,6 +229,79 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
     });
 ```
 
+### MerchantFulfillment
+
+#### Get Eligible Shipping Services
+```js
+    amazonMws.merchantFulfillment.search({
+        'Version': '2015-06-01',
+        'Action': 'GetEligibleShippingServices',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'ShipmentRequestDetails.AmazonOrderId': 'AMAZON_ORDER_ID',
+        'ShipmentRequestDetails.PackageDimensions.Length': 'PACKAGE_LENGTH',
+        'ShipmentRequestDetails.PackageDimensions.Width': 'PACKAGE_WIDTH',
+        'ShipmentRequestDetails.PackageDimensions.Height': 'PACKAGE_HEIGHT',
+        'ShipmentRequestDetails.PackageDimensions.Unit': 'PACKAGE_UNIT',
+        'ShipmentRequestDetails.Weight.Value': 'WEIGHT_VALUE',
+        'ShipmentRequestDetails.Weight.Unit': 'WEIGHT_UNIT',
+        'ShipmentRequestDetails.ShipFromAddress.Name': 'SHIP_FROM_ADDRESS_NAME',
+        'ShipmentRequestDetails.ShipFromAddress.AddressLine1': 'SHIP_FROM_ADDRESS_LINE_1',
+        'ShipmentRequestDetails.ShipFromAddress.City': 'SHIP_FROM_ADDRESS_CITY',
+        'ShipmentRequestDetails.ShipFromAddress.StateOrProvinceCode': 'SHIP_FROM_ADDRESS_STATE_OR_PROVINCE_CODE',
+        'ShipmentRequestDetails.ShipFromAddress.PostalCode': 'SHIP_FROM_ADDRESS_POSTAL_CODE',
+        'ShipmentRequestDetails.ShipFromAddress.CountryCode': 'SHIP_FROM_ADDRESS_COUNTRY_CODE',
+        'ShipmentRequestDetails.ShipFromAddress.Email': 'SHIP_FROM_ADDRESS_EMAIL',
+        'ShipmentRequestDetails.ShipFromAddress.Phone': 'SHIP_FROM_ADDRESS_PHONE',
+        'ShipmentRequestDetails.ShippingServiceOptions.DeliveryExperience': 'DELIVERY_EXPERIENCE',
+        'ShipmentRequestDetails.ShippingServiceOptions.CarrierWillPickUp': 'CARRIER_WILL_PICKUP',
+        'ShipmentRequestDetails.ItemList.Item.1.OrderItemId': 'ORDER_ITEM_ID',
+        'ShipmentRequestDetails.ItemList.Item.1.Quantity': 'QUANTITY'
+      }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+      });
+```
+#### Create Shipment
+```js
+    amazonMws.merchantFulfillment.create({
+        'Version': '2015-06-01',
+        'Action': 'CreateShipment',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'ShippingServiceId': 'SHIPPING_SERVICE_ID',
+        'ShipmentRequestDetails.AmazonOrderId': 'AMAZON_ORDER_ID',
+        'ShipmentRequestDetails.PackageDimensions.Length': 'PACKAGE_LENGTH',
+        'ShipmentRequestDetails.PackageDimensions.Width': 'PACKAGE_WIDTH',
+        'ShipmentRequestDetails.PackageDimensions.Height': 'PACKAGE_HEIGHT',
+        'ShipmentRequestDetails.PackageDimensions.Unit': 'PACKAGE_UNIT',
+        'ShipmentRequestDetails.Weight.Value': 'WEIGHT_VALUE',
+        'ShipmentRequestDetails.Weight.Unit': 'WEIGHT_UNIT',
+        'ShipmentRequestDetails.ShipFromAddress.Name': 'SHIP_FROM_ADDRESS_NAME',
+        'ShipmentRequestDetails.ShipFromAddress.AddressLine1': 'SHIP_FROM_ADDRESS_LINE_1',
+        'ShipmentRequestDetails.ShipFromAddress.City': 'SHIP_FROM_ADDRESS_CITY',
+        'ShipmentRequestDetails.ShipFromAddress.StateOrProvinceCode': 'SHIP_FROM_ADDRESS_STATE_OR_PROVINCE_CODE',
+        'ShipmentRequestDetails.ShipFromAddress.PostalCode': 'SHIP_FROM_ADDRESS_POSTAL_CODE',
+        'ShipmentRequestDetails.ShipFromAddress.CountryCode': 'SHIP_FROM_ADDRESS_COUNTRY_CODE',
+        'ShipmentRequestDetails.ShipFromAddress.Email': 'SHIP_FROM_ADDRESS_EMAIL',
+        'ShipmentRequestDetails.ShipFromAddress.Phone': 'SHIP_FROM_ADDRESS_PHONE',
+        'ShipmentRequestDetails.ShippingServiceOptions.DeliveryExperience': 'DELIVERY_EXPERIENCE',
+        'ShipmentRequestDetails.ShippingServiceOptions.CarrierWillPickUp': 'CARRIER_WILL_PICKUP',
+        'ShipmentRequestDetails.ItemList.Item.1.OrderItemId': 'ORDER_ITEM_ID',
+        'ShipmentRequestDetails.ItemList.Item.1.Quantity': 'QUANTITY'
+      }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+      });
+```
+
+
 ### Orders
 
 #### List Orders
@@ -272,6 +360,44 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
 ```
 
 ### Products
+
+#### Get Lowest Priced Offers For ASIN
+```js
+    amazonMws.products.searchFor({
+        'Version': '2011-10-01',
+        'Action': 'GetLowestPricedOffersForASIN',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID',
+        'ASIN': 'ASIN',
+        'ItemCondition': 'New'
+    }, function (error, response) {
+        if (error) {
+            console.log('error products', error);
+            return;
+        }
+        console.log('response ', response);
+    });
+```
+
+#### Get Lowest Priced Offers For SKU
+```js
+    amazonMws.products.searchFor({
+        'Version': '2011-10-01',
+        'Action': 'GetLowestPricedOffersForSKU',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID',
+        'SellerSKU': 'SELLER_SKU',
+        'ItemCondition': 'New'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response ', response);
+    });
+```
 
 #### List Matching Products
 ```js
@@ -365,6 +491,7 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
 
 #### Get Report
 ###### This will provide you JSON report/data.
+###### This will not provide you Throttling details in Header.
 ```js
     amazonMws.reports.search({
         'Version': '2009-01-01',
@@ -406,10 +533,35 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
     });
 ```
 
+#### Get Report
+###### Using TypeScript.
+```
+    const accessKey = process.env.AWS_ACCESS_KEY_ID || 'YOUR_KEY';
+    const accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
+    
+    import * as MwsApi from 'amazon-mws';
+    
+    const amazonMws = new MwsApi();
+    amazonMws.setApiKey(accessKey, accessSecret);
+    
+    try {
+        const response: any = await amazonMws.reports.search({
+            'Version': '2009-01-01',
+            'Action': 'GetReport',
+            'SellerId': 'SELLER_ID',
+            'MWSAuthToken': 'MWS_AUTH_TOKEN',
+            'ReportId': 'REPORT_ID'
+        });
+        console.log('response', response);
+    } catch (error: any) {
+        console.log('error ', error);
+    } 
+```
+
 #### Additionally all api returns Throttling: Limits to how often you can submit requests
 Reference : http://docs.developer.amazonservices.com/en_CA/dev_guide/DG_Throttling.html
 ```json
-{ 
+{
   "x-mws-quota-max": "60.0",
   "x-mws-quota-remaining": "38.0",
   "x-mws-quota-resetson": "2017-12-08T08:21:00.000Z",
@@ -417,4 +569,3 @@ Reference : http://docs.developer.amazonservices.com/en_CA/dev_guide/DG_Throttli
 }
 ```
 Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushankumar.lilapara@gmail.com).
-
