@@ -3,7 +3,9 @@
 
 This API supported Amazon Marketplace Web Service(MWS)'s standard REST-style API that accepts/returns JSON requests and Here is the [API reference] (http://docs.developer.amazonservices.com/en_IN/dev_guide/DG_IfNew.html)
 
-You can find [examples here](https://github.com/bhushankumarl/amazon-mws/tree/master/examples). This will help you for faster implmentation of Amazon Marketplace Web Service's(MWS).
+You can testify API through [Amazon MWS Scratchpad](https://mws.amazonservices.in/scratchpad/index.html) without any installation.
+
+You can find [examples of JavaScript and TypeScript here](https://github.com/bhushankumarl/amazon-mws/tree/master/examples). This will help you for faster implementation of Amazon Marketplace Web Service's(MWS).
 
 ##### It does supports EcmaScript 5, EcmaScript 6,  EcmaScript 8, TypeScript, async-await, Promises, Callback !
 ##### It supports pure JSON response.
@@ -21,31 +23,22 @@ $ npm run test.mocha
 ```
 
 ## Debugging
-
-Run the DEBUG:
-
 ```bash
 export DEBUG=MWS:*
 ```
 
-
 ## Usage
-
 ```bash
 export AWS_ACCESS_KEY_ID=KEY
 export AWS_SECRET_ACCESS_KEY=SECRET
 ```
 
 ## Configuration Using JavaScript
-
-Set your Access Key and Access Secret.
-
 ```js
 var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY');
 ```
 
 ## Configuration Using TypeScript
-
 ```typescript
 import * as MwsApi from 'amazon-mws';
 
@@ -53,6 +46,9 @@ const amazonMws = new MwsApi();
 amazonMws.setApiKey(accessKey, accessSecret);
 ```
 
+## Pull Request
+- Contributors can send their Pull Request to `development` branch.
+- Kindly validate test cases & linting before opening new PR.
 
 ### Feeds
 
@@ -556,6 +552,8 @@ amazonMws.setApiKey(accessKey, accessSecret);
     } 
 ```
 
+#### Success or Error StatusCode can be obtained directly using StatusCode property of response. It will give you same as what Amazon MWS provides.
+
 #### Additionally all api returns Throttling: Limits to how often you can submit requests
 Reference : http://docs.developer.amazonservices.com/en_CA/dev_guide/DG_Throttling.html
 ```json
@@ -563,7 +561,7 @@ Reference : http://docs.developer.amazonservices.com/en_CA/dev_guide/DG_Throttli
   "x-mws-quota-max": "60.0",
   "x-mws-quota-remaining": "38.0",
   "x-mws-quota-resetson": "2017-12-08T08:21:00.000Z",
-  "x-mws-timestamp": "2017-12-08T07:52:15.567Z"
+  "x-mws-timestamp": "2017-12-08T07:52:15.567Z",
 }
 ```
 Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushankumar.lilapara@gmail.com).

@@ -1,5 +1,10 @@
 0.0.19
-  - 
+  - Correct lint and increase test case timeout
+  - Added Status Code in Error Response.
+  - Added Status Code in Success Response
+  - Remove OS Dependent Modules
+  - Use the light version of the 
+  - Fix Tab delimited CSV Report
 
 0.0.18
   - Add basic Test cases
