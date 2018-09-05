@@ -8,18 +8,20 @@ You can testify API through [Amazon MWS Scratchpad](https://mws.amazonservices.i
 You can find [examples of JavaScript and TypeScript here](https://github.com/bhushankumarl/amazon-mws/tree/master/examples). This will help you for faster implementation of Amazon Marketplace Web Service's(MWS).
 
 ##### It does supports EcmaScript 5, EcmaScript 6,  EcmaScript 8, TypeScript, async-await, Promises, Callback !
+##### It does also supports for AWS Lambda like serverless cloud function call.
 ##### It supports pure JSON response.
 ##### All methods support Promise and Callback both.
 ##### Please Feel free to create Issue for any help !
+##### All developers/contributors are requested to open Pull Request/Merge Request on development branch. Please make sure Test Cases be passed.
 
 ## Installation
 ```bash
-$ npm install amazon-mws --save
+npm install amazon-mws --save
 ```
 
 ## Test Cases
 ```bash
-$ npm run test.mocha
+npm run test.mocha
 ```
 
 ## Debugging
@@ -553,6 +555,27 @@ amazonMws.setApiKey(accessKey, accessSecret);
 ```
 
 #### Success or Error StatusCode can be obtained directly using StatusCode property of response. It will give you same as what Amazon MWS provides.
+#### It is also sample of the error responses.
+```
+{
+   Type:'Sender',
+   Code:'InvalidRequestException',
+   Message:'Invalid xxxxx: ',
+   Headers: {
+      'x-mws-quota-max': '',
+      'x-mws-quota-remaining': '',
+      'x-mws-quota-resetson': '',
+      'x-mws-timestamp': '2018-09-05T06:13:00.276Z',
+      'content-type': 'text/xml',
+      'content-charset': '',
+      'content-length': '',
+      'content-md5': '',
+      'date': ''
+   },
+   StatusCode:400,
+   RequestId: 'XXXXX-XXXXXX-XXXXX'
+}
+```
 
 #### Additionally all api returns Throttling: Limits to how often you can submit requests
 Reference : http://docs.developer.amazonservices.com/en_CA/dev_guide/DG_Throttling.html
@@ -561,7 +584,7 @@ Reference : http://docs.developer.amazonservices.com/en_CA/dev_guide/DG_Throttli
   "x-mws-quota-max": "60.0",
   "x-mws-quota-remaining": "38.0",
   "x-mws-quota-resetson": "2017-12-08T08:21:00.000Z",
-  "x-mws-timestamp": "2017-12-08T07:52:15.567Z",
+  "x-mws-timestamp": "2017-12-08T07:52:15.567Z"
 }
 ```
 Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushankumar.lilapara@gmail.com).

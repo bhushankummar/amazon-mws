@@ -1,6 +1,6 @@
 {
   "name": "amazon-mws",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Amazon MWS API wrapper",
   "keywords": [
     "Amazon MWS",
@@ -65,6 +65,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "jshint ./",
+    "test": "npm run lint",
     "test.mocha": "npm run lint && mocha"
   }
 }
