@@ -3,8 +3,10 @@
   - Added Status Code in Error Response.
   - Added Status Code in Success Response
   - Remove OS Dependent Modules
-  - Use the light version of the 
+  - Use the light version of the iconv
   - Fix Tab delimited CSV Report
+  - Removes node-expat & xml2json
+  - Add xml parser package as xml2js
 
 0.0.18
   - Add basic Test cases
