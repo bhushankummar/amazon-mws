@@ -3,56 +3,54 @@
 
 This API supported Amazon Marketplace Web Service(MWS)'s standard REST-style API that accepts/returns JSON requests and Here is the [API reference] (http://docs.developer.amazonservices.com/en_IN/dev_guide/DG_IfNew.html)
 
-You can find [examples here](https://github.com/bhushankumarl/amazon-mws/tree/master/examples). This will help you for faster implmentation of Amazon Marketplace Web Service's(MWS).
+You can testify API through [Amazon MWS Scratchpad](https://mws.amazonservices.in/scratchpad/index.html) without any installation.
+
+You can find [examples of JavaScript and TypeScript here](https://github.com/bhushankumarl/amazon-mws/tree/master/examples). This will help you for faster implementation of Amazon Marketplace Web Service's(MWS).
 
 ##### It does supports EcmaScript 5, EcmaScript 6,  EcmaScript 8, TypeScript, async-await, Promises, Callback !
+##### It does also supports for AWS Lambda like serverless cloud function call.
 ##### It supports pure JSON response.
 ##### All methods support Promise and Callback both.
 ##### Please Feel free to create Issue for any help !
+##### All developers/contributors are requested to open Pull Request/Merge Request on development branch. Please make sure Test Cases be passed.
 
 ## Installation
 ```bash
-$ npm install amazon-mws --save
+npm install amazon-mws --save
 ```
 
 ## Test Cases
 ```bash
-$ npm run test.mocha
+npm run test.mocha
 ```
 
 ## Debugging
-
-Run the DEBUG:
-
 ```bash
 export DEBUG=MWS:*
 ```
 
-
 ## Usage
-
 ```bash
 export AWS_ACCESS_KEY_ID=KEY
 export AWS_SECRET_ACCESS_KEY=SECRET
 ```
 
 ## Configuration Using JavaScript
-
-Set your Access Key and Access Secret.
-
 ```js
 var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY');
 ```
 
 ## Configuration Using TypeScript
-
-```
+```typescript
 import * as MwsApi from 'amazon-mws';
 
 const amazonMws = new MwsApi();
 amazonMws.setApiKey(accessKey, accessSecret);
 ```
 
+## Pull Request
+- Contributors can send their Pull Request to `development` branch.
+- Kindly validate test cases & linting before opening new PR.
 
 ### Feeds
 
@@ -119,7 +117,7 @@ amazonMws.setApiKey(accessKey, accessSecret);
         'Action': 'ListFinancialEventGroups',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'FinancialEventGroupStartedAfter': new Date(13, 12, 2016)
+        'FinancialEventGroupStartedAfter': new Date(2016, 11, 24)
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -159,7 +157,7 @@ amazonMws.setApiKey(accessKey, accessSecret);
         'Action': 'ListAllFulfillmentOrders',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'QueryStartDateTime': new Date(13, 12, 2016)
+        'QueryStartDateTime': new Date(2016, 11, 24)
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -219,7 +217,7 @@ amazonMws.setApiKey(accessKey, accessSecret);
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
         'MarketplaceId': 'MARKET_PLACE_ID',
-        'QueryStartDateTime': new Date(13, 12, 2016)
+        'QueryStartDateTime': new Date(2016, 11, 24)
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -312,7 +310,7 @@ amazonMws.setApiKey(accessKey, accessSecret);
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
         'MarketplaceId.Id.1': 'MARKET_PLEACE_ID_1',
-        'LastUpdatedAfter': new Date(13, 12, 2016)
+        'LastUpdatedAfter': new Date(2016, 11, 24)
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -330,7 +328,7 @@ amazonMws.setApiKey(accessKey, accessSecret);
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
         'MarketplaceId.Id.1': 'MARKET_PLEACE_ID_1',
-        'LastUpdatedAfter': new Date(13, 12, 2016),
+        'LastUpdatedAfter': new Date(2016, 11, 24),
         'OrderStatus.Status.1': 'Pending',
         'OrderStatus.Status.2': 'Canceled'
     }, function (error, response) {
@@ -448,7 +446,6 @@ amazonMws.setApiKey(accessKey, accessSecret);
             return;
         }
         console.log('response', response);
-        // asynchronously called
     });
 ```
 
@@ -466,7 +463,6 @@ amazonMws.setApiKey(accessKey, accessSecret);
             return;
         }
         console.log('response', response);
-        // asynchronously called
     });
 ```
 
@@ -523,7 +519,7 @@ amazonMws.setApiKey(accessKey, accessSecret);
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
         'MarketplaceId.Id.1': 'MARKET_PLEACE_ID_1',
-        'LastUpdatedAfter': new Date(13, 12, 2016)
+        'LastUpdatedAfter': new Date(2016, 11, 24)
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -535,7 +531,7 @@ amazonMws.setApiKey(accessKey, accessSecret);
 
 #### Get Report
 ###### Using TypeScript.
-```
+```typescript
     const accessKey = process.env.AWS_ACCESS_KEY_ID || 'YOUR_KEY';
     const accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
     
@@ -556,6 +552,29 @@ amazonMws.setApiKey(accessKey, accessSecret);
     } catch (error: any) {
         console.log('error ', error);
     } 
+```
+
+#### Success or Error StatusCode can be obtained directly using StatusCode property of response. It will give you same as what Amazon MWS provides.
+#### It is also sample of the error responses.
+```
+{
+   Type:'Sender',
+   Code:'InvalidRequestException',
+   Message:'Invalid xxxxx: ',
+   Headers: {
+      'x-mws-quota-max': '',
+      'x-mws-quota-remaining': '',
+      'x-mws-quota-resetson': '',
+      'x-mws-timestamp': '2018-09-05T06:13:00.276Z',
+      'content-type': 'text/xml',
+      'content-charset': '',
+      'content-length': '',
+      'content-md5': '',
+      'date': ''
+   },
+   StatusCode:400,
+   RequestId: 'XXXXX-XXXXXX-XXXXX'
+}
 ```
 
 #### Additionally all api returns Throttling: Limits to how often you can submit requests

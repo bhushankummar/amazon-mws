@@ -13,7 +13,7 @@ var fulfillmentInventoryRequest = function () {
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
         'MarketplaceId': 'MARKET_PLACE_ID',
-        'QueryStartDateTime': new Date(13, 12, 2016)
+        'QueryStartDateTime': new Date(2016, 11, 24)
     }, function (error, response) {
         if (error) {
             console.log('error ', error);

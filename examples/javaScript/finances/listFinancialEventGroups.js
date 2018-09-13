@@ -12,7 +12,7 @@ var financeRequest = function () {
         'Action': 'ListFinancialEventGroups',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'FinancialEventGroupStartedAfter': new Date(13, 12, 2016)
+        'FinancialEventGroupStartedAfter': new Date(2016, 11, 24)
     }, function (error, response) {
         if (error) {
             console.log('error ', error);

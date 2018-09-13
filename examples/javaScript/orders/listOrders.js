@@ -12,7 +12,7 @@ var orderRequest = function () {
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
         'MarketplaceId.Id.1': 'MARKET_PLEACE_ID_1',
-        'LastUpdatedAfter': new Date(13, 12, 2016)
+        'LastUpdatedAfter': new Date(2016, 11, 24)
     }, function (error, response) {
         if (error) {
             console.log('error ', error);

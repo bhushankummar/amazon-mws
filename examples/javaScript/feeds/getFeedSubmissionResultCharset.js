@@ -7,8 +7,8 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 var fse = require('fs-extra');
 
 /**
- * Use __RAW__ to get the raw response in response->data;
- * This along  with __CHARSET__ do not get written in the request.
+ * Use __CHARSET__ to override charset option.;
+ * This along with __RAW__ do not get written in the request.
  * */
 function feedRequest() {
     var FeedSubmissionId = '10101010XXX';
@@ -18,7 +18,7 @@ function feedRequest() {
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
         'FeedSubmissionId': FeedSubmissionId,
-        __RAW__: true
+        __CHARSET__: 'latin1'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
