@@ -1,3 +1,9 @@
+0.0.20
+  - Handle for non content type responses
+  - Bug fix for GetMyPriceForASIN and similer other products API
+  - Add example, test case for GetMyPriceForASIN
+  - Add test case for failure/error responses
+  
 0.0.19
   - Correct lint and increase test case timeout
   - Added Status Code in Error Response.

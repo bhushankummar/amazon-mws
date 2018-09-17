@@ -2,6 +2,7 @@
 ### mocha.opts
 ###
 
+--exclude ./test/specs/fulfillmentInboundShipment.spec.js
 --bail
 --silly
 --full-trace
