@@ -1,4 +1,4 @@
-0.0.20
+0.0.21
   - Handle for non content type responses
   - Bug fix for GetMyPriceForASIN and similar other products API
   - Add example, test case for GetMyPriceForASIN
