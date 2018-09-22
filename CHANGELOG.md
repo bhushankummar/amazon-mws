@@ -1,3 +1,12 @@
+0.0.20
+  - Handle for non content type responses
+  - Bug fix for GetMyPriceForASIN and similar other products API
+  - Add example, test case for GetMyPriceForASIN
+  - Add test case for failure/error responses
+  - Add support for RequestReport API
+  - Add example for GetMyFeesEstimate in Products
+  - Add force check for the XML string
+  
 0.0.19
   - Correct lint and increase test case timeout
   - Added Status Code in Error Response.

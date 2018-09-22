@@ -48,6 +48,8 @@ declare class Products extends BaseAmazonMWS {
 
 declare class Reports extends BaseAmazonMWS {
 
+    submit(params: any): Promise<any>;
+
 }
 
 declare class Sellers extends BaseAmazonMWS {
