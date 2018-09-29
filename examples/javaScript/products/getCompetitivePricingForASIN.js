@@ -12,14 +12,13 @@ var productRequest = function () {
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
         'MarketplaceId': 'MARKET_PLACE_ID',
-        'ASIN': 'ASIN',
+        'ASINList.ASIN.1': 'ASIN'
     }, function (error, response) {
         if (error) {
             console.log('error products', error);
             return;
         }
         console.log('response ', response);
-        console.log('response ', response.Product.CompetitivePricing.NumberOfOfferListings.OfferListingCount);
     });
 };
 
