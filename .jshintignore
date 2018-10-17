@@ -1,3 +1,4 @@
 node_modules
 examples/typeScript
 test/
+examples/javaScript/sample/getMatchingProductAsyncAwait.js
