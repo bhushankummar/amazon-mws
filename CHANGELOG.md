@@ -1,3 +1,9 @@
+0.0.22
+  - Bug Fix Default value for XML parsing
+  - Add Support for the Subscription APIs, Recommendations API
+  - Add Example for CreateSubscription, DeleteSubscription, ListSubscriptions, RegisterDestination
+  - Add Example for GetLastUpdatedTimeForRecommendations, ListRecommendations
+
 0.0.21
   - Handle for non content type responses
   - Bug fix for GetMyPriceForASIN and similar other products API
