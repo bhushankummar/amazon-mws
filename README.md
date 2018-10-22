@@ -53,6 +53,41 @@ amazonMws.setApiKey(accessKey, accessSecret);
 - Contributors can send their Pull Request to `development` branch.
 - Kindly validate test cases & linting before opening new PR.
 
+#### Success or Error StatusCode can be obtained directly using StatusCode property of response. It will give you same as what Amazon MWS provides.
+#### It is also sample of the error responses.
+```
+{
+   Type:'Sender',
+   Code:'InvalidRequestException',
+   Message:'Invalid xxxxx: ',
+   Headers: {
+      'x-mws-quota-max': '',
+      'x-mws-quota-remaining': '',
+      'x-mws-quota-resetson': '',
+      'x-mws-timestamp': '2018-09-05T06:13:00.276Z',
+      'content-type': 'text/xml',
+      'content-charset': '',
+      'content-length': '',
+      'content-md5': '',
+      'date': ''
+   },
+   StatusCode:400,
+   RequestId: 'XXXXX-XXXXXX-XXXXX'
+}
+```
+
+#### Additionally all api returns Throttling: Limits to how often you can submit requests
+Reference : http://docs.developer.amazonservices.com/en_CA/dev_guide/DG_Throttling.html
+```json
+{
+  "x-mws-quota-max": "60.0",
+  "x-mws-quota-remaining": "38.0",
+  "x-mws-quota-resetson": "2017-12-08T08:21:00.000Z",
+  "x-mws-timestamp": "2017-12-08T07:52:15.567Z"
+}
+```
+Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushankumar.lilapara@gmail.com).
+
 ### Feeds
 
 #### Submit Feed
@@ -300,7 +335,6 @@ amazonMws.setApiKey(accessKey, accessSecret);
       });
 ```
 
-
 ### Orders
 
 #### List Orders
@@ -432,15 +466,16 @@ amazonMws.setApiKey(accessKey, accessSecret);
     });
 ```
 
-### Sellers
+### Recommendations
 
-#### List Marketplace Participations
+#### Get Last Updated Time For Recommendations
 ```js
-    amazonMws.sellers.search({
-        'Version': '2011-07-01',
-        'Action': 'ListMarketplaceParticipations',
+    amazonMws.recommendations.searchFor({
+        'Version': '2013-04-01',
+        'Action': 'GetLastUpdatedTimeForRecommendations',
         'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN'
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -450,14 +485,17 @@ amazonMws.setApiKey(accessKey, accessSecret);
     });
 ```
 
-#### List Marketplace Participations By Next Token
+#### List Recommendations
 ```js
-    amazonMws.sellers.search({
-        'Version': '2011-07-01',
-        'Action': 'ListMarketplaceParticipationsByNextToken',
+    amazonMws.recommendations.searchFor({
+        'Version': '2013-04-01',
+        'Action': 'ListRecommendations',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'NextToken': 'NEXT_TOKEN'
+        'MarketplaceId': 'MARKET_PLACE_ID',
+        'CategoryQueryList.CategoryQuery.1.FilterOptions.FilterOption.1': 'QualitySet=Defect',
+        'CategoryQueryList.CategoryQuery.1.FilterOptions.FilterOption.2': 'ListingStatus=Active',
+        'CategoryQueryList.CategoryQuery.1.RecommendationCategory': 'ListingQuality'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -555,37 +593,99 @@ amazonMws.setApiKey(accessKey, accessSecret);
     } 
 ```
 
-#### Success or Error StatusCode can be obtained directly using StatusCode property of response. It will give you same as what Amazon MWS provides.
-#### It is also sample of the error responses.
-```
-{
-   Type:'Sender',
-   Code:'InvalidRequestException',
-   Message:'Invalid xxxxx: ',
-   Headers: {
-      'x-mws-quota-max': '',
-      'x-mws-quota-remaining': '',
-      'x-mws-quota-resetson': '',
-      'x-mws-timestamp': '2018-09-05T06:13:00.276Z',
-      'content-type': 'text/xml',
-      'content-charset': '',
-      'content-length': '',
-      'content-md5': '',
-      'date': ''
-   },
-   StatusCode:400,
-   RequestId: 'XXXXX-XXXXXX-XXXXX'
-}
+### Sellers
+
+#### List Marketplace Participations
+```js
+    amazonMws.sellers.search({
+        'Version': '2011-07-01',
+        'Action': 'ListMarketplaceParticipations',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });
 ```
 
-#### Additionally all api returns Throttling: Limits to how often you can submit requests
-Reference : http://docs.developer.amazonservices.com/en_CA/dev_guide/DG_Throttling.html
-```json
-{
-  "x-mws-quota-max": "60.0",
-  "x-mws-quota-remaining": "38.0",
-  "x-mws-quota-resetson": "2017-12-08T08:21:00.000Z",
-  "x-mws-timestamp": "2017-12-08T07:52:15.567Z"
-}
+#### List Marketplace Participations By Next Token
+```js
+    amazonMws.sellers.search({
+        'Version': '2011-07-01',
+        'Action': 'ListMarketplaceParticipationsByNextToken',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'NextToken': 'NEXT_TOKEN'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });
 ```
-Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushankumar.lilapara@gmail.com).
+
+### Subscriptions
+
+#### Create Subscription
+```js
+    amazonMws.subscriptions.create({
+        'Version': '2013-07-01',
+        'Action': 'CreateSubscription',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID',
+        'Subscription.Destination.AttributeList.member.1.Key': 'DESTINATION_KEY',
+        'Subscription.Destination.AttributeList.member.1.Value': 'DESTINATION_VALUE',
+        'Subscription.Destination.DeliveryChannel': 'DESTINATION_CHANNEL',
+        'Subscription.IsEnabled': 'true',
+        'Subscription.NotificationType': 'AnyOfferChanged'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });
+```
+
+#### Delete Subscription
+```js
+    amazonMws.subscriptions.remove({
+        'Version': '2013-07-01',
+        'Action': 'DeleteSubscription',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID',
+        'Destination.AttributeList.member.1.Key': 'DESTINATION_KEY',
+        'Destination.AttributeList.member.1.Value': 'DESTINATION_VALUE',
+        'Destination.DeliveryChannel': 'DESTINATION_CHANNEL',
+        'NotificationType': 'AnyOfferChanged'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });
+```
+
+#### List Subscription
+```js
+    amazonMws.subscriptions.searchFor({
+        'Version': '2013-07-01',
+        'Action': 'ListSubscriptions',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });
+```

@@ -12,7 +12,7 @@ var orderRequest = function () {
         'Action': 'ListOrders',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId.Id.1': 'MARKET_PLEACE_ID_1',
+        'MarketplaceId.Id.1': 'MARKET_PLACE_ID_1',
         'LastUpdatedAfter': new Date(2016, 11, 24),
         'OrderStatus.Status.1': 'Pending',
         'OrderStatus.Status.2': 'Canceled'

@@ -5,14 +5,16 @@ var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 
 var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
-var orderRequest = function () {
-    amazonMws.orders.search({
-        'Version': '2013-09-01',
-        'Action': 'ListOrders',
+/**
+ * If the response is empty than it means their is no recommendation.
+ */
+var recommendationRequest = function () {
+    amazonMws.recommendations.searchFor({
+        'Version': '2013-04-01',
+        'Action': 'GetLastUpdatedTimeForRecommendations',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId.Id.1': 'MARKET_PLACE_ID_1',
-        'LastUpdatedAfter': new Date(2016, 11, 24)
+        'MarketplaceId': 'MARKET_PLACE_ID'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -22,4 +24,4 @@ var orderRequest = function () {
     });
 };
 
-orderRequest();
+recommendationRequest();
