@@ -52,7 +52,21 @@ declare class Reports extends BaseAmazonMWS {
 
 }
 
+declare class Recommendations extends BaseAmazonMWS {
+
+    searchFor(params: any): Promise<any>;
+
+}
+
 declare class Sellers extends BaseAmazonMWS {
+
+}
+
+declare class Subscriptions extends BaseAmazonMWS {
+
+    searchFor(params: any): Promise<any>;
+
+    remove(params: any): Promise<any>;
 
 }
 
