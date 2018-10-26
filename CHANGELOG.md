@@ -1,3 +1,6 @@
+0.0.23
+  - Bug Fix for Feed Result charset
+
 0.0.22
   - Bug Fix Default value for XML parsing
   - Add Support for the Subscription APIs, Recommendations API
