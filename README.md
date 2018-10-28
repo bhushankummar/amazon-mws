@@ -86,8 +86,13 @@ Reference : http://docs.developer.amazonservices.com/en_CA/dev_guide/DG_Throttli
   "x-mws-timestamp": "2017-12-08T07:52:15.567Z"
 }
 ```
+## Do you need an expert?
+Are you finding a developer for your word class product? If yes, please contact here. [Submit your project request here.](https://goo.gl/forms/UofdG5GY5iHMoUWg2)
+```
 Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushankumar.lilapara@gmail.com).
+```
 
+## Examples
 ### Feeds
 
 #### Submit Feed
