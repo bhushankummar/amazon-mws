@@ -5,11 +5,11 @@ var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 
 var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
-/**
- * Use __CHARSET__ to override charset option.;
- * This along with __RAW__ do NOT get written in the request.
- * */
-function feedRequest() {
+var feedRequest = function () {
+    /**
+     * Use __CHARSET__ to override charset option.;
+     * This along with __RAW__ do NOT get written in the request.
+     */
     var FeedSubmissionId = '10101010XXX';
     amazonMws.feeds.search({
         'Version': '2009-01-01',
@@ -26,6 +26,6 @@ function feedRequest() {
         }
         console.log('response ', JSON.stringify(response));
     });
-}
+};
 
 feedRequest();

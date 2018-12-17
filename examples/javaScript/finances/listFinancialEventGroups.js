@@ -6,7 +6,6 @@ var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var financeRequest = function () {
-
     amazonMws.finances.search({
         'Version': '2015-05-01',
         'Action': 'ListFinancialEventGroups',

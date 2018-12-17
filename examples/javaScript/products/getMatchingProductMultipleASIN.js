@@ -6,7 +6,6 @@ var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var productRequest = function () {
-
     var ASINList = ['ASIN.1', 'ASIN.2'];
     var data = {
         'Version': '2011-10-01',

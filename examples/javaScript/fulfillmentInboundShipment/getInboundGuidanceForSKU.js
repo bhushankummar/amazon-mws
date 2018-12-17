@@ -6,7 +6,6 @@ var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var fulfillmentInboundShipmentRequest = function () {
-
     amazonMws.fulfillmentInboundShipment.search({
         'Version': '2010-10-01',
         'Action': 'GetInboundGuidanceForSKU',

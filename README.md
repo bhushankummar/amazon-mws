@@ -2,11 +2,11 @@
 [![Version](https://img.shields.io/npm/v/amazon-mws.svg)](https://www.npmjs.org/package/amazon-mws)
 [![Build Status](https://travis-ci.org/bhushankumarl/amazon-mws.svg?branch=master)](https://travis-ci.org/bhushankumarl/amazon-mws)
 
-This API supported Amazon Marketplace Web Service(MWS)'s standard REST-style API that accepts/returns JSON requests and Here is the [API reference] (http://docs.developer.amazonservices.com/en_IN/dev_guide/DG_IfNew.html)
+This API supported Amazon Marketplace Web Service(MWS)'s standard REST-style API that accepts/returns JSON requests and Here is the [API reference, Click Here](http://docs.developer.amazonservices.com/en_IN/dev_guide/DG_IfNew.html)
 
 You can testify API through [Amazon MWS Scratchpad](https://mws.amazonservices.in/scratchpad/index.html) without any installation.
 
-You can find [examples of JavaScript and TypeScript here](https://github.com/bhushankumarl/amazon-mws/tree/master/examples). This will help you for faster implementation of Amazon Marketplace Web Service's(MWS).
+You can find [examples of JavaScript and TypeScript Click here](https://github.com/bhushankumarl/amazon-mws/tree/master/examples). This will help you for faster implementation of Amazon Marketplace Web Service's(MWS).
 
 ##### It does supports EcmaScript 5, EcmaScript 6,  EcmaScript 8, TypeScript, async-await, Promises, Callback !
 ##### It does also supports for AWS Lambda like serverless cloud function call.
@@ -87,36 +87,13 @@ Reference : http://docs.developer.amazonservices.com/en_CA/dev_guide/DG_Throttli
 }
 ```
 ## Do you need an expert?
-Are you finding a developer for your word class product? If yes, please contact here. [Submit your project request here.](https://goo.gl/forms/UofdG5GY5iHMoUWg2)
-```
-Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushankumar.lilapara@gmail.com).
-```
+Are you finding a developer for your world-class product? If yes, please contact here. [Submit your project request here.](https://goo.gl/forms/UofdG5GY5iHMoUWg2)
+Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
 
 ## Examples
 ### Feeds
-
-#### Submit Feed
-```js
-    var FeedContent = fs.readFileSync('./file.txt', 'UTF-8');
-
-    amazonMws.feeds.submit({
-        'Version': '2009-01-01',
-        'Action': 'SubmitFeed',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'FeedType': '_POST_PRODUCT_DATA_',
-        'FeedContent': FeedContent
-    }, function (error, response) {
-        if (error) {
-            console.log('error ', error);
-            return;
-        }
-        console.log('response', response);
-    });
-```
-
 #### Get Feed Submission List
-```js
+```
     amazonMws.feeds.search({
         'Version': '2009-01-01',
         'Action': 'GetFeedSubmissionList',
@@ -128,11 +105,11 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
             return;
         }
         console.log('response', response);
-    });
+    });    
 ```
 
 #### Get Feed Submission Result
-```js
+```
     var FeedSubmissionId = '10101010XXX';
     amazonMws.feeds.search({
         'Version': '2009-01-01',
@@ -146,13 +123,81 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
             return;
         }
         console.log('response', response);
-    });
+    });    
+```
+
+#### Get Feed Submission Result Charset
+```
+    /**
+     * Use __CHARSET__ to override charset option.;
+     * This along with __RAW__ do NOT get written in the request.
+     */
+    var FeedSubmissionId = '10101010XXX';
+    amazonMws.feeds.search({
+        'Version': '2009-01-01',
+        'Action': 'GetFeedSubmissionResult',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'FeedSubmissionId': FeedSubmissionId,
+        // __CHARSET__: 'latin1'
+        __CHARSET__: 'ISO-8859-1'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response ', JSON.stringify(response));
+    });    
+```
+
+#### Get Feed Submission Result Raw
+```
+    /**
+     * Use __RAW__ to get the raw response in response->data;
+     * This along  with __CHARSET__ do not get written in the request.
+     */
+    var FeedSubmissionId = '10101010XXX';
+    amazonMws.feeds.search({
+        'Version': '2009-01-01',
+        'Action': 'GetFeedSubmissionResult',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'FeedSubmissionId': FeedSubmissionId,
+        __RAW__: true
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        fse.writeFileSync('response.txt', response.data);
+        console.log('Headers', response.Headers);
+    });    
+```
+
+#### Submit Feed
+```
+    var FeedContent = fse.readFileSync('./file.txt', 'UTF-8');
+    console.log('FeedContent ', FeedContent);
+
+    amazonMws.feeds.submit({
+        'Version': '2009-01-01',
+        'Action': 'SubmitFeed',
+        'FeedType': '_POST_PRODUCT_DATA_',
+        'FeedContent': FeedContent,
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });    
 ```
 
 ### Finances
-
 #### List Financial Event Groups
-```js
+```
     amazonMws.finances.search({
         'Version': '2015-05-01',
         'Action': 'ListFinancialEventGroups',
@@ -165,13 +210,12 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
             return;
         }
         console.log('response', response);
-    });
+    });    
 ```
 
-### FulfillmentInboundShipment
-
+### Fulfillment Inbound Shipment
 #### Get Inbound Guidance For SKU
-```js
+```
     amazonMws.fulfillmentInboundShipment.search({
         'Version': '2010-10-01',
         'Action': 'GetInboundGuidanceForSKU',
@@ -185,73 +229,12 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
             return;
         }
         console.log('response', response);
-    });
+    });    
 ```
 
-
-### FulfillmentOutboundShipment
-
-#### List All Fulfillment Orders
-```js
-    amazonMws.fulfillmentOutboundShipment.search({
-        'Version': '2010-10-01',
-        'Action': 'ListAllFulfillmentOrders',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'QueryStartDateTime': new Date(2016, 11, 24)
-    }, function (error, response) {
-        if (error) {
-            console.log('error ', error);
-            return;
-        }
-        console.log('response', response);
-    });
-```
-
-#### Create Fulfillment Order
-```js
-    amazonMws.fulfillmentOutboundShipment.create({
-            'Version': '2010-10-01',
-            'Action': 'CreateFulfillmentOrder',
-            'SellerId': 'SELLER_ID',
-            'MWSAuthToken': 'MWS_AUTH_TOKEN',
-            'SellerFulfillmentOrderId': 'SELLER_FULFILLMENT_ORDER_ID',
-            'ShippingSpeedCategory': 'SHIPPING_SPEED_CATEGORY',
-            'DisplayableOrderId': 'DISPLAYABLE_ORDER_ID',
-            'DisplayableOrderDateTime': 'DISPLAYABLE_ORDER_DATE_TIME',
-            'DisplayableOrderComment': 'DISPLAYABLE_ORDER_COMMENT',
-            'DestinationAddress.Name': 'NAME',
-            'DestinationAddress.Line1': 'LINE_1',
-            'DestinationAddress.Line2': 'LINE_2',
-            'DestinationAddress.City': 'CITY',
-            'DestinationAddress.StateOrProvinceCode': 'STATE_OR_PROVINCE_CODE',
-            'DestinationAddress.PostalCode': 'POSTAL_CODE',
-            'DestinationAddress.CountryCode': 'COUNTRY_CODE',
-            'DestinationAddress.DistrictOrCounty': 'DISTRICT_OR_COUNTY',
-            'DestinationAddress.PhoneNumber': 'PHONE_NUMBER',
-            'Items.member.1.DisplayableComment': 'DISPLAYABLE_COMMENT',
-            'Items.member.1.GiftMessage': 'GIFT_MESSAGE',
-            'Items.member.1.PerUnitDeclaredValue.Value': 'VALUE',
-            'Items.member.1.PerUnitDeclaredValue.CurrencyCode': 'CURRENCY_CODE',
-            'Items.member.1.FulfillmentNetworkSKU': 'FULFILLMENT_NETWORK_SKU',
-            'Items.member.1.Quantity': 'QUANTITY',
-            'Items.member.1.SellerFulfillmentOrderItemId': 'SELLER_FULFILLMENT_ORDER_ITEM_ID',
-            'Items.member.1.SellerSKU': 'SELLER_SKU',
-            'MarketplaceId': 'MARKETPLACE_ID',
-            'FulfillmentAction': 'FULFILLMENT_ACTION'
-        }, function (error, response) {
-            if (error) {
-                console.log('error ', error);
-                return;
-            }
-            console.log('response', response);
-        });
-```
-
-### FulfillmentInventory
-
+### Fulfillment Inventory
 #### List Inventory Supply
-```js
+```
     amazonMws.fulfillmentInventory.search({
         'Version': '2010-10-01',
         'Action': 'ListInventorySupply',
@@ -265,47 +248,70 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
             return;
         }
         console.log('response', response);
-    });
+    });    
 ```
 
-### MerchantFulfillment
-
-#### Get Eligible Shipping Services
-```js
-    amazonMws.merchantFulfillment.search({
-        'Version': '2015-06-01',
-        'Action': 'GetEligibleShippingServices',
+### Fulfillment Outbound Shipment
+#### Create Fulfillment Order
+```
+    amazonMws.fulfillmentOutboundShipment.create({
+        'Version': '2010-10-01',
+        'Action': 'CreateFulfillmentOrder',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ShipmentRequestDetails.AmazonOrderId': 'AMAZON_ORDER_ID',
-        'ShipmentRequestDetails.PackageDimensions.Length': 'PACKAGE_LENGTH',
-        'ShipmentRequestDetails.PackageDimensions.Width': 'PACKAGE_WIDTH',
-        'ShipmentRequestDetails.PackageDimensions.Height': 'PACKAGE_HEIGHT',
-        'ShipmentRequestDetails.PackageDimensions.Unit': 'PACKAGE_UNIT',
-        'ShipmentRequestDetails.Weight.Value': 'WEIGHT_VALUE',
-        'ShipmentRequestDetails.Weight.Unit': 'WEIGHT_UNIT',
-        'ShipmentRequestDetails.ShipFromAddress.Name': 'SHIP_FROM_ADDRESS_NAME',
-        'ShipmentRequestDetails.ShipFromAddress.AddressLine1': 'SHIP_FROM_ADDRESS_LINE_1',
-        'ShipmentRequestDetails.ShipFromAddress.City': 'SHIP_FROM_ADDRESS_CITY',
-        'ShipmentRequestDetails.ShipFromAddress.StateOrProvinceCode': 'SHIP_FROM_ADDRESS_STATE_OR_PROVINCE_CODE',
-        'ShipmentRequestDetails.ShipFromAddress.PostalCode': 'SHIP_FROM_ADDRESS_POSTAL_CODE',
-        'ShipmentRequestDetails.ShipFromAddress.CountryCode': 'SHIP_FROM_ADDRESS_COUNTRY_CODE',
-        'ShipmentRequestDetails.ShipFromAddress.Email': 'SHIP_FROM_ADDRESS_EMAIL',
-        'ShipmentRequestDetails.ShipFromAddress.Phone': 'SHIP_FROM_ADDRESS_PHONE',
-        'ShipmentRequestDetails.ShippingServiceOptions.DeliveryExperience': 'DELIVERY_EXPERIENCE',
-        'ShipmentRequestDetails.ShippingServiceOptions.CarrierWillPickUp': 'CARRIER_WILL_PICKUP',
-        'ShipmentRequestDetails.ItemList.Item.1.OrderItemId': 'ORDER_ITEM_ID',
-        'ShipmentRequestDetails.ItemList.Item.1.Quantity': 'QUANTITY'
-      }, function (error, response) {
+        'SellerFulfillmentOrderId': 'SELLER_FULFILLMENT_ORDER_ID',
+        'ShippingSpeedCategory': 'SHIPPING_SPEED_CATEGORY',
+        'DisplayableOrderId': 'DISPLAYABLE_ORDER_ID',
+        'DisplayableOrderDateTime': 'DISPLAYABLE_ORDER_DATE_TIME',
+        'DisplayableOrderComment': 'DISPLAYABLE_ORDER_COMMENT',
+        'DestinationAddress.Name': 'NAME',
+        'DestinationAddress.Line1': 'LINE_1',
+        'DestinationAddress.Line2': 'LINE_2',
+        'DestinationAddress.City': 'CITY',
+        'DestinationAddress.StateOrProvinceCode': 'STATE_OR_PROVINCE_CODE',
+        'DestinationAddress.PostalCode': 'POSTAL_CODE',
+        'DestinationAddress.CountryCode': 'COUNTRY_CODE',
+        'DestinationAddress.DistrictOrCounty': 'DISTRICT_OR_COUNTY',
+        'DestinationAddress.PhoneNumber': 'PHONE_NUMBER',
+        'Items.member.1.DisplayableComment': 'DISPLAYABLE_COMMENT',
+        'Items.member.1.GiftMessage': 'GIFT_MESSAGE',
+        'Items.member.1.PerUnitDeclaredValue.Value': 'VALUE',
+        'Items.member.1.PerUnitDeclaredValue.CurrencyCode': 'CURRENCY_CODE',
+        'Items.member.1.FulfillmentNetworkSKU': 'FULFILLMENT_NETWORK_SKU',
+        'Items.member.1.Quantity': 'QUANTITY',
+        'Items.member.1.SellerFulfillmentOrderItemId': 'SELLER_FULFILLMENT_ORDER_ITEM_ID',
+        'Items.member.1.SellerSKU': 'SELLER_SKU',
+        'MarketplaceId': 'MARKETPLACE_ID',
+        'FulfillmentAction': 'FULFILLMENT_ACTION'
+    }, function (error, response) {
         if (error) {
             console.log('error ', error);
             return;
         }
         console.log('response', response);
-      });
+    });    
 ```
+
+#### List All Fulfillment Orders
+```
+    amazonMws.fulfillmentOutboundShipment.search({
+        'Version': '2010-10-01',
+        'Action': 'ListAllFulfillmentOrders',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'QueryStartDateTime': new Date(2016, 11, 24)
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });    
+```
+
+### Merchant Fulfillment
 #### Create Shipment
-```js
+```
     amazonMws.merchantFulfillment.create({
         'Version': '2015-06-01',
         'Action': 'CreateShipment',
@@ -331,57 +337,53 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
         'ShipmentRequestDetails.ShippingServiceOptions.CarrierWillPickUp': 'CARRIER_WILL_PICKUP',
         'ShipmentRequestDetails.ItemList.Item.1.OrderItemId': 'ORDER_ITEM_ID',
         'ShipmentRequestDetails.ItemList.Item.1.Quantity': 'QUANTITY'
-      }, function (error, response) {
+    }, function (error, response) {
         if (error) {
             console.log('error ', error);
             return;
         }
         console.log('response', response);
-      });
+    });    
+```
+
+#### Get Eligible Shipping Services
+```
+    amazonMws.merchantFulfillment.search({
+        'Version': '2015-06-01',
+        'Action': 'GetEligibleShippingServices',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'ShipmentRequestDetails.AmazonOrderId': 'AMAZON_ORDER_ID',
+        'ShipmentRequestDetails.PackageDimensions.Length': 'PACKAGE_LENGTH',
+        'ShipmentRequestDetails.PackageDimensions.Width': 'PACKAGE_WIDTH',
+        'ShipmentRequestDetails.PackageDimensions.Height': 'PACKAGE_HEIGHT',
+        'ShipmentRequestDetails.PackageDimensions.Unit': 'PACKAGE_UNIT',
+        'ShipmentRequestDetails.Weight.Value': 'WEIGHT_VALUE',
+        'ShipmentRequestDetails.Weight.Unit': 'WEIGHT_UNIT',
+        'ShipmentRequestDetails.ShipFromAddress.Name': 'SHIP_FROM_ADDRESS_NAME',
+        'ShipmentRequestDetails.ShipFromAddress.AddressLine1': 'SHIP_FROM_ADDRESS_LINE_1',
+        'ShipmentRequestDetails.ShipFromAddress.City': 'SHIP_FROM_ADDRESS_CITY',
+        'ShipmentRequestDetails.ShipFromAddress.StateOrProvinceCode': 'SHIP_FROM_ADDRESS_STATE_OR_PROVINCE_CODE',
+        'ShipmentRequestDetails.ShipFromAddress.PostalCode': 'SHIP_FROM_ADDRESS_POSTAL_CODE',
+        'ShipmentRequestDetails.ShipFromAddress.CountryCode': 'SHIP_FROM_ADDRESS_COUNTRY_CODE',
+        'ShipmentRequestDetails.ShipFromAddress.Email': 'SHIP_FROM_ADDRESS_EMAIL',
+        'ShipmentRequestDetails.ShipFromAddress.Phone': 'SHIP_FROM_ADDRESS_PHONE',
+        'ShipmentRequestDetails.ShippingServiceOptions.DeliveryExperience': 'DELIVERY_EXPERIENCE',
+        'ShipmentRequestDetails.ShippingServiceOptions.CarrierWillPickUp': 'CARRIER_WILL_PICKUP',
+        'ShipmentRequestDetails.ItemList.Item.1.OrderItemId': 'ORDER_ITEM_ID',
+        'ShipmentRequestDetails.ItemList.Item.1.Quantity': 'QUANTITY'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });    
 ```
 
 ### Orders
-
-#### List Orders
-```js
-    amazonMws.orders.search({
-        'Version': '2013-09-01',
-        'Action': 'ListOrders',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId.Id.1': 'MARKET_PLEACE_ID_1',
-        'LastUpdatedAfter': new Date(2016, 11, 24)
-    }, function (error, response) {
-        if (error) {
-            console.log('error ', error);
-            return;
-        }
-        console.log('response', response);
-    });
-```
-
-#### List Order Filter Status
-```js
-    amazonMws.orders.search({
-        'Version': '2013-09-01',
-        'Action': 'ListOrders',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId.Id.1': 'MARKET_PLEACE_ID_1',
-        'LastUpdatedAfter': new Date(2016, 11, 24),
-        'OrderStatus.Status.1': 'Pending',
-        'OrderStatus.Status.2': 'Canceled'
-    }, function (error, response) {
-        if (error) {
-            console.log('error ', error);
-            return;
-        }
-        console.log('response', response);
-    });
-```
-
 #### List Order Items
-```js
+```
     amazonMws.orders.search({
         'Version': '2013-09-01',
         'Action': 'ListOrderItems',
@@ -394,13 +396,68 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
             return;
         }
         console.log('response', response);
-    });
+    });    
+```
+
+#### List Orders
+```
+    amazonMws.orders.search({
+        'Version': '2013-09-01',
+        'Action': 'ListOrders',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId.Id.1': 'MARKET_PLACE_ID_1',
+        'LastUpdatedAfter': new Date(2016, 11, 24)
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });    
+```
+
+#### List Orders Filter Status
+```
+    amazonMws.orders.search({
+        'Version': '2013-09-01',
+        'Action': 'ListOrders',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId.Id.1': 'MARKET_PLACE_ID_1',
+        'LastUpdatedAfter': new Date(2016, 11, 24),
+        'OrderStatus.Status.1': 'Pending',
+        'OrderStatus.Status.2': 'Canceled'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });    
 ```
 
 ### Products
+#### Get Competitive Pricing For ASIN
+```
+    amazonMws.products.searchFor({
+        'Version': '2011-10-01',
+        'Action': 'GetCompetitivePricingForASIN',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID',
+        'ASINList.ASIN.1': 'ASIN'
+    }, function (error, response) {
+        if (error) {
+            console.log('error products', error);
+            return;
+        }
+        console.log('response ', response);
+    });    
+```
 
 #### Get Lowest Priced Offers For ASIN
-```js
+```
     amazonMws.products.searchFor({
         'Version': '2011-10-01',
         'Action': 'GetLowestPricedOffersForASIN',
@@ -415,11 +472,11 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
             return;
         }
         console.log('response ', response);
-    });
+    });    
 ```
 
 #### Get Lowest Priced Offers For SKU
-```js
+```
     amazonMws.products.searchFor({
         'Version': '2011-10-01',
         'Action': 'GetLowestPricedOffersForSKU',
@@ -434,29 +491,11 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
             return;
         }
         console.log('response ', response);
-    });
+    });    
 ```
 
-#### List Matching Products
-```js
-    amazonMws.products.search({
-        'Version': '2011-10-01',
-        'Action': 'ListMatchingProducts',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
-        'Query':'k'
-    }, function (error, response) {
-        if (error) {
-            console.log('error ', error);
-            return;
-        }
-        console.log('response', response);
-    });
+#### Get Matching Product
 ```
-
-#### List Matching Products Using Promise
-```js
     amazonMws.products.search({
         'Version': '2011-10-01',
         'Action': 'GetMatchingProduct',
@@ -464,17 +503,126 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
         'MarketplaceId': 'MARKET_PLACE_ID',
         'ASINList.ASIN.1': 'ASIN_1'
-    }).then(function (response) {
+    }, function (error, response) {
+        if (error) {
+            console.log('error products', error);
+            return;
+        }
+        //console.log('response ', JSON.stringify(response));
         console.log('response', response);
-    }).catch(function (error) {
-        console.log('error products', error);
-    });
+    });    
+```
+
+#### Get Matching Product For Id
+```
+    amazonMws.products.search({
+        'Version': '2011-10-01',
+        'Action': 'GetMatchingProductForId',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID',
+        'IdType': 'SellerSKU',
+        'IdList.Id.1': 'SKU'
+    }, function (error, response) {
+        if (error) {
+            console.log('error products', error);
+            return;
+        }
+        console.log('response', response);
+    });    
+```
+
+#### Get Matching Product Multiple ASIN
+```
+    var ASINList = ['ASIN.1', 'ASIN.2'];
+    var data = {
+        'Version': '2011-10-01',
+        'Action': 'GetMatchingProduct',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID'
+    };
+    var index = 1;
+    for (var i in ASINList) {
+        data['ASINList.ASIN.' + index] = ASINList[i];
+        index++;
+    }
+    amazonMws.products.search(data, function (error, response) {
+        if (error) {
+            console.log('error products', error);
+            return;
+        }
+        //console.log('response ', JSON.stringify(response));
+        console.log('response', response);
+    });    
+```
+
+#### Get My Fees Estimate
+```
+    amazonMws.products.searchFor({
+        'Version': '2011-10-01',
+        'Action': 'GetMyFeesEstimate',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'FeesEstimateRequestList.FeesEstimateRequest.1.MarketplaceId': 'MARKET_PLACE_ID',
+        'FeesEstimateRequestList.FeesEstimateRequest.1.IdType': 'ASIN',
+        'FeesEstimateRequestList.FeesEstimateRequest.1.IdValue': 'ASIN',
+        'FeesEstimateRequestList.FeesEstimateRequest.1.IsAmazonFulfilled': 'true',
+        'FeesEstimateRequestList.FeesEstimateRequest.1.Identifier': 'Hello',
+        'FeesEstimateRequestList.FeesEstimateRequest.1.PriceToEstimateFees.ListingPrice.CurrencyCode': 'USD',
+        'FeesEstimateRequestList.FeesEstimateRequest.1.PriceToEstimateFees.ListingPrice.Amount': '30.00',
+        'FeesEstimateRequestList.FeesEstimateRequest.1.PriceToEstimateFees.Shipping.CurrencyCode': 'USD',
+        'FeesEstimateRequestList.FeesEstimateRequest.1.PriceToEstimateFees.Shipping.Amount': '3.99',
+        'FeesEstimateRequestList.FeesEstimateRequest.1.PriceToEstimateFees.Points.PointsNumber': '0'
+    }, function (error, response) {
+        if (error) {
+            console.log('error products', error);
+            return;
+        }
+        console.log('response ', response);
+    });    
+```
+
+#### Get My Price For ASIN
+```
+    amazonMws.products.searchFor({
+        'Version': '2011-10-01',
+        'Action': 'GetMyPriceForASIN',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID',
+        'ASINList.ASIN.1': 'ASINList_ASIN_1'
+    }, function (error, response) {
+        if (error) {
+            console.log('error products', error);
+            return;
+        }
+        console.log('response ', response);
+    });    
+```
+
+#### List Matching Products
+```
+    amazonMws.products.search({
+        'Version': '2011-10-01',
+        'Action': 'ListMatchingProducts',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID',
+        'Query': 'k'
+    }, function (error, response) {
+        if (error) {
+            console.log('error products', error);
+            return;
+        }
+        //console.log('response ', JSON.stringify(response));
+        console.log('response', response);
+    });    
 ```
 
 ### Recommendations
-
 #### Get Last Updated Time For Recommendations
-```js
+```
     amazonMws.recommendations.searchFor({
         'Version': '2013-04-01',
         'Action': 'GetLastUpdatedTimeForRecommendations',
@@ -487,11 +635,11 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
             return;
         }
         console.log('response', response);
-    });
+    });    
 ```
 
 #### List Recommendations
-```js
+```
     amazonMws.recommendations.searchFor({
         'Version': '2013-04-01',
         'Action': 'ListRecommendations',
@@ -507,50 +655,119 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
             return;
         }
         console.log('response', response);
-    });
+    });    
 ```
 
 ### Reports
-
-#### Get Report List
-```js
-    amazonMws.reports.search({
-        'Version': '2009-01-01',
-        'Action': 'GetReportList',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ReportTypeList.Type.1': 'REPORT_TYPE_LIST'
-    }, function (error, response) {
-        if (error) {
-            console.log('error ', error);
-            return;
-        }
-        console.log('response', response);
-    });
-```
-
 #### Get Report
-###### This will provide you JSON report/data.
-###### This will not provide you Throttling details in Header.
-```js
+```
+    /**
+     * This will not provide you Throttling details in Header.
+     * Amazon MWS itself not providing Throttling detail in GetReport call.
+     */
     amazonMws.reports.search({
         'Version': '2009-01-01',
         'Action': 'GetReport',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ReportId':'REPORT_ID'
+        'ReportId': 'REPORT_ID'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
             return;
         }
         console.log('response', response);
-    });
+    });    
 ```
 
-#### Get Report
-###### Override/set the default options before making the request.
-```js
+#### Get Report List
+```
+    amazonMws.reports.search({
+        'Version': '2009-01-01',
+        'Action': 'GetReportList',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN'
+        //'ReportTypeList.Type.1': 'REPORT_TYPE_LIST' //optional
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });    
+```
+
+#### Get Report Request List
+```
+    var ReportRequestId = '10101010XXX';
+    amazonMws.reports.search({
+        'Version': '2009-01-01',
+        'Action': 'GetReportRequestList',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'ReportRequestIdList.Id.1': ReportRequestId
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });    
+```
+
+#### Request Report
+```
+    amazonMws.reports.submit({
+        'Version': '2009-01-01',
+        'Action': 'RequestReport',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'ReportType': '_GET_MERCHANT_LISTINGS_ALL_DATA_'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });    
+```
+
+### Sample
+#### Get Matching Product Async Await
+```
+    try {
+        var response = await amazonMws.products.search({
+            'Version': '2011-10-01',
+            'Action': 'GetMatchingProduct',
+            'SellerId': 'SELLER_ID',
+            'MWSAuthToken': 'MWS_AUTH_TOKEN',
+            'MarketplaceId': 'MARKET_PLACE_ID',
+            'ASINList.ASIN.1': 'ASIN_1'
+        });
+        console.log('response', response);
+    } catch (error) {
+        console.log('error products', error);
+    }    
+```
+
+#### Get Matching Product Promise
+```
+    amazonMws.products.search({
+        'Version': '2011-10-01',
+        'Action': 'GetMatchingProduct',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID',
+        'ASINList.ASIN.1': 'ASIN_1'
+    }).then(function (response) {
+        console.log('response', response);
+    }).catch(function (error) {
+        console.log('error products', error);
+    });    
+```
+
+#### List Orders
+```
     amazonMws.setApiKey(accessKey, accessSecret);
     amazonMws.setHost('YOUR HOST');
 
@@ -562,7 +779,7 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
         'Action': 'ListOrders',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId.Id.1': 'MARKET_PLEACE_ID_1',
+        'MarketplaceId.Id.1': 'MARKET_PLACE_ID_1',
         'LastUpdatedAfter': new Date(2016, 11, 24)
     }, function (error, response) {
         if (error) {
@@ -570,38 +787,12 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
             return;
         }
         console.log('response', response);
-    });
-```
-
-#### Get Report
-###### Using TypeScript.
-```typescript
-    const accessKey = process.env.AWS_ACCESS_KEY_ID || 'YOUR_KEY';
-    const accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
-    
-    import * as MwsApi from 'amazon-mws';
-    
-    const amazonMws = new MwsApi();
-    amazonMws.setApiKey(accessKey, accessSecret);
-    
-    try {
-        const response: any = await amazonMws.reports.search({
-            'Version': '2009-01-01',
-            'Action': 'GetReport',
-            'SellerId': 'SELLER_ID',
-            'MWSAuthToken': 'MWS_AUTH_TOKEN',
-            'ReportId': 'REPORT_ID'
-        });
-        console.log('response', response);
-    } catch (error: any) {
-        console.log('error ', error);
-    } 
+    });    
 ```
 
 ### Sellers
-
 #### List Marketplace Participations
-```js
+```
     amazonMws.sellers.search({
         'Version': '2011-07-01',
         'Action': 'ListMarketplaceParticipations',
@@ -613,11 +804,11 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
             return;
         }
         console.log('response', response);
-    });
+    });    
 ```
 
 #### List Marketplace Participations By Next Token
-```js
+```
     amazonMws.sellers.search({
         'Version': '2011-07-01',
         'Action': 'ListMarketplaceParticipationsByNextToken',
@@ -630,13 +821,12 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
             return;
         }
         console.log('response', response);
-    });
+    });    
 ```
 
 ### Subscriptions
-
 #### Create Subscription
-```js
+```
     amazonMws.subscriptions.create({
         'Version': '2013-07-01',
         'Action': 'CreateSubscription',
@@ -654,11 +844,11 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
             return;
         }
         console.log('response', response);
-    });
+    });    
 ```
 
 #### Delete Subscription
-```js
+```
     amazonMws.subscriptions.remove({
         'Version': '2013-07-01',
         'Action': 'DeleteSubscription',
@@ -675,11 +865,11 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
             return;
         }
         console.log('response', response);
-    });
+    });    
 ```
 
-#### List Subscription
-```js
+#### List Subscriptions
+```
     amazonMws.subscriptions.searchFor({
         'Version': '2013-07-01',
         'Action': 'ListSubscriptions',
@@ -692,5 +882,26 @@ Originally by [Bhushankumar Lilapara](https://github.com/bhushankumarl) (bhushan
             return;
         }
         console.log('response', response);
-    });
+    });    
 ```
+
+#### Register Destination
+```
+    amazonMws.subscriptions.create({
+        'Version': '2013-07-01',
+        'Action': 'RegisterDestination',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'MarketplaceId': 'MARKET_PLACE_ID',
+        'Destination.AttributeList.member.1.Key': 'DESTINATION_KEY',
+        'Destination.AttributeList.member.1.Value': 'DESTINATION_VALUE',
+        'Destination.DeliveryChannel': 'DESTINATION_CHANNEL'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });    
+```
+
