@@ -6,7 +6,6 @@ var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var sellerRequest = function () {
-
     amazonMws.sellers.search({
         'Version': '2011-07-01',
         'Action': 'ListMarketplaceParticipations',

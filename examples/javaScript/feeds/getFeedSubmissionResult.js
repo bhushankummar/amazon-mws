@@ -6,7 +6,6 @@ var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var feedRequest = function () {
-
     var FeedSubmissionId = '10101010XXX';
     amazonMws.feeds.search({
         'Version': '2009-01-01',

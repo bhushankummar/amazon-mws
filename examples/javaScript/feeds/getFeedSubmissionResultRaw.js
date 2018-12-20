@@ -6,11 +6,11 @@ var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 var fse = require('fs-extra');
 
-/**
- * Use __RAW__ to get the raw response in response->data;
- * This along  with __CHARSET__ do not get written in the request.
- * */
-function feedRequest() {
+var feedRequest = function () {
+    /**
+     * Use __RAW__ to get the raw response in response->data;
+     * This along  with __CHARSET__ do not get written in the request.
+     */
     var FeedSubmissionId = '10101010XXX';
     amazonMws.feeds.search({
         'Version': '2009-01-01',
@@ -27,6 +27,6 @@ function feedRequest() {
         fse.writeFileSync('response.txt', response.data);
         console.log('Headers', response.Headers);
     });
-}
+};
 
 feedRequest();

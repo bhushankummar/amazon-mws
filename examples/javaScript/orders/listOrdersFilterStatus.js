@@ -6,7 +6,6 @@ var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var orderRequest = function () {
-
     amazonMws.orders.search({
         'Version': '2013-09-01',
         'Action': 'ListOrders',
