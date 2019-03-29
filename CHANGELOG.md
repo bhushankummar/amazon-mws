@@ -1,3 +1,7 @@
+0.0.24
+  - Add Subscription in Typescript definition
+  - Correct Documentation
+  
 0.0.23
   - Bug Fix for Feed Result charset
 

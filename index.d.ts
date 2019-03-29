@@ -64,6 +64,8 @@ declare class Sellers extends BaseAmazonMWS {
 
 declare class Subscriptions extends BaseAmazonMWS {
 
+    create(params: any): Promise<any>;
+    
     searchFor(params: any): Promise<any>;
 
     remove(params: any): Promise<any>;
@@ -99,6 +101,8 @@ declare class AmazonMWS {
     reports: Reports;
 
     sellers: Sellers;
+
+    subscriptions: Subscriptions;
 
 }
 
