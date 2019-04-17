@@ -722,7 +722,8 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
         'Action': 'RequestReport',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ReportType': '_GET_MERCHANT_LISTINGS_ALL_DATA_'
+        'ReportType': '_GET_MERCHANT_LISTINGS_ALL_DATA_',
+        '__RESPONSE_TYPE__': 'XML'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -781,6 +782,24 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
         'MarketplaceId.Id.1': 'MARKET_PLACE_ID_1',
         'LastUpdatedAfter': new Date(2016, 11, 24)
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });    
+```
+
+#### Request Report XML Response
+```
+    amazonMws.reports.submit({
+        'Version': '2009-01-01',
+        'Action': 'RequestReport',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'ReportType': '_GET_MERCHANT_LISTINGS_ALL_DATA_',
+        '__RESPONSE_TYPE__': 'XML'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
