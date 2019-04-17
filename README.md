@@ -559,7 +559,7 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
 
 #### Get My Fees Estimate
 ```
-    amazonMws.products.searchFor({
+    amazonMws.products.search({
         'Version': '2011-10-01',
         'Action': 'GetMyFeesEstimate',
         'SellerId': 'SELLER_ID',
