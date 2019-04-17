@@ -64,6 +64,8 @@ declare class Sellers extends BaseAmazonMWS {
 
 declare class Subscriptions extends BaseAmazonMWS {
 
+    create(params: any): Promise<any>;
+
     searchFor(params: any): Promise<any>;
 
     remove(params: any): Promise<any>;
@@ -71,6 +73,18 @@ declare class Subscriptions extends BaseAmazonMWS {
 }
 
 declare class AmazonMWS {
+
+    feeds: Feeds;
+    finances: Finances;
+    fulfillmentInboundShipment: FulfillmentInboundShipment;
+    fulfillmentInventory: FulfillmentInventory;
+    fulfillmentOutboundShipment: FulfillmentOutboundShipment;
+    merchantFulfillment: MerchantFulfillment;
+    orders: Orders;
+    products: Products;
+    reports: Reports;
+    sellers: Sellers;
+    subscriptions: Subscriptions;
 
     constructor()
 
@@ -80,25 +94,9 @@ declare class AmazonMWS {
 
     setHost(host?: string, port?: string, protocol?: string): void;
 
-    feeds: Feeds;
+    setResponseFormat(responseFormat: string): void;
 
-    finances: Finances;
-
-    fulfillmentInboundShipment: FulfillmentInboundShipment;
-
-    fulfillmentInventory: FulfillmentInventory;
-
-    fulfillmentOutboundShipment: FulfillmentOutboundShipment;
-
-    merchantFulfillment: MerchantFulfillment;
-
-    orders: Orders;
-
-    products: Products;
-
-    reports: Reports;
-
-    sellers: Sellers;
+    setContentType(setContentType: string): void;
 
 }
 

@@ -1,3 +1,9 @@
+0.0.24
+  - Add Subscription in Typescript definition
+  - Correct Documentation
+  - Allow user to change response type into XML format
+  - Allow user to change content type for request
+  
 0.0.23
   - Bug Fix for Feed Result charset
 
