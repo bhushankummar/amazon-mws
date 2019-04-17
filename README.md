@@ -722,8 +722,7 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
         'Action': 'RequestReport',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ReportType': '_GET_MERCHANT_LISTINGS_ALL_DATA_',
-        '__RESPONSE_TYPE__': 'XML'
+        'ReportType': '_GET_MERCHANT_LISTINGS_ALL_DATA_'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -793,13 +792,14 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
 
 #### Request Report XML Response
 ```
+    amazonMws.setResponseFormat('XML');
+
     amazonMws.reports.submit({
         'Version': '2009-01-01',
         'Action': 'RequestReport',
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ReportType': '_GET_MERCHANT_LISTINGS_ALL_DATA_',
-        '__RESPONSE_TYPE__': 'XML'
+        'ReportType': '_GET_MERCHANT_LISTINGS_ALL_DATA_'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
