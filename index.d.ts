@@ -74,6 +74,18 @@ declare class Subscriptions extends BaseAmazonMWS {
 
 declare class AmazonMWS {
 
+    feeds: Feeds;
+    finances: Finances;
+    fulfillmentInboundShipment: FulfillmentInboundShipment;
+    fulfillmentInventory: FulfillmentInventory;
+    fulfillmentOutboundShipment: FulfillmentOutboundShipment;
+    merchantFulfillment: MerchantFulfillment;
+    orders: Orders;
+    products: Products;
+    reports: Reports;
+    sellers: Sellers;
+    subscriptions: Subscriptions;
+
     constructor()
 
     constructor(key: string, token: string);
@@ -84,27 +96,7 @@ declare class AmazonMWS {
 
     setResponseFormat(responseFormat: string): void;
 
-    feeds: Feeds;
-
-    finances: Finances;
-
-    fulfillmentInboundShipment: FulfillmentInboundShipment;
-
-    fulfillmentInventory: FulfillmentInventory;
-
-    fulfillmentOutboundShipment: FulfillmentOutboundShipment;
-
-    merchantFulfillment: MerchantFulfillment;
-
-    orders: Orders;
-
-    products: Products;
-
-    reports: Reports;
-
-    sellers: Sellers;
-
-    subscriptions: Subscriptions;
+    setContentType(setContentType: string): void;
 
 }
 
