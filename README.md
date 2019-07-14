@@ -34,6 +34,12 @@ export DEBUG=MWS:*
 ```bash
 export AWS_ACCESS_KEY_ID=KEY
 export AWS_SECRET_ACCESS_KEY=SECRET
+
+#optional MWS Token
+export MWS_AUTH_TOKEN=TOKEN
+
+#optional proxy
+export MARKETPLACE_PROXY=http://your.proxy.domain
 ```
 
 ## Configuration Using JavaScript
