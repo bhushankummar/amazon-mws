@@ -186,7 +186,7 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
         'SellerId': 'SELLER_ID',
         'MWSAuthToken': 'MWS_AUTH_TOKEN',
         'FeedSubmissionId': FeedSubmissionId,
-        __RAW__: true
+        __STREAM__: true
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
