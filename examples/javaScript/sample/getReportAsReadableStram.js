@@ -28,39 +28,42 @@ var reportRequest = function () {
         }
 
         let rows = [];
-        function procesRowsInBatches(row, end = false) {
+        async function processRowsInBatches(row, end = false) {
             if (row) {
                 rows.push(data);
             }
-            if (rows.length > 5000 || end) {
-                sendToDB([...rows]);
+            if (rows.length >= 5000 || (end && rows.length)) {
+                await sendToDB([...rows]);
                 rows = [];
             }
         }
 
-        function sendToDB(data) {
+        async function sendToDB(data) {
+            // Send your data to the db
             console.log(data.length);
         }
 
-        response
-            .pipe(iconv.decodeStream('ISO-8859-1'))
-            .pipe(
-                csv.parse({
-                    delimiter: '\t',
-                    headers: true,
-                    discardUnmappedColumns: true,
-                    quote: null,
-                    ignoreEmpty: true,
-                    trim: true
-                })
-            )
-            .on('data', row => {
-                procesRowsInBatches(row);
-            })
+        const decodeStream = iconv.decodeStream('ISO-8859-1');
+        response.pipe(decodeStream);
+        const csvStream = csv.parse({
+            delimiter: '\t',
+            headers: true,
+            discardUnmappedColumns: true,
+            ignoreEmpty: true,
+            trim: true
+        });
+        decodeStream.pipe(csvStream);
+        csvStream.transform(async (data, cb) => {
+            await processRowsInBatches(data)
+                .then(cb)
+                .catch(cb);
+        });
+        csvStream
             .on('error', error => console.error(error))
-            .on('end', rowCount => {
-                console.log(`Processed ${rowCount} rows`);
-                procesRowsInBatches(undefined, true);
+            .on('finish', async () => {
+                console.log('Finished proccessing stream');
+                // Call processRowsInBatches to proccess remaining rows
+                processRowsInBatches(undefined, true);
             });
     });
 };
