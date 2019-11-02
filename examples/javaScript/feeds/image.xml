@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    <AmazonEnvelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="amznenvelope.xsd">
+    <Header>
+        <DocumentVersion>1.01</DocumentVersion>
+        <MerchantIdentifier>SellerID</MerchantIdentifier>
+    </Header>
+    <MessageType>ProductImage</MessageType>
+    <Message>
+        <MessageID>1</MessageID>
+        <OperationType>Update</OperationType>
+        <ProductImage>
+        <SKU>sku</SKU>
+        <ImageType>Swatch</ImageType>
+        <ImageLocation>http://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg</ImageLocation>
+        </ProductImage>
+    </Message>
+</AmazonEnvelope>
