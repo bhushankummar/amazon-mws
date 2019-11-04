@@ -180,9 +180,9 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
     });    
 ```
 
-#### Submit Feed
+#### Submit Feed [more feed xml demo](https://github.com/bhushankumarl/amazon-mws/tree/master/examples/javascript/feeds). or see https://images-cn.ssl-images-amazon.com/images/G/28/rainier/help/XML_Documentation_Intl._V158771171_.pdf
 ```
-    var FeedContent = fse.readFileSync('./file.txt', 'UTF-8');
+    var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
     console.log('FeedContent ', FeedContent);
 
     amazonMws.feeds.submit({
