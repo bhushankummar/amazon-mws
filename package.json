@@ -61,7 +61,7 @@
     "object-assign": "^4.1.0",
     "qs": "^6.5.1",
     "xml2js": "^0.4.19",
-     "https-proxy-agent": "^2.2.2"
+    "https-proxy-agent": "^2.2.2"
   },
   "license": "MIT",
   "scripts": {

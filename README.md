@@ -180,6 +180,44 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
     });    
 ```
 
+#### Get Feed Submission Result as Stream
+```
+    /**
+     * Use __STREAM__ to get the request in response;
+     */
+    var FeedSubmissionId = '10101010XXX';
+    amazonMws.feeds.search({
+        'Version': '2009-01-01',
+        'Action': 'GetFeedSubmissionResult',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'FeedSubmissionId': FeedSubmissionId,
+        __STREAM__: true
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        response
+            .pipe(iconv.decodeStream('ISO-8859-1'))
+            .pipe(
+                csv.parse({
+                    delimiter: '\t',
+                    headers: true,
+                    discardUnmappedColumns: true,
+                    quote: null,
+                    ignoreEmpty: true,
+                    trim: true
+                })
+            )
+            .on('data', row => {
+                processRow(row);
+            })
+            .on('error', error => { console.error(error); })
+            .on('end', rowCount => { console.log(`Processed rows ${rowCount}`); });
+    });    
+```
+
 #### Submit Feed [more feed xml demo](https://github.com/bhushankumarl/amazon-mws/tree/master/examples/javascript/feeds). or see https://images-cn.ssl-images-amazon.com/images/G/28/rainier/help/XML_Documentation_Intl._V158771171_.pdf
 ```
     var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
