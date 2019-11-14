@@ -7,7 +7,7 @@ var chai = require('chai');
 var expect = chai.expect;
 
 var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
-
+amazonMws.setHost(config.Host);
 describe('Feeds', function () {
 
     before(function () {
@@ -22,12 +22,10 @@ describe('Feeds', function () {
             'SellerId': config.SellerId,
             'MWSAuthToken': config.MWSAuthToken
         };
-
         expect(options.SellerId).to.be.a('string');
         expect(options.MWSAuthToken).to.be.a('string');
 
         var response = await amazonMws.feeds.search(options);
-
         expect(response).to.be.a('object');
         expect(response).to.have.property('FeedSubmissionInfo').to.be.a('array');
         expect(response).to.have.property('ResponseMetadata').to.be.a('object');
