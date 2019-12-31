@@ -7,7 +7,7 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 var fse = require('fs-extra');
 
 var feedRequest = function () {
-    var FeedContent = fse.readFileSync('./file.txt', 'UTF-8');
+var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
     console.log('FeedContent ', FeedContent);
 
     amazonMws.feeds.submit({
