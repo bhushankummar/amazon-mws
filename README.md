@@ -49,7 +49,7 @@ var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY
 
 ## Configuration Using TypeScript
 ```typescript
-import * as MwsApi from 'amazon-mws';
+import MwsApi from 'amazon-mws';
 
 const amazonMws = new MwsApi();
 amazonMws.setApiKey(accessKey, accessSecret);
