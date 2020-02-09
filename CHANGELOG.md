@@ -1,3 +1,7 @@
+0.0.26
+    - Bug Fix CSV Multiline issue
+    - Correct TypeScript usage
+
 0.0.25
     - Modify Travis version to check up to node 12
     - Added proxy agent
