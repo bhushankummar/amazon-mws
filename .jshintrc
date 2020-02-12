@@ -8,7 +8,6 @@
     "Buffer": true,
     "JSON": true,
     "async": true,
-    /* MOCHA */
     "describe": false,
     "it": false,
     "before": false,
