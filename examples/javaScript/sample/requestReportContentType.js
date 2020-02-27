@@ -8,7 +8,6 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 /**
  * This example has been written to override/set the contentType of the request.
  */
-
 var reportRequest = function () {
     amazonMws.setContentType('application/json');
 

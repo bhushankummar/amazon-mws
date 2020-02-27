@@ -2,13 +2,13 @@
   "globals": {
     "console": false,
     "process": false,
+    "Promise": false,
     "require": true,
     "exports": true,
     "module": true,
     "Buffer": true,
     "JSON": true,
     "async": true,
-    /* MOCHA */
     "describe": false,
     "it": false,
     "before": false,
