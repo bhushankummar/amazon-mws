@@ -6,10 +6,10 @@ var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
 var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 /**
- * This example has been written to override/set the default RESPONSE type to XML.
+ * This example has been written to override/set the contentType of the request.
  */
 var reportRequest = function () {
-    amazonMws.setResponseFormat('XML');
+    amazonMws.setProxy('http://your.proxy.domain');
 
     amazonMws.reports.submit({
         'Version': '2009-01-01',

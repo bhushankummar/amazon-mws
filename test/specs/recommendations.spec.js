@@ -7,7 +7,9 @@ var chai = require('chai');
 var expect = chai.expect;
 
 var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
-amazonMws.setHost(config.Host);
+if (config.Host) {
+    amazonMws.setHost(config.Host);
+}
 describe('Recommendations', function () {
 
     before(function () {
@@ -20,14 +22,12 @@ describe('Recommendations', function () {
             'Version': '2013-04-01',
             'Action': 'ListRecommendations',
             'SellerId': config.SellerId,
-            'MWSAuthToken': config.MWSAuthToken,
             'MarketplaceId': config.MarketplaceId,
             'CategoryQueryList.CategoryQuery.1.FilterOptions.FilterOption.1': 'QualitySet=Defect',
             'CategoryQueryList.CategoryQuery.1.FilterOptions.FilterOption.2': 'ListingStatus=Active',
             'CategoryQueryList.CategoryQuery.1.RecommendationCategory': 'ListingQuality'
         };
         expect(options.SellerId).to.be.a('string');
-        expect(options.MWSAuthToken).to.be.a('string');
         expect(options.MarketplaceId).to.be.a('string');
 
         try {

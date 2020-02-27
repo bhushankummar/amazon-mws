@@ -7,7 +7,9 @@ var chai = require('chai');
 var expect = chai.expect;
 
 var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
-amazonMws.setHost(config.Host);
+if (config.Host) {
+    amazonMws.setHost(config.Host);
+}
 describe('Orders', function () {
 
     before(function () {
@@ -20,13 +22,11 @@ describe('Orders', function () {
             'Version': '2013-09-01',
             'Action': 'ListOrders',
             'SellerId': config.SellerId,
-            'MWSAuthToken': config.MWSAuthToken,
             'MarketplaceId.Id.1': config.MarketplaceId,
             'LastUpdatedAfter': new Date(13, 12, 2016)
         };
         expect(options.SellerId).to.be.a('string');
-        expect(options.MWSAuthToken).to.be.a('string');
-        expect(options['MarketplaceId.Id.1']).to.be.a('string');
+        expect(options[ 'MarketplaceId.Id.1' ]).to.be.a('string');
 
         var response = await amazonMws.orders.search(options);
 

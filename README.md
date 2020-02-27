@@ -34,17 +34,26 @@ export DEBUG=MWS:*
 ```bash
 export AWS_ACCESS_KEY_ID=KEY
 export AWS_SECRET_ACCESS_KEY=SECRET
-
-#optional MWS Token
-export MWS_AUTH_TOKEN=TOKEN
-
-#optional proxy
-export MARKETPLACE_PROXY=http://your.proxy.domain
 ```
 
 ## Configuration Using JavaScript
 ```js
 var amazonMws = require('amazon-mws')('AWS_ACCESS_KEY_ID','AWS_SECRET_ACCESS_KEY');
+```
+
+## Override the Host (Default mws.amazonservices.com)
+```js
+amazonMws.setHost('YOUR HOST');
+```
+
+## Set Response Format (Default JSON)
+```js
+amazonMws.setResponseFormat('XML');
+```
+
+## Set Proxy
+```js
+amazonMws.setProxy('http://your.proxy.domain');
 ```
 
 ## Configuration Using TypeScript
@@ -57,7 +66,18 @@ amazonMws.setApiKey(accessKey, accessSecret);
 
 ## Pull Request
 - Contributors can send their Pull Request to `development` branch.
-- Kindly validate test cases & linting before opening new PR.
+- Kindly validate test cases before opening new PR.
+- Kindly validate linting before opening new PR.
+
+## Test Cases ENV
+```bash
+export AWS_ACCESS_KEY_ID=SAMPLE
+export AWS_SECRET_ACCESS_KEY=SAMPLE
+export SELLER_ID=SAMPLE
+export MARKETPLACE_ID=SAMPLE
+export ASIN=SAMPLE
+export SKU=SAMPLE
+```
 
 #### Success or Error StatusCode can be obtained directly using StatusCode property of response. It will give you same as what Amazon MWS provides.
 #### It is also sample of the error responses.
@@ -99,7 +119,7 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
 ## Examples
 ### Feeds
 #### Get Feed Submission List
-```
+```js
     amazonMws.feeds.search({
         'Version': '2009-01-01',
         'Action': 'GetFeedSubmissionList',
@@ -111,11 +131,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 #### Get Feed Submission Result
-```
+```js
     var FeedSubmissionId = '10101010XXX';
     amazonMws.feeds.search({
         'Version': '2009-01-01',
@@ -129,11 +149,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 #### Get Feed Submission Result Charset
-```
+```js
     /**
      * Use __CHARSET__ to override charset option.;
      * This along with __RAW__ do NOT get written in the request.
@@ -153,11 +173,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response ', JSON.stringify(response));
-    });    
+    });
 ```
 
 #### Get Feed Submission Result Raw
-```
+```js
     /**
      * Use __RAW__ to get the raw response in response->data;
      * This along  with __CHARSET__ do not get written in the request.
@@ -177,50 +197,12 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
         }
         fse.writeFileSync('response.txt', response.data);
         console.log('Headers', response.Headers);
-    });    
+    });
 ```
 
-#### Get Feed Submission Result as Stream
-```
-    /**
-     * Use __STREAM__ to get the request in response;
-     */
-    var FeedSubmissionId = '10101010XXX';
-    amazonMws.feeds.search({
-        'Version': '2009-01-01',
-        'Action': 'GetFeedSubmissionResult',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'FeedSubmissionId': FeedSubmissionId,
-        __STREAM__: true
-    }, function (error, response) {
-        if (error) {
-            console.log('error ', error);
-            return;
-        }
-        response
-            .pipe(iconv.decodeStream('ISO-8859-1'))
-            .pipe(
-                csv.parse({
-                    delimiter: '\t',
-                    headers: true,
-                    discardUnmappedColumns: true,
-                    quote: null,
-                    ignoreEmpty: true,
-                    trim: true
-                })
-            )
-            .on('data', row => {
-                processRow(row);
-            })
-            .on('error', error => { console.error(error); })
-            .on('end', rowCount => { console.log(`Processed rows ${rowCount}`); });
-    });    
-```
-
-#### Submit Feed [more feed xml demo](https://github.com/bhushankumarl/amazon-mws/tree/master/examples/javascript/feeds). or see https://images-cn.ssl-images-amazon.com/images/G/28/rainier/help/XML_Documentation_Intl._V158771171_.pdf
-```
-    var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
+#### Submit Feed
+```js
+var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
     console.log('FeedContent ', FeedContent);
 
     amazonMws.feeds.submit({
@@ -236,12 +218,12 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 ### Finances
 #### List Financial Event Groups
-```
+```js
     amazonMws.finances.search({
         'Version': '2015-05-01',
         'Action': 'ListFinancialEventGroups',
@@ -254,12 +236,12 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 ### Fulfillment Inbound Shipment
 #### Get Inbound Guidance For SKU
-```
+```js
     amazonMws.fulfillmentInboundShipment.search({
         'Version': '2010-10-01',
         'Action': 'GetInboundGuidanceForSKU',
@@ -273,12 +255,12 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 ### Fulfillment Inventory
 #### List Inventory Supply
-```
+```js
     amazonMws.fulfillmentInventory.search({
         'Version': '2010-10-01',
         'Action': 'ListInventorySupply',
@@ -292,12 +274,12 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 ### Fulfillment Outbound Shipment
 #### Create Fulfillment Order
-```
+```js
     amazonMws.fulfillmentOutboundShipment.create({
         'Version': '2010-10-01',
         'Action': 'CreateFulfillmentOrder',
@@ -333,11 +315,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 #### List All Fulfillment Orders
-```
+```js
     amazonMws.fulfillmentOutboundShipment.search({
         'Version': '2010-10-01',
         'Action': 'ListAllFulfillmentOrders',
@@ -350,12 +332,12 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 ### Merchant Fulfillment
 #### Create Shipment
-```
+```js
     amazonMws.merchantFulfillment.create({
         'Version': '2015-06-01',
         'Action': 'CreateShipment',
@@ -387,11 +369,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 #### Get Eligible Shipping Services
-```
+```js
     amazonMws.merchantFulfillment.search({
         'Version': '2015-06-01',
         'Action': 'GetEligibleShippingServices',
@@ -422,12 +404,12 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 ### Orders
 #### List Order Items
-```
+```js
     amazonMws.orders.search({
         'Version': '2013-09-01',
         'Action': 'ListOrderItems',
@@ -440,11 +422,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 #### List Orders
-```
+```js
     amazonMws.orders.search({
         'Version': '2013-09-01',
         'Action': 'ListOrders',
@@ -458,11 +440,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 #### List Orders Filter Status
-```
+```js
     amazonMws.orders.search({
         'Version': '2013-09-01',
         'Action': 'ListOrders',
@@ -478,12 +460,12 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 ### Products
 #### Get Competitive Pricing For ASIN
-```
+```js
     amazonMws.products.searchFor({
         'Version': '2011-10-01',
         'Action': 'GetCompetitivePricingForASIN',
@@ -497,11 +479,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response ', response);
-    });    
+    });
 ```
 
 #### Get Lowest Priced Offers For ASIN
-```
+```js
     amazonMws.products.searchFor({
         'Version': '2011-10-01',
         'Action': 'GetLowestPricedOffersForASIN',
@@ -516,11 +498,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response ', response);
-    });    
+    });
 ```
 
 #### Get Lowest Priced Offers For SKU
-```
+```js
     amazonMws.products.searchFor({
         'Version': '2011-10-01',
         'Action': 'GetLowestPricedOffersForSKU',
@@ -535,11 +517,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response ', response);
-    });    
+    });
 ```
 
 #### Get Matching Product
-```
+```js
     amazonMws.products.search({
         'Version': '2011-10-01',
         'Action': 'GetMatchingProduct',
@@ -554,11 +536,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
         }
         //console.log('response ', JSON.stringify(response));
         console.log('response', response);
-    });    
+    });
 ```
 
 #### Get Matching Product For Id
-```
+```js
     amazonMws.products.search({
         'Version': '2011-10-01',
         'Action': 'GetMatchingProductForId',
@@ -573,11 +555,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 #### Get Matching Product Multiple ASIN
-```
+```js
     var ASINList = ['ASIN.1', 'ASIN.2'];
     var data = {
         'Version': '2011-10-01',
@@ -598,11 +580,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
         }
         //console.log('response ', JSON.stringify(response));
         console.log('response', response);
-    });    
+    });
 ```
 
 #### Get My Fees Estimate
-```
+```js
     amazonMws.products.search({
         'Version': '2011-10-01',
         'Action': 'GetMyFeesEstimate',
@@ -624,11 +606,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response ', response);
-    });    
+    });
 ```
 
 #### Get My Price For ASIN
-```
+```js
     amazonMws.products.searchFor({
         'Version': '2011-10-01',
         'Action': 'GetMyPriceForASIN',
@@ -642,11 +624,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response ', response);
-    });    
+    });
 ```
 
 #### List Matching Products
-```
+```js
     amazonMws.products.search({
         'Version': '2011-10-01',
         'Action': 'ListMatchingProducts',
@@ -661,12 +643,12 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
         }
         //console.log('response ', JSON.stringify(response));
         console.log('response', response);
-    });    
+    });
 ```
 
 ### Recommendations
 #### Get Last Updated Time For Recommendations
-```
+```js
     amazonMws.recommendations.searchFor({
         'Version': '2013-04-01',
         'Action': 'GetLastUpdatedTimeForRecommendations',
@@ -679,11 +661,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 #### List Recommendations
-```
+```js
     amazonMws.recommendations.searchFor({
         'Version': '2013-04-01',
         'Action': 'ListRecommendations',
@@ -699,12 +681,12 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 ### Reports
 #### Get Report
-```
+```js
     /**
      * This will not provide you Throttling details in Header.
      * Amazon MWS itself not providing Throttling detail in GetReport call.
@@ -721,11 +703,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 #### Get Report List
-```
+```js
     amazonMws.reports.search({
         'Version': '2009-01-01',
         'Action': 'GetReportList',
@@ -738,11 +720,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 #### Get Report Request List
-```
+```js
     var ReportRequestId = '10101010XXX';
     amazonMws.reports.search({
         'Version': '2009-01-01',
@@ -756,11 +738,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 #### Request Report
-```
+```js
     amazonMws.reports.submit({
         'Version': '2009-01-01',
         'Action': 'RequestReport',
@@ -773,12 +755,12 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 ### Sample
 #### Get Matching Product Async Await
-```
+```js
     try {
         var response = await amazonMws.products.search({
             'Version': '2011-10-01',
@@ -791,11 +773,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
         console.log('response', response);
     } catch (error) {
         console.log('error products', error);
-    }    
+    }
 ```
 
 #### Get Matching Product Promise
-```
+```js
     amazonMws.products.search({
         'Version': '2011-10-01',
         'Action': 'GetMatchingProduct',
@@ -807,11 +789,76 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
         console.log('response', response);
     }).catch(function (error) {
         console.log('error products', error);
-    });    
+    });
+```
+
+#### Get Report As Readable Stram
+```js
+    /**
+     * This will not provide you Throttling details in Header.
+     * Amazon MWS itself not providing Throttling detail in GetReport call.
+     */
+    amazonMws.setHost('YOUR HOST');
+    amazonMws.reports.search({
+        'Version': '2009-01-01',
+        'Action': 'GetReport',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'ReportId': 'REPORT_ID',
+        '__STREAM__': true
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+
+        var rows = [];
+        function processRowsInBatches(row, end, callback) {
+            if (typeof end === 'undefined') {
+                end = false;
+            }
+            if (row) {
+                rows.push(row);
+            }
+            if (rows.length >= 5000 || (end && rows.length)) {
+                sendToDB(rows.splice(0, 0), callback);
+                rows = [];
+            }
+        }
+
+        function sendToDB(data, callback) {
+            // Send your data to the db
+            console.log(data.length);
+            callback();
+        }
+
+        var decodeStream = iconv.decodeStream('ISO-8859-1');
+        response.pipe(decodeStream);
+        var csvStream = csv.parse({
+            delimiter: '\t',
+            headers: true,
+            discardUnmappedColumns: true,
+            ignoreEmpty: true,
+            trim: true
+        });
+        decodeStream.pipe(csvStream);
+        csvStream.transform(function (data, cb) {
+            processRowsInBatches(data, false, cb);
+        });
+        csvStream
+            .on('error', function (error) { console.error(error); })
+            .on('finish', function () {
+                console.log('Finished proccessing stream');
+                // Call processRowsInBatches to proccess remaining rows
+                processRowsInBatches(undefined, true, function () {
+                    console.log('Saved last rows in the db');
+                });
+            });
+    });
 ```
 
 #### List Orders
-```
+```js
     amazonMws.setApiKey(accessKey, accessSecret);
     amazonMws.setHost('YOUR HOST');
 
@@ -831,11 +878,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 #### Request Report Content Type
-```
+```js
     amazonMws.setContentType('application/json');
 
     amazonMws.reports.submit({
@@ -850,11 +897,30 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
+```
+
+#### Request Report Proxy
+```js
+    amazonMws.setProxy('http://your.proxy.domain');
+
+    amazonMws.reports.submit({
+        'Version': '2009-01-01',
+        'Action': 'RequestReport',
+        'SellerId': 'SELLER_ID',
+        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        'ReportType': '_GET_MERCHANT_LISTINGS_ALL_DATA_'
+    }, function (error, response) {
+        if (error) {
+            console.log('error ', error);
+            return;
+        }
+        console.log('response', response);
+    });
 ```
 
 #### Request Report XML Response
-```
+```js
     amazonMws.setResponseFormat('XML');
 
     amazonMws.reports.submit({
@@ -869,12 +935,12 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 ### Sellers
 #### List Marketplace Participations
-```
+```js
     amazonMws.sellers.search({
         'Version': '2011-07-01',
         'Action': 'ListMarketplaceParticipations',
@@ -886,11 +952,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 #### List Marketplace Participations By Next Token
-```
+```js
     amazonMws.sellers.search({
         'Version': '2011-07-01',
         'Action': 'ListMarketplaceParticipationsByNextToken',
@@ -903,12 +969,12 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 ### Subscriptions
 #### Create Subscription
-```
+```js
     amazonMws.subscriptions.create({
         'Version': '2013-07-01',
         'Action': 'CreateSubscription',
@@ -926,11 +992,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 #### Delete Subscription
-```
+```js
     amazonMws.subscriptions.remove({
         'Version': '2013-07-01',
         'Action': 'DeleteSubscription',
@@ -947,11 +1013,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 #### List Subscriptions
-```
+```js
     amazonMws.subscriptions.searchFor({
         'Version': '2013-07-01',
         'Action': 'ListSubscriptions',
@@ -964,11 +1030,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 
 #### Register Destination
-```
+```js
     amazonMws.subscriptions.create({
         'Version': '2013-07-01',
         'Action': 'RegisterDestination',
@@ -984,6 +1050,6 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
             return;
         }
         console.log('response', response);
-    });    
+    });
 ```
 

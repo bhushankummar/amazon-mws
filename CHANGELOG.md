@@ -1,3 +1,8 @@
+0.0.27
+    - Bug Fix Read Content Type
+    - Set HTTP Proxy Dynamically
+    - Remove bluebird from dependency
+
 0.0.26
     - Bug Fix CSV Multiline issue
     - Correct TypeScript usage

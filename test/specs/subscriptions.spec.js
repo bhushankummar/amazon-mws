@@ -7,7 +7,9 @@ var chai = require('chai');
 var expect = chai.expect;
 
 var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
-amazonMws.setHost(config.Host);
+if (config.Host) {
+    amazonMws.setHost(config.Host);
+}
 describe('Subscriptions', function () {
 
     before(function () {
@@ -20,11 +22,9 @@ describe('Subscriptions', function () {
             'Version': '2013-07-01',
             'Action': 'ListSubscriptions',
             'SellerId': config.SellerId,
-            'MWSAuthToken': config.MWSAuthToken,
             'MarketplaceId': config.MarketplaceId
         };
         expect(options.SellerId).to.be.a('string');
-        expect(options.MWSAuthToken).to.be.a('string');
         expect(options.MarketplaceId).to.be.a('string');
 
         try {

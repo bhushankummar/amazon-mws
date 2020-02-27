@@ -7,7 +7,9 @@ var chai = require('chai');
 var expect = chai.expect;
 
 var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
-amazonMws.setHost(config.Host);
+if (config.Host) {
+    amazonMws.setHost(config.Host);
+}
 describe('Fulfillment Inbound Shipment', function () {
 
     before(function () {
@@ -20,16 +22,14 @@ describe('Fulfillment Inbound Shipment', function () {
             'Version': '2010-10-01',
             'Action': 'GetInboundGuidanceForSKU',
             'SellerId': config.SellerId,
-            'MWSAuthToken': config.MWSAuthToken,
             'MarketplaceId': config.MarketplaceId,
             'SellerSKUList.Id.1': config.SKU
         };
 
         console.log('options ', options);
         expect(options.SellerId).to.be.a('string');
-        expect(options.MWSAuthToken).to.be.a('string');
         expect(options.MarketplaceId).to.be.a('string');
-        expect(options['SellerSKUList.Id.1']).to.be.a('string');
+        expect(options[ 'SellerSKUList.Id.1' ]).to.be.a('string');
 
         var response = await amazonMws.fulfillmentInboundShipment.search(options);
 

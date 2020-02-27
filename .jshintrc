@@ -2,6 +2,7 @@
   "globals": {
     "console": false,
     "process": false,
+    "Promise": false,
     "require": true,
     "exports": true,
     "module": true,

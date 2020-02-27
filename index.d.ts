@@ -96,7 +96,9 @@ declare class AmazonMWS {
 
     setResponseFormat(responseFormat: string): void;
 
-    setContentType(setContentType: string): void;
+    setContentType(contentType: string): void;
+
+    setProxy(proxy: string): void;
 
 }
 
