@@ -11,11 +11,11 @@ var reportRequest = function () {
      * Amazon MWS itself not providing Throttling detail in GetReport call.
      */
     amazonMws.reports.search({
-        'Version': '2009-01-01',
-        'Action': 'GetReport',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ReportId': 'REPORT_ID'
+        Version: '2009-01-01',
+        Action: 'GetReport',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        ReportId: 'REPORT_ID'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);

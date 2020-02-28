@@ -80,7 +80,7 @@ export SKU=SAMPLE
 ```
 
 #### Success or Error StatusCode can be obtained directly using StatusCode property of response. It will give you same as what Amazon MWS provides.
-#### It is also sample of the error responses.
+#### Here is sample of the error response.
 ```
 {
    Type:'Sender',

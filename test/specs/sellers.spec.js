@@ -1,5 +1,5 @@
 'use strict';
-var config = require('../intialize/config');
+var config = require('../initialize');
 var accessKey = config.accessKey;
 var accessSecret = config.accessSecret;
 
@@ -11,7 +11,6 @@ if (config.Host) {
     amazonMws.setHost(config.Host);
 }
 describe('Sellers', function () {
-
     before(function () {
         expect(accessKey).to.be.a('string');
         expect(accessSecret).to.be.a('string');
@@ -19,10 +18,10 @@ describe('Sellers', function () {
 
     it('It should get List of Marketplace Participations using ListMarketplaceParticipations Action', async function () {
         var options = {
-            'Version': '2011-07-01',
-            'Action': 'ListMarketplaceParticipations',
-            'SellerId': config.SellerId,
-            'MWSAuthToken': config.MWSAuthToken
+            Version: '2011-07-01',
+            Action: 'ListMarketplaceParticipations',
+            SellerId: config.SellerId,
+            MWSAuthToken: config.MWSAuthToken
         };
 
         expect(options.SellerId).to.be.a('string');

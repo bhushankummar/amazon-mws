@@ -7,12 +7,12 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var productRequest = function () {
     amazonMws.products.search({
-        'Version': '2011-10-01',
-        'Action': 'GetMatchingProductForId',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
-        'IdType': 'SellerSKU',
+        Version: '2011-10-01',
+        Action: 'GetMatchingProductForId',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
+        IdType: 'SellerSKU',
         'IdList.Id.1': 'SKU'
     }, function (error, response) {
         if (error) {

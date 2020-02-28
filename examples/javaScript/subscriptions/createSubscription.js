@@ -7,11 +7,11 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var subscriptionRequest = function () {
     amazonMws.subscriptions.create({
-        'Version': '2013-07-01',
-        'Action': 'CreateSubscription',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
+        Version: '2013-07-01',
+        Action: 'CreateSubscription',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
         'Subscription.Destination.AttributeList.member.1.Key': 'DESTINATION_KEY',
         'Subscription.Destination.AttributeList.member.1.Value': 'DESTINATION_VALUE',
         'Subscription.Destination.DeliveryChannel': 'DESTINATION_CHANNEL',

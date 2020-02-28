@@ -8,11 +8,11 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 var productRequest = function () {
     var ASINList = ['ASIN.1', 'ASIN.2'];
     var data = {
-        'Version': '2011-10-01',
-        'Action': 'GetMatchingProduct',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID'
+        Version: '2011-10-01',
+        Action: 'GetMatchingProduct',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID'
     };
     var index = 1;
     for (var i in ASINList) {

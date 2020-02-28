@@ -8,10 +8,10 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 var reportRequest = function () {
     var ReportRequestId = '10101010XXX';
     amazonMws.reports.search({
-        'Version': '2009-01-01',
-        'Action': 'GetReportRequestList',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        Version: '2009-01-01',
+        Action: 'GetReportRequestList',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
         'ReportRequestIdList.Id.1': ReportRequestId
     }, function (error, response) {
         if (error) {

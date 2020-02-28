@@ -7,12 +7,12 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var orderRequest = function () {
     amazonMws.orders.search({
-        'Version': '2013-09-01',
-        'Action': 'ListOrders',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        Version: '2013-09-01',
+        Action: 'ListOrders',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
         'MarketplaceId.Id.1': 'MARKET_PLACE_ID_1',
-        'LastUpdatedAfter': new Date(2016, 11, 24),
+        LastUpdatedAfter: new Date(2016, 11, 24),
         'OrderStatus.Status.1': 'Pending',
         'OrderStatus.Status.2': 'Canceled'
     }, function (error, response) {

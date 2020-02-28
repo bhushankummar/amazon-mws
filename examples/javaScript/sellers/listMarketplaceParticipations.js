@@ -7,10 +7,10 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var sellerRequest = function () {
     amazonMws.sellers.search({
-        'Version': '2011-07-01',
-        'Action': 'ListMarketplaceParticipations',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN'
+        Version: '2011-07-01',
+        Action: 'ListMarketplaceParticipations',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
