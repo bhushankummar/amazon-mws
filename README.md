@@ -8,7 +8,7 @@ You can testify API through [Amazon MWS Scratchpad](https://mws.amazonservices.i
 
 You can find [examples of JavaScript and TypeScript Click here](https://github.com/bhushankumarl/amazon-mws/tree/master/examples). This will help you for faster implementation of Amazon Marketplace Web Service's(MWS).
 
-##### It does supports EcmaScript 5, EcmaScript 6, EcmaScript 8, TypeScript, async-await, Promises, Callback !
+##### It does supports EcmaScript 8, TypeScript, async-await, Promises, Callback !
 ##### It does also supports for AWS Lambda like serverless cloud function call.
 ##### It supports pure JSON response.
 ##### All methods support Promise and Callback both.

@@ -1,3 +1,6 @@
+0.0.28
+    - Stop support for the lower than NodeJs 8 version
+
 0.0.27
     - Bug Fix Read Content Type
     - Set HTTP Proxy Dynamically
