@@ -4,7 +4,7 @@ var mwsAccount = require('../mwsAccount');
 var amazonMws = require('../../../lib/amazon-mws')(mwsAccount.accessKey, mwsAccount.accessSecret);
 
 var productRequest = async function () {
-    var ASINList = ['ASIN.1', 'ASIN.2'];
+    var ASINList = [ 'ASIN.1', 'ASIN.2' ];
     var mwsRequestData = {
         Version: '2011-10-01',
         Action: 'GetLowestOfferListingsForASIN',

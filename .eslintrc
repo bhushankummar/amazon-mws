@@ -26,6 +26,7 @@
             0
         ],
         "no-unused-expressions": "off",
-        "computed-property-spacing": "off"
+        "computed-property-spacing": "off",
+        "array-bracket-spacing": "off"
     }
 }
