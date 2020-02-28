@@ -7,10 +7,10 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var productRequest = function () {
     amazonMws.products.search({
-        'Version': '2011-10-01',
-        'Action': 'GetMyFeesEstimate',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        Version: '2011-10-01',
+        Action: 'GetMyFeesEstimate',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
         'FeesEstimateRequestList.FeesEstimateRequest.1.MarketplaceId': 'MARKET_PLACE_ID',
         'FeesEstimateRequestList.FeesEstimateRequest.1.IdType': 'ASIN',
         'FeesEstimateRequestList.FeesEstimateRequest.1.IdValue': 'ASIN',

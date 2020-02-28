@@ -15,12 +15,12 @@ var reportRequest = function () {
      */
     amazonMws.setHost('YOUR HOST');
     amazonMws.reports.search({
-        'Version': '2009-01-01',
-        'Action': 'GetReport',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ReportId': 'REPORT_ID',
-        '__STREAM__': true
+        Version: '2009-01-01',
+        Action: 'GetReport',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        ReportId: 'REPORT_ID',
+        __STREAM__: true
     }, function (error, response) {
         if (error) {
             console.log('error ', error);

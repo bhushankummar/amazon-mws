@@ -12,11 +12,11 @@ var reportRequest = function () {
     amazonMws.setProxy('http://your.proxy.domain');
 
     amazonMws.reports.submit({
-        'Version': '2009-01-01',
-        'Action': 'RequestReport',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ReportType': '_GET_MERCHANT_LISTINGS_ALL_DATA_'
+        Version: '2009-01-01',
+        Action: 'RequestReport',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        ReportType: '_GET_MERCHANT_LISTINGS_ALL_DATA_'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);

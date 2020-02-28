@@ -1,0 +1,32 @@
+{
+    "extends": "standard",
+    "env": {
+        "amd": true
+    },
+    "globals": {
+        "describe": true,
+        "before": true,
+        "it": true
+    },
+    "rules": {
+        "semi": [
+            2,
+            "always"
+        ],
+        "camelcase": [
+            0
+        ],
+        "indent": [
+            0
+        ],
+        "space-before-function-paren": [
+            0
+        ],
+        "spaced-comment": [
+            0
+        ],
+        "no-unused-expressions": "off",
+        "computed-property-spacing": "off",
+        "array-bracket-spacing": "off"
+    }
+}

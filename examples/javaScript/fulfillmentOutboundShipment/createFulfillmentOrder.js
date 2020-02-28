@@ -7,15 +7,15 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var fulfillmentOutboundShipmentRequest = function () {
     amazonMws.fulfillmentOutboundShipment.create({
-        'Version': '2010-10-01',
-        'Action': 'CreateFulfillmentOrder',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'SellerFulfillmentOrderId': 'SELLER_FULFILLMENT_ORDER_ID',
-        'ShippingSpeedCategory': 'SHIPPING_SPEED_CATEGORY',
-        'DisplayableOrderId': 'DISPLAYABLE_ORDER_ID',
-        'DisplayableOrderDateTime': 'DISPLAYABLE_ORDER_DATE_TIME',
-        'DisplayableOrderComment': 'DISPLAYABLE_ORDER_COMMENT',
+        Version: '2010-10-01',
+        Action: 'CreateFulfillmentOrder',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        SellerFulfillmentOrderId: 'SELLER_FULFILLMENT_ORDER_ID',
+        ShippingSpeedCategory: 'SHIPPING_SPEED_CATEGORY',
+        DisplayableOrderId: 'DISPLAYABLE_ORDER_ID',
+        DisplayableOrderDateTime: 'DISPLAYABLE_ORDER_DATE_TIME',
+        DisplayableOrderComment: 'DISPLAYABLE_ORDER_COMMENT',
         'DestinationAddress.Name': 'NAME',
         'DestinationAddress.Line1': 'LINE_1',
         'DestinationAddress.Line2': 'LINE_2',
@@ -33,8 +33,8 @@ var fulfillmentOutboundShipmentRequest = function () {
         'Items.member.1.Quantity': 'QUANTITY',
         'Items.member.1.SellerFulfillmentOrderItemId': 'SELLER_FULFILLMENT_ORDER_ITEM_ID',
         'Items.member.1.SellerSKU': 'SELLER_SKU',
-        'MarketplaceId': 'MARKETPLACE_ID',
-        'FulfillmentAction': 'FULFILLMENT_ACTION'
+        MarketplaceId: 'MARKETPLACE_ID',
+        FulfillmentAction: 'FULFILLMENT_ACTION'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);

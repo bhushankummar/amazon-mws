@@ -7,10 +7,10 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var merchantFulfillmentRequest = function () {
     amazonMws.merchantFulfillment.search({
-        'Version': '2015-06-01',
-        'Action': 'GetEligibleShippingServices',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        Version: '2015-06-01',
+        Action: 'GetEligibleShippingServices',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
         'ShipmentRequestDetails.AmazonOrderId': 'AMAZON_ORDER_ID',
         'ShipmentRequestDetails.PackageDimensions.Length': 'PACKAGE_LENGTH',
         'ShipmentRequestDetails.PackageDimensions.Width': 'PACKAGE_WIDTH',

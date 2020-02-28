@@ -8,7 +8,7 @@ You can testify API through [Amazon MWS Scratchpad](https://mws.amazonservices.i
 
 You can find [examples of JavaScript and TypeScript Click here](https://github.com/bhushankumarl/amazon-mws/tree/master/examples). This will help you for faster implementation of Amazon Marketplace Web Service's(MWS).
 
-##### It does supports EcmaScript 5, EcmaScript 6,  EcmaScript 8, TypeScript, async-await, Promises, Callback !
+##### It does supports EcmaScript 8, TypeScript, async-await, Promises, Callback !
 ##### It does also supports for AWS Lambda like serverless cloud function call.
 ##### It supports pure JSON response.
 ##### All methods support Promise and Callback both.
@@ -80,7 +80,7 @@ export SKU=SAMPLE
 ```
 
 #### Success or Error StatusCode can be obtained directly using StatusCode property of response. It will give you same as what Amazon MWS provides.
-#### It is also sample of the error responses.
+#### Here is sample of the error response.
 ```
 {
    Type:'Sender',
@@ -121,10 +121,10 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
 #### Get Feed Submission List
 ```js
     amazonMws.feeds.search({
-        'Version': '2009-01-01',
-        'Action': 'GetFeedSubmissionList',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN'
+        Version: '2009-01-01',
+        Action: 'GetFeedSubmissionList',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -138,11 +138,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
 ```js
     var FeedSubmissionId = '10101010XXX';
     amazonMws.feeds.search({
-        'Version': '2009-01-01',
-        'Action': 'GetFeedSubmissionResult',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'FeedSubmissionId': FeedSubmissionId
+        Version: '2009-01-01',
+        Action: 'GetFeedSubmissionResult',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        FeedSubmissionId: FeedSubmissionId
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -160,11 +160,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
      */
     var FeedSubmissionId = '10101010XXX';
     amazonMws.feeds.search({
-        'Version': '2009-01-01',
-        'Action': 'GetFeedSubmissionResult',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'FeedSubmissionId': FeedSubmissionId,
+        Version: '2009-01-01',
+        Action: 'GetFeedSubmissionResult',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        FeedSubmissionId: FeedSubmissionId,
         // __CHARSET__: 'latin1'
         __CHARSET__: 'ISO-8859-1'
     }, function (error, response) {
@@ -184,11 +184,11 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
      */
     var FeedSubmissionId = '10101010XXX';
     amazonMws.feeds.search({
-        'Version': '2009-01-01',
-        'Action': 'GetFeedSubmissionResult',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'FeedSubmissionId': FeedSubmissionId,
+        Version: '2009-01-01',
+        Action: 'GetFeedSubmissionResult',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        FeedSubmissionId: FeedSubmissionId,
         __RAW__: true
     }, function (error, response) {
         if (error) {
@@ -206,12 +206,12 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
     console.log('FeedContent ', FeedContent);
 
     amazonMws.feeds.submit({
-        'Version': '2009-01-01',
-        'Action': 'SubmitFeed',
-        'FeedType': '_POST_PRODUCT_DATA_',
-        'FeedContent': FeedContent,
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN'
+        Version: '2009-01-01',
+        Action: 'SubmitFeed',
+        FeedType: '_POST_PRODUCT_DATA_',
+        FeedContent: FeedContent,
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -225,11 +225,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### List Financial Event Groups
 ```js
     amazonMws.finances.search({
-        'Version': '2015-05-01',
-        'Action': 'ListFinancialEventGroups',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'FinancialEventGroupStartedAfter': new Date(2016, 11, 24)
+        Version: '2015-05-01',
+        Action: 'ListFinancialEventGroups',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        FinancialEventGroupStartedAfter: new Date(2016, 11, 24)
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -243,11 +243,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Get Inbound Guidance For SKU
 ```js
     amazonMws.fulfillmentInboundShipment.search({
-        'Version': '2010-10-01',
-        'Action': 'GetInboundGuidanceForSKU',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
+        Version: '2010-10-01',
+        Action: 'GetInboundGuidanceForSKU',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
         'SellerSKUList.Id.1': 'us001'
     }, function (error, response) {
         if (error) {
@@ -262,12 +262,12 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### List Inventory Supply
 ```js
     amazonMws.fulfillmentInventory.search({
-        'Version': '2010-10-01',
-        'Action': 'ListInventorySupply',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
-        'QueryStartDateTime': new Date(2016, 11, 24)
+        Version: '2010-10-01',
+        Action: 'ListInventorySupply',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
+        QueryStartDateTime: new Date(2016, 11, 24)
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -281,15 +281,15 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Create Fulfillment Order
 ```js
     amazonMws.fulfillmentOutboundShipment.create({
-        'Version': '2010-10-01',
-        'Action': 'CreateFulfillmentOrder',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'SellerFulfillmentOrderId': 'SELLER_FULFILLMENT_ORDER_ID',
-        'ShippingSpeedCategory': 'SHIPPING_SPEED_CATEGORY',
-        'DisplayableOrderId': 'DISPLAYABLE_ORDER_ID',
-        'DisplayableOrderDateTime': 'DISPLAYABLE_ORDER_DATE_TIME',
-        'DisplayableOrderComment': 'DISPLAYABLE_ORDER_COMMENT',
+        Version: '2010-10-01',
+        Action: 'CreateFulfillmentOrder',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        SellerFulfillmentOrderId: 'SELLER_FULFILLMENT_ORDER_ID',
+        ShippingSpeedCategory: 'SHIPPING_SPEED_CATEGORY',
+        DisplayableOrderId: 'DISPLAYABLE_ORDER_ID',
+        DisplayableOrderDateTime: 'DISPLAYABLE_ORDER_DATE_TIME',
+        DisplayableOrderComment: 'DISPLAYABLE_ORDER_COMMENT',
         'DestinationAddress.Name': 'NAME',
         'DestinationAddress.Line1': 'LINE_1',
         'DestinationAddress.Line2': 'LINE_2',
@@ -307,8 +307,8 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
         'Items.member.1.Quantity': 'QUANTITY',
         'Items.member.1.SellerFulfillmentOrderItemId': 'SELLER_FULFILLMENT_ORDER_ITEM_ID',
         'Items.member.1.SellerSKU': 'SELLER_SKU',
-        'MarketplaceId': 'MARKETPLACE_ID',
-        'FulfillmentAction': 'FULFILLMENT_ACTION'
+        MarketplaceId: 'MARKETPLACE_ID',
+        FulfillmentAction: 'FULFILLMENT_ACTION'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -321,11 +321,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### List All Fulfillment Orders
 ```js
     amazonMws.fulfillmentOutboundShipment.search({
-        'Version': '2010-10-01',
-        'Action': 'ListAllFulfillmentOrders',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'QueryStartDateTime': new Date(2016, 11, 24)
+        Version: '2010-10-01',
+        Action: 'ListAllFulfillmentOrders',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        QueryStartDateTime: new Date(2016, 11, 24)
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -339,11 +339,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Create Shipment
 ```js
     amazonMws.merchantFulfillment.create({
-        'Version': '2015-06-01',
-        'Action': 'CreateShipment',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ShippingServiceId': 'SHIPPING_SERVICE_ID',
+        Version: '2015-06-01',
+        Action: 'CreateShipment',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        ShippingServiceId: 'SHIPPING_SERVICE_ID',
         'ShipmentRequestDetails.AmazonOrderId': 'AMAZON_ORDER_ID',
         'ShipmentRequestDetails.PackageDimensions.Length': 'PACKAGE_LENGTH',
         'ShipmentRequestDetails.PackageDimensions.Width': 'PACKAGE_WIDTH',
@@ -375,10 +375,10 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Get Eligible Shipping Services
 ```js
     amazonMws.merchantFulfillment.search({
-        'Version': '2015-06-01',
-        'Action': 'GetEligibleShippingServices',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        Version: '2015-06-01',
+        Action: 'GetEligibleShippingServices',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
         'ShipmentRequestDetails.AmazonOrderId': 'AMAZON_ORDER_ID',
         'ShipmentRequestDetails.PackageDimensions.Length': 'PACKAGE_LENGTH',
         'ShipmentRequestDetails.PackageDimensions.Width': 'PACKAGE_WIDTH',
@@ -411,11 +411,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### List Order Items
 ```js
     amazonMws.orders.search({
-        'Version': '2013-09-01',
-        'Action': 'ListOrderItems',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'AmazonOrderId': 'AMAZON_ORDER_ID'
+        Version: '2013-09-01',
+        Action: 'ListOrderItems',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        AmazonOrderId: 'AMAZON_ORDER_ID'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -428,12 +428,12 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### List Orders
 ```js
     amazonMws.orders.search({
-        'Version': '2013-09-01',
-        'Action': 'ListOrders',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        Version: '2013-09-01',
+        Action: 'ListOrders',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
         'MarketplaceId.Id.1': 'MARKET_PLACE_ID_1',
-        'LastUpdatedAfter': new Date(2016, 11, 24)
+        LastUpdatedAfter: new Date(2016, 11, 24)
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -446,12 +446,12 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### List Orders Filter Status
 ```js
     amazonMws.orders.search({
-        'Version': '2013-09-01',
-        'Action': 'ListOrders',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        Version: '2013-09-01',
+        Action: 'ListOrders',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
         'MarketplaceId.Id.1': 'MARKET_PLACE_ID_1',
-        'LastUpdatedAfter': new Date(2016, 11, 24),
+        LastUpdatedAfter: new Date(2016, 11, 24),
         'OrderStatus.Status.1': 'Pending',
         'OrderStatus.Status.2': 'Canceled'
     }, function (error, response) {
@@ -467,11 +467,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Get Competitive Pricing For ASIN
 ```js
     amazonMws.products.searchFor({
-        'Version': '2011-10-01',
-        'Action': 'GetCompetitivePricingForASIN',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
+        Version: '2011-10-01',
+        Action: 'GetCompetitivePricingForASIN',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
         'ASINList.ASIN.1': 'ASIN'
     }, function (error, response) {
         if (error) {
@@ -482,16 +482,39 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
     });
 ```
 
+#### Get Lowest Offer Listings For ASIN
+```js
+    var ASINList = [ 'ASIN.1', 'ASIN.2' ];
+    var mwsRequestData = {
+        Version: '2011-10-01',
+        Action: 'GetLowestOfferListingsForASIN',
+        SellerId: mwsAccount.sellerId,
+        MarketplaceId: mwsAccount.marketplaceId,
+        ItemCondition: 'New'
+    };
+    try {
+        var index = 1;
+        for (var i in ASINList) {
+            mwsRequestData[ 'ASINList.ASIN.' + index ] = ASINList[ i ];
+            index++;
+        }
+        var response = await amazonMws.products.searchFor(mwsRequestData);
+        console.log('response ', response);
+    } catch (error) {
+        console.log('error products', error);
+    }
+```
+
 #### Get Lowest Priced Offers For ASIN
 ```js
     amazonMws.products.searchFor({
-        'Version': '2011-10-01',
-        'Action': 'GetLowestPricedOffersForASIN',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
-        'ASIN': 'ASIN',
-        'ItemCondition': 'New'
+        Version: '2011-10-01',
+        Action: 'GetLowestPricedOffersForASIN',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
+        ASIN: 'ASIN',
+        ItemCondition: 'New'
     }, function (error, response) {
         if (error) {
             console.log('error products', error);
@@ -504,13 +527,13 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Get Lowest Priced Offers For SKU
 ```js
     amazonMws.products.searchFor({
-        'Version': '2011-10-01',
-        'Action': 'GetLowestPricedOffersForSKU',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
-        'SellerSKU': 'SELLER_SKU',
-        'ItemCondition': 'New'
+        Version: '2011-10-01',
+        Action: 'GetLowestPricedOffersForSKU',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
+        SellerSKU: 'SELLER_SKU',
+        ItemCondition: 'New'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -523,11 +546,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Get Matching Product
 ```js
     amazonMws.products.search({
-        'Version': '2011-10-01',
-        'Action': 'GetMatchingProduct',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
+        Version: '2011-10-01',
+        Action: 'GetMatchingProduct',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
         'ASINList.ASIN.1': 'ASIN_1'
     }, function (error, response) {
         if (error) {
@@ -542,12 +565,12 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Get Matching Product For Id
 ```js
     amazonMws.products.search({
-        'Version': '2011-10-01',
-        'Action': 'GetMatchingProductForId',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
-        'IdType': 'SellerSKU',
+        Version: '2011-10-01',
+        Action: 'GetMatchingProductForId',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
+        IdType: 'SellerSKU',
         'IdList.Id.1': 'SKU'
     }, function (error, response) {
         if (error) {
@@ -562,11 +585,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 ```js
     var ASINList = ['ASIN.1', 'ASIN.2'];
     var data = {
-        'Version': '2011-10-01',
-        'Action': 'GetMatchingProduct',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID'
+        Version: '2011-10-01',
+        Action: 'GetMatchingProduct',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID'
     };
     var index = 1;
     for (var i in ASINList) {
@@ -586,10 +609,10 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Get My Fees Estimate
 ```js
     amazonMws.products.search({
-        'Version': '2011-10-01',
-        'Action': 'GetMyFeesEstimate',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        Version: '2011-10-01',
+        Action: 'GetMyFeesEstimate',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
         'FeesEstimateRequestList.FeesEstimateRequest.1.MarketplaceId': 'MARKET_PLACE_ID',
         'FeesEstimateRequestList.FeesEstimateRequest.1.IdType': 'ASIN',
         'FeesEstimateRequestList.FeesEstimateRequest.1.IdValue': 'ASIN',
@@ -612,11 +635,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Get My Price For ASIN
 ```js
     amazonMws.products.searchFor({
-        'Version': '2011-10-01',
-        'Action': 'GetMyPriceForASIN',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
+        Version: '2011-10-01',
+        Action: 'GetMyPriceForASIN',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
         'ASINList.ASIN.1': 'ASINList_ASIN_1'
     }, function (error, response) {
         if (error) {
@@ -630,12 +653,12 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### List Matching Products
 ```js
     amazonMws.products.search({
-        'Version': '2011-10-01',
-        'Action': 'ListMatchingProducts',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
-        'Query': 'k'
+        Version: '2011-10-01',
+        Action: 'ListMatchingProducts',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
+        Query: 'k'
     }, function (error, response) {
         if (error) {
             console.log('error products', error);
@@ -650,11 +673,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Get Last Updated Time For Recommendations
 ```js
     amazonMws.recommendations.searchFor({
-        'Version': '2013-04-01',
-        'Action': 'GetLastUpdatedTimeForRecommendations',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID'
+        Version: '2013-04-01',
+        Action: 'GetLastUpdatedTimeForRecommendations',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -667,11 +690,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### List Recommendations
 ```js
     amazonMws.recommendations.searchFor({
-        'Version': '2013-04-01',
-        'Action': 'ListRecommendations',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
+        Version: '2013-04-01',
+        Action: 'ListRecommendations',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
         'CategoryQueryList.CategoryQuery.1.FilterOptions.FilterOption.1': 'QualitySet=Defect',
         'CategoryQueryList.CategoryQuery.1.FilterOptions.FilterOption.2': 'ListingStatus=Active',
         'CategoryQueryList.CategoryQuery.1.RecommendationCategory': 'ListingQuality'
@@ -692,11 +715,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
      * Amazon MWS itself not providing Throttling detail in GetReport call.
      */
     amazonMws.reports.search({
-        'Version': '2009-01-01',
-        'Action': 'GetReport',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ReportId': 'REPORT_ID'
+        Version: '2009-01-01',
+        Action: 'GetReport',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        ReportId: 'REPORT_ID'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -709,10 +732,10 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Get Report List
 ```js
     amazonMws.reports.search({
-        'Version': '2009-01-01',
-        'Action': 'GetReportList',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN'
+        Version: '2009-01-01',
+        Action: 'GetReportList',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN'
         //'ReportTypeList.Type.1': 'REPORT_TYPE_LIST' //optional
     }, function (error, response) {
         if (error) {
@@ -727,10 +750,10 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 ```js
     var ReportRequestId = '10101010XXX';
     amazonMws.reports.search({
-        'Version': '2009-01-01',
-        'Action': 'GetReportRequestList',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        Version: '2009-01-01',
+        Action: 'GetReportRequestList',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
         'ReportRequestIdList.Id.1': ReportRequestId
     }, function (error, response) {
         if (error) {
@@ -744,11 +767,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Request Report
 ```js
     amazonMws.reports.submit({
-        'Version': '2009-01-01',
-        'Action': 'RequestReport',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ReportType': '_GET_MERCHANT_LISTINGS_ALL_DATA_'
+        Version: '2009-01-01',
+        Action: 'RequestReport',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        ReportType: '_GET_MERCHANT_LISTINGS_ALL_DATA_'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -763,11 +786,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 ```js
     try {
         var response = await amazonMws.products.search({
-            'Version': '2011-10-01',
-            'Action': 'GetMatchingProduct',
-            'SellerId': 'SELLER_ID',
-            'MWSAuthToken': 'MWS_AUTH_TOKEN',
-            'MarketplaceId': 'MARKET_PLACE_ID',
+            Version: '2011-10-01',
+            Action: 'GetMatchingProduct',
+            SellerId: 'SELLER_ID',
+            MWSAuthToken: 'MWS_AUTH_TOKEN',
+            MarketplaceId: 'MARKET_PLACE_ID',
             'ASINList.ASIN.1': 'ASIN_1'
         });
         console.log('response', response);
@@ -779,11 +802,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Get Matching Product Promise
 ```js
     amazonMws.products.search({
-        'Version': '2011-10-01',
-        'Action': 'GetMatchingProduct',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
+        Version: '2011-10-01',
+        Action: 'GetMatchingProduct',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
         'ASINList.ASIN.1': 'ASIN_1'
     }).then(function (response) {
         console.log('response', response);
@@ -800,12 +823,12 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
      */
     amazonMws.setHost('YOUR HOST');
     amazonMws.reports.search({
-        'Version': '2009-01-01',
-        'Action': 'GetReport',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ReportId': 'REPORT_ID',
-        '__STREAM__': true
+        Version: '2009-01-01',
+        Action: 'GetReport',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        ReportId: 'REPORT_ID',
+        __STREAM__: true
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -866,12 +889,12 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
     // amazonMws.setHost('YOUR HOST', 443, 'https'); // Alternate way
 
     amazonMws.orders.search({
-        'Version': '2013-09-01',
-        'Action': 'ListOrders',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
+        Version: '2013-09-01',
+        Action: 'ListOrders',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
         'MarketplaceId.Id.1': 'MARKET_PLACE_ID_1',
-        'LastUpdatedAfter': new Date(2016, 11, 24)
+        LastUpdatedAfter: new Date(2016, 11, 24)
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -886,11 +909,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
     amazonMws.setContentType('application/json');
 
     amazonMws.reports.submit({
-        'Version': '2009-01-01',
-        'Action': 'RequestReport',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ReportType': '_GET_MERCHANT_LISTINGS_ALL_DATA_'
+        Version: '2009-01-01',
+        Action: 'RequestReport',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        ReportType: '_GET_MERCHANT_LISTINGS_ALL_DATA_'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -905,11 +928,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
     amazonMws.setProxy('http://your.proxy.domain');
 
     amazonMws.reports.submit({
-        'Version': '2009-01-01',
-        'Action': 'RequestReport',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ReportType': '_GET_MERCHANT_LISTINGS_ALL_DATA_'
+        Version: '2009-01-01',
+        Action: 'RequestReport',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        ReportType: '_GET_MERCHANT_LISTINGS_ALL_DATA_'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -924,11 +947,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
     amazonMws.setResponseFormat('XML');
 
     amazonMws.reports.submit({
-        'Version': '2009-01-01',
-        'Action': 'RequestReport',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'ReportType': '_GET_MERCHANT_LISTINGS_ALL_DATA_'
+        Version: '2009-01-01',
+        Action: 'RequestReport',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        ReportType: '_GET_MERCHANT_LISTINGS_ALL_DATA_'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -942,10 +965,10 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### List Marketplace Participations
 ```js
     amazonMws.sellers.search({
-        'Version': '2011-07-01',
-        'Action': 'ListMarketplaceParticipations',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN'
+        Version: '2011-07-01',
+        Action: 'ListMarketplaceParticipations',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -958,11 +981,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### List Marketplace Participations By Next Token
 ```js
     amazonMws.sellers.search({
-        'Version': '2011-07-01',
-        'Action': 'ListMarketplaceParticipationsByNextToken',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'NextToken': 'NEXT_TOKEN'
+        Version: '2011-07-01',
+        Action: 'ListMarketplaceParticipationsByNextToken',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        NextToken: 'NEXT_TOKEN'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -976,11 +999,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Create Subscription
 ```js
     amazonMws.subscriptions.create({
-        'Version': '2013-07-01',
-        'Action': 'CreateSubscription',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
+        Version: '2013-07-01',
+        Action: 'CreateSubscription',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
         'Subscription.Destination.AttributeList.member.1.Key': 'DESTINATION_KEY',
         'Subscription.Destination.AttributeList.member.1.Value': 'DESTINATION_VALUE',
         'Subscription.Destination.DeliveryChannel': 'DESTINATION_CHANNEL',
@@ -998,15 +1021,15 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Delete Subscription
 ```js
     amazonMws.subscriptions.remove({
-        'Version': '2013-07-01',
-        'Action': 'DeleteSubscription',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
+        Version: '2013-07-01',
+        Action: 'DeleteSubscription',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
         'Destination.AttributeList.member.1.Key': 'DESTINATION_KEY',
         'Destination.AttributeList.member.1.Value': 'DESTINATION_VALUE',
         'Destination.DeliveryChannel': 'DESTINATION_CHANNEL',
-        'NotificationType': 'AnyOfferChanged'
+        NotificationType: 'AnyOfferChanged'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -1019,11 +1042,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### List Subscriptions
 ```js
     amazonMws.subscriptions.searchFor({
-        'Version': '2013-07-01',
-        'Action': 'ListSubscriptions',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID'
+        Version: '2013-07-01',
+        Action: 'ListSubscriptions',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
@@ -1036,11 +1059,11 @@ var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
 #### Register Destination
 ```js
     amazonMws.subscriptions.create({
-        'Version': '2013-07-01',
-        'Action': 'RegisterDestination',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
+        Version: '2013-07-01',
+        Action: 'RegisterDestination',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
         'Destination.AttributeList.member.1.Key': 'DESTINATION_KEY',
         'Destination.AttributeList.member.1.Value': 'DESTINATION_VALUE',
         'Destination.DeliveryChannel': 'DESTINATION_CHANNEL'

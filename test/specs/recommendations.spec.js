@@ -1,5 +1,5 @@
 'use strict';
-var config = require('../intialize/config');
+var config = require('../initialize');
 var accessKey = config.accessKey;
 var accessSecret = config.accessSecret;
 
@@ -11,7 +11,6 @@ if (config.Host) {
     amazonMws.setHost(config.Host);
 }
 describe('Recommendations', function () {
-
     before(function () {
         expect(accessKey).to.be.a('string');
         expect(accessSecret).to.be.a('string');
@@ -19,10 +18,10 @@ describe('Recommendations', function () {
 
     it('It should list of recommendations using ListRecommendations Action', async function () {
         var options = {
-            'Version': '2013-04-01',
-            'Action': 'ListRecommendations',
-            'SellerId': config.SellerId,
-            'MarketplaceId': config.MarketplaceId,
+            Version: '2013-04-01',
+            Action: 'ListRecommendations',
+            SellerId: config.SellerId,
+            MarketplaceId: config.MarketplaceId,
             'CategoryQueryList.CategoryQuery.1.FilterOptions.FilterOption.1': 'QualitySet=Defect',
             'CategoryQueryList.CategoryQuery.1.FilterOptions.FilterOption.2': 'ListingStatus=Active',
             'CategoryQueryList.CategoryQuery.1.RecommendationCategory': 'ListingQuality'
@@ -45,5 +44,4 @@ describe('Recommendations', function () {
             expect(error).to.be.undefined;
         }
     });
-
 });

@@ -1,5 +1,5 @@
 'use strict';
-var config = require('../intialize/config');
+var config = require('../initialize');
 var accessKey = config.accessKey;
 var accessSecret = config.accessSecret;
 
@@ -11,7 +11,6 @@ if (config.Host) {
     amazonMws.setHost(config.Host);
 }
 describe('Products', function () {
-
     before(function () {
         expect(accessKey).to.be.a('string');
         expect(accessSecret).to.be.a('string');
@@ -19,11 +18,11 @@ describe('Products', function () {
 
     it('It should get offers using ListMatchingProducts Action', async function () {
         var options = {
-            'Version': '2011-10-01',
-            'Action': 'ListMatchingProducts',
-            'SellerId': config.SellerId,
-            'MarketplaceId': config.MarketplaceId,
-            'Query': 'k'
+            Version: '2011-10-01',
+            Action: 'ListMatchingProducts',
+            SellerId: config.SellerId,
+            MarketplaceId: config.MarketplaceId,
+            Query: 'k'
         };
         expect(options.SellerId).to.be.a('string');
         expect(options.MarketplaceId).to.be.a('string');
@@ -44,12 +43,12 @@ describe('Products', function () {
 
     it('It should get offers using GetLowestPricedOffersForASIN Action', async function () {
         var options = {
-            'Version': '2011-10-01',
-            'Action': 'GetLowestPricedOffersForASIN',
-            'SellerId': config.SellerId,
-            'MarketplaceId': config.MarketplaceId,
-            'ASIN': config.ASIN,
-            'ItemCondition': 'New'
+            Version: '2011-10-01',
+            Action: 'GetLowestPricedOffersForASIN',
+            SellerId: config.SellerId,
+            MarketplaceId: config.MarketplaceId,
+            ASIN: config.ASIN,
+            ItemCondition: 'New'
         };
         expect(options.SellerId).to.be.a('string');
         expect(options.MarketplaceId).to.be.a('string');
@@ -71,15 +70,15 @@ describe('Products', function () {
 
     it('It should get my price for ASIN using getMyPriceForASIN Action', async function () {
         var options = {
-            'Version': '2011-10-01',
-            'Action': 'GetMyPriceForASIN',
-            'SellerId': config.SellerId,
-            'MarketplaceId': config.MarketplaceId,
+            Version: '2011-10-01',
+            Action: 'GetMyPriceForASIN',
+            SellerId: config.SellerId,
+            MarketplaceId: config.MarketplaceId,
             'ASINList.ASIN.1': config.ASIN
         };
         expect(options.SellerId).to.be.a('string');
         expect(options.MarketplaceId).to.be.a('string');
-        expect(options[ 'ASINList.ASIN.1' ]).to.be.a('string');
+        expect(options['ASINList.ASIN.1']).to.be.a('string');
 
         try {
             var response = await amazonMws.products.searchFor(options);
@@ -102,10 +101,10 @@ describe('Products', function () {
 
     it('It should NOT get my price for INVALID ASIN using GetMyPriceForASIN Action', async function () {
         var options = {
-            'Version': '2011-10-01',
-            'Action': 'GetMyPriceForASIN',
-            'SellerId': config.SellerId,
-            'MarketplaceId': config.MarketplaceId,
+            Version: '2011-10-01',
+            Action: 'GetMyPriceForASIN',
+            SellerId: config.SellerId,
+            MarketplaceId: config.MarketplaceId,
             'ASINList.ASIN.1': undefined
         };
         expect(options.SellerId).to.be.a('string');
@@ -138,21 +137,19 @@ describe('Products', function () {
             expect(error).to.have.property('Headers').to.have.property('x-mws-quota-resetson');
             expect(error).to.have.property('Headers').to.have.property('x-mws-timestamp');
         }
-
     });
-
 
     it('It should get my price for ASIN using GetCompetitivePricingForASIN Action', async function () {
         var options = {
-            'Version': '2011-10-01',
-            'Action': 'GetCompetitivePricingForASIN',
-            'SellerId': config.SellerId,
-            'MarketplaceId': config.MarketplaceId,
+            Version: '2011-10-01',
+            Action: 'GetCompetitivePricingForASIN',
+            SellerId: config.SellerId,
+            MarketplaceId: config.MarketplaceId,
             'ASINList.ASIN.1': config.ASIN
         };
         expect(options.SellerId).to.be.a('string');
         expect(options.MarketplaceId).to.be.a('string');
-        expect(options[ 'ASINList.ASIN.1' ]).to.be.a('string');
+        expect(options['ASINList.ASIN.1']).to.be.a('string');
 
         try {
             var response = await amazonMws.products.searchFor(options);
@@ -164,8 +161,8 @@ describe('Products', function () {
             if (response.Product.CompetitivePricing.NumberOfOfferListings.OfferListingCount) {
                 expect(response).to.have.property('Product').to.have.property('CompetitivePricing').to.have.property('NumberOfOfferListings');
                 expect(response).to.have.property('Product').to.have.property('CompetitivePricing').to.have.property('NumberOfOfferListings').to.have.property('OfferListingCount').to.be.a('array');
-                expect(response.Product.CompetitivePricing.NumberOfOfferListings.OfferListingCount[ 0 ]).to.have.property('condition');
-                expect(response.Product.CompetitivePricing.NumberOfOfferListings.OfferListingCount[ 0 ]).to.have.property('Value');
+                expect(response.Product.CompetitivePricing.NumberOfOfferListings.OfferListingCount[0]).to.have.property('condition');
+                expect(response.Product.CompetitivePricing.NumberOfOfferListings.OfferListingCount[0]).to.have.property('Value');
             }
             expect(response).to.have.property('ResponseMetadata').to.be.a('object');
             expect(response).to.have.property('ResponseMetadata').to.have.property('RequestId');
@@ -179,5 +176,4 @@ describe('Products', function () {
             expect(error).to.be.undefined;
         }
     });
-
 });

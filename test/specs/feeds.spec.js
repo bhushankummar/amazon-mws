@@ -1,5 +1,5 @@
 'use strict';
-var config = require('../intialize/config');
+var config = require('../initialize');
 var accessKey = config.accessKey;
 var accessSecret = config.accessSecret;
 
@@ -11,7 +11,6 @@ if (config.Host) {
     amazonMws.setHost(config.Host);
 }
 describe('Feeds', function () {
-
     before(function () {
         expect(accessKey).to.be.a('string');
         expect(accessSecret).to.be.a('string');
@@ -19,9 +18,9 @@ describe('Feeds', function () {
 
     it('It should get Feed Submission list using GetFeedSubmissionList Action', async function () {
         var options = {
-            'Version': '2009-01-01',
-            'Action': 'GetFeedSubmissionList',
-            'SellerId': config.SellerId,
+            Version: '2009-01-01',
+            Action: 'GetFeedSubmissionList',
+            SellerId: config.SellerId
             // 'MWSAuthToken': config.MWSAuthToken
         };
         expect(options.SellerId).to.be.a('string');

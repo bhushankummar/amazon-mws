@@ -10,11 +10,11 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
  */
 var recommendationRequest = function () {
     amazonMws.recommendations.searchFor({
-        'Version': '2013-04-01',
-        'Action': 'ListRecommendations',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
+        Version: '2013-04-01',
+        Action: 'ListRecommendations',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
         'CategoryQueryList.CategoryQuery.1.FilterOptions.FilterOption.1': 'QualitySet=Defect',
         'CategoryQueryList.CategoryQuery.1.FilterOptions.FilterOption.2': 'ListingStatus=Active',
         'CategoryQueryList.CategoryQuery.1.RecommendationCategory': 'ListingQuality'
