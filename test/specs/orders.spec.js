@@ -1,5 +1,5 @@
 'use strict';
-var config = require('../intialize/config');
+var config = require('../initialize');
 var accessKey = config.accessKey;
 var accessSecret = config.accessSecret;
 
@@ -7,9 +7,10 @@ var chai = require('chai');
 var expect = chai.expect;
 
 var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
-
+if (config.Host) {
+    amazonMws.setHost(config.Host);
+}
 describe('Orders', function () {
-
     before(function () {
         expect(accessKey).to.be.a('string');
         expect(accessSecret).to.be.a('string');
@@ -17,15 +18,13 @@ describe('Orders', function () {
 
     it('It should get list of orders using ListOrders Action', async function () {
         var options = {
-            'Version': '2013-09-01',
-            'Action': 'ListOrders',
-            'SellerId': config.SellerId,
-            'MWSAuthToken': config.MWSAuthToken,
+            Version: '2013-09-01',
+            Action: 'ListOrders',
+            SellerId: config.SellerId,
             'MarketplaceId.Id.1': config.MarketplaceId,
-            'LastUpdatedAfter': new Date(13, 12, 2016)
+            LastUpdatedAfter: new Date(13, 12, 2016)
         };
         expect(options.SellerId).to.be.a('string');
-        expect(options.MWSAuthToken).to.be.a('string');
         expect(options['MarketplaceId.Id.1']).to.be.a('string');
 
         var response = await amazonMws.orders.search(options);

@@ -13,11 +13,11 @@ var feedRequest = function () {
      */
     var FeedSubmissionId = '10101010XXX';
     amazonMws.feeds.search({
-        'Version': '2009-01-01',
-        'Action': 'GetFeedSubmissionResult',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'FeedSubmissionId': FeedSubmissionId,
+        Version: '2009-01-01',
+        Action: 'GetFeedSubmissionResult',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        FeedSubmissionId: FeedSubmissionId,
         __RAW__: true
     }, function (error, response) {
         if (error) {

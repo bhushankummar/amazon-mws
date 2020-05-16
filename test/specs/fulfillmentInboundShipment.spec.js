@@ -1,5 +1,5 @@
 'use strict';
-var config = require('../intialize/config');
+var config = require('../initialize');
 var accessKey = config.accessKey;
 var accessSecret = config.accessSecret;
 
@@ -7,9 +7,10 @@ var chai = require('chai');
 var expect = chai.expect;
 
 var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
-
+if (config.Host) {
+    amazonMws.setHost(config.Host);
+}
 describe('Fulfillment Inbound Shipment', function () {
-
     before(function () {
         expect(accessKey).to.be.a('string');
         expect(accessSecret).to.be.a('string');
@@ -17,17 +18,15 @@ describe('Fulfillment Inbound Shipment', function () {
 
     it('It should get Inbound Guidance For SKU using GetInboundGuidanceForSKU Action', async function () {
         var options = {
-            'Version': '2010-10-01',
-            'Action': 'GetInboundGuidanceForSKU',
-            'SellerId': config.SellerId,
-            'MWSAuthToken': config.MWSAuthToken,
-            'MarketplaceId': config.MarketplaceId,
+            Version: '2010-10-01',
+            Action: 'GetInboundGuidanceForSKU',
+            SellerId: config.SellerId,
+            MarketplaceId: config.MarketplaceId,
             'SellerSKUList.Id.1': config.SKU
         };
 
         console.log('options ', options);
         expect(options.SellerId).to.be.a('string');
-        expect(options.MWSAuthToken).to.be.a('string');
         expect(options.MarketplaceId).to.be.a('string');
         expect(options['SellerSKUList.Id.1']).to.be.a('string');
 

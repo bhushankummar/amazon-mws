@@ -7,11 +7,11 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var fulfillmentInboundShipmentRequest = function () {
     amazonMws.fulfillmentInboundShipment.search({
-        'Version': '2010-10-01',
-        'Action': 'GetInboundGuidanceForSKU',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
+        Version: '2010-10-01',
+        Action: 'GetInboundGuidanceForSKU',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
         'SellerSKUList.Id.1': 'us001'
     }, function (error, response) {
         if (error) {

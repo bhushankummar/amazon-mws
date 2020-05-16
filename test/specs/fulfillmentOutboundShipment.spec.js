@@ -1,5 +1,5 @@
 'use strict';
-var config = require('../intialize/config');
+var config = require('../initialize');
 var accessKey = config.accessKey;
 var accessSecret = config.accessSecret;
 
@@ -7,9 +7,10 @@ var chai = require('chai');
 var expect = chai.expect;
 
 var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
-
+if (config.Host) {
+    amazonMws.setHost(config.Host);
+}
 describe('Fulfillment Outbound Shipment', function () {
-
     before(function () {
         expect(accessKey).to.be.a('string');
         expect(accessSecret).to.be.a('string');
@@ -17,15 +18,13 @@ describe('Fulfillment Outbound Shipment', function () {
 
     it('It should get list of Fulfillment Orders using ListAllFulfillmentOrders Action', async function () {
         var options = {
-            'Version': '2010-10-01',
-            'Action': 'ListAllFulfillmentOrders',
-            'SellerId': config.SellerId,
-            'MWSAuthToken': config.MWSAuthToken,
-            'QueryStartDateTime': new Date(13, 12, 2016)
+            Version: '2010-10-01',
+            Action: 'ListAllFulfillmentOrders',
+            SellerId: config.SellerId,
+            QueryStartDateTime: new Date(13, 12, 2016)
         };
 
         expect(options.SellerId).to.be.a('string');
-        expect(options.MWSAuthToken).to.be.a('string');
 
         var response = await amazonMws.fulfillmentOutboundShipment.search(options);
 

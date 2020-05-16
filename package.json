@@ -1,6 +1,6 @@
 {
   "name": "amazon-mws",
-  "version": "0.0.24",
+  "version": "0.0.27",
   "description": "Amazon MWS API wrapper",
   "keywords": [
     "Amazon MWS",
@@ -47,14 +47,19 @@
   },
   "main": "lib/amazon-mws.js",
   "devDependencies": {
-    "jshint": "^2.9.5"
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   },
   "dependencies": {
-    "bluebird": "^3.5.1",
     "chai": "^4.1.2",
     "debug": "^3.1.0",
     "fast-csv": "^2.4.0",
     "fs-extra": "^5.0.0",
+    "https-proxy-agent": "^2.2.2",
     "iconv-lite": "^0.4.23",
     "lodash": "^4.17.4",
     "mocha": "^5.2.0",
@@ -64,7 +69,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "lint": "jshint ./",
+    "lint": "eslint ./",
+    "lint:fix": "eslint . --fix",
     "test": "npm run lint",
     "test.mocha": "npm run lint && mocha"
   }

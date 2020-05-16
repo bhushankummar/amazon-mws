@@ -1,7 +1,28 @@
+0.0.28
+    - Stop support for the lower than NodeJs 8 version
+
+0.0.27
+    - Bug Fix Read Content Type
+    - Set HTTP Proxy Dynamically
+    - Remove bluebird from dependency
+
+0.0.26
+    - Bug Fix CSV Multiline issue
+    - Correct TypeScript usage
+
+0.0.25
+    - Modify Travis version to check up to node 12
+    - Added proxy agent
+    - Modify test cases to use host to cross across different region
+    - Add example for the read stream
+    - Add example for the feeds upload
+
 0.0.24
   - Add Subscription in Typescript definition
   - Correct Documentation
-  
+  - Allow user to change response type into XML format
+  - Allow user to change content type for request
+
 0.0.23
   - Bug Fix for Feed Result charset
 
@@ -19,7 +40,7 @@
   - Add support for RequestReport API
   - Add example for GetMyFeesEstimate in Products
   - Add force check for the XML string
-  
+
 0.0.19
   - Correct lint and increase test case timeout
   - Added Status Code in Error Response.
@@ -49,8 +70,8 @@
 
 0.0.15
   - Bug fixed ResponseMetadata (RequestId) in success response
-  - Added throttling details in non-xml response 
-  
+  - Added throttling details in non-xml response
+
 0.0.14
   - Clean code
   - Added typeScript example of reports
@@ -84,17 +105,17 @@
 
 0.0.9 July 31, 2017
   - Added ResponseMetadata (RequestId) in success response
-  
+
 0.0.8 July 29, 2017
   - Matching keywords, Get Report List, Get Report
-  
+
 0.0.7 July 19, 2017
   - Simplify JSON Object, Added Debug Module
   - Add Example for Get Matching Product and Get Matching Product for Multiple ASIN
-  
+
 0.0.6 July 14, 2017
   - Add Orders API, Feeds API, Finances API, FulfillmentInboundShipment API, FulfillmentInventory API
-  
+
 0.0.5 July 14, 2017
   - Add Products API, Added Check for Node 7
 

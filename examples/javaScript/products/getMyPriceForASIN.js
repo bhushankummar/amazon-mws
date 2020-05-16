@@ -7,11 +7,11 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 
 var productRequest = function () {
     amazonMws.products.searchFor({
-        'Version': '2011-10-01',
-        'Action': 'GetMyPriceForASIN',
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN',
-        'MarketplaceId': 'MARKET_PLACE_ID',
+        Version: '2011-10-01',
+        Action: 'GetMyPriceForASIN',
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN',
+        MarketplaceId: 'MARKET_PLACE_ID',
         'ASINList.ASIN.1': 'ASINList_ASIN_1'
     }, function (error, response) {
         if (error) {

@@ -7,16 +7,16 @@ var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
 var fse = require('fs-extra');
 
 var feedRequest = function () {
-    var FeedContent = fse.readFileSync('./file.txt', 'UTF-8');
+var FeedContent = fse.readFileSync('./good.xml', 'UTF-8');
     console.log('FeedContent ', FeedContent);
 
     amazonMws.feeds.submit({
-        'Version': '2009-01-01',
-        'Action': 'SubmitFeed',
-        'FeedType': '_POST_PRODUCT_DATA_',
-        'FeedContent': FeedContent,
-        'SellerId': 'SELLER_ID',
-        'MWSAuthToken': 'MWS_AUTH_TOKEN'
+        Version: '2009-01-01',
+        Action: 'SubmitFeed',
+        FeedType: '_POST_PRODUCT_DATA_',
+        FeedContent: FeedContent,
+        SellerId: 'SELLER_ID',
+        MWSAuthToken: 'MWS_AUTH_TOKEN'
     }, function (error, response) {
         if (error) {
             console.log('error ', error);

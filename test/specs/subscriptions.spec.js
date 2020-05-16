@@ -1,5 +1,5 @@
 'use strict';
-var config = require('../intialize/config');
+var config = require('../initialize');
 var accessKey = config.accessKey;
 var accessSecret = config.accessSecret;
 
@@ -7,9 +7,10 @@ var chai = require('chai');
 var expect = chai.expect;
 
 var amazonMws = require('../../lib/amazon-mws')(accessKey, accessSecret);
-
+if (config.Host) {
+    amazonMws.setHost(config.Host);
+}
 describe('Subscriptions', function () {
-
     before(function () {
         expect(accessKey).to.be.a('string');
         expect(accessSecret).to.be.a('string');
@@ -17,14 +18,12 @@ describe('Subscriptions', function () {
 
     it('It should list of subscriptions using ListSubscriptions Action', async function () {
         var options = {
-            'Version': '2013-07-01',
-            'Action': 'ListSubscriptions',
-            'SellerId': config.SellerId,
-            'MWSAuthToken': config.MWSAuthToken,
-            'MarketplaceId': config.MarketplaceId
+            Version: '2013-07-01',
+            Action: 'ListSubscriptions',
+            SellerId: config.SellerId,
+            MarketplaceId: config.MarketplaceId
         };
         expect(options.SellerId).to.be.a('string');
-        expect(options.MWSAuthToken).to.be.a('string');
         expect(options.MarketplaceId).to.be.a('string');
 
         try {
@@ -42,5 +41,4 @@ describe('Subscriptions', function () {
             expect(error).to.be.undefined;
         }
     });
-
 });
