@@ -1,15 +1,14 @@
 'use strict';
 
-var awsSellerAccount = require('../utils/account');
-var amazonMws = require('../../../lib/amazon-mws')(awsSellerAccount.AccessKey, awsSellerAccount.AccessSecret);
-var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
+var mwsAccount = require('../mwsAccount');
+var amazonMws = require('../../../lib/amazon-mws')(mwsAccount.AccessKey, mwsAccount.AccessSecret);
 
 var sellerRequest = function () {
     amazonMws.sellers.search({
         Version: '2011-07-01',
         Action: 'ListMarketplaceParticipations',
-        SellerId: awsSellerAccount.SellerId,
-        MWSAuthToken: awsSellerAccount.MWSAuthToken
+        SellerId: mwsAccount.SellerId,
+        MWSAuthToken: mwsAccount.MWSAuthToken
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
