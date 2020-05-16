@@ -1,1 +1,4 @@
 node_modules/*
+*.ts
+examples/typeScript/*
+examples/typeScript/node_modules/*

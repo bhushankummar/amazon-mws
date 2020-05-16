@@ -1,22 +1,20 @@
 'use strict';
 
-var accessKey = process.env.AWS_ACCESS_KEY_ID || 'YOUR_KEY';
-var accessSecret = process.env.AWS_SECRET_ACCESS_KEY || 'YOUR_SECRET';
-
-var amazonMws = require('../../../lib/amazon-mws')(accessKey, accessSecret);
+var mwsAccount = require('../mwsAccount');
+var amazonMws = require('../../../lib/amazon-mws')(mwsAccount.AccessKey, mwsAccount.AccessSecret);
 
 var sellerRequest = function () {
     amazonMws.sellers.search({
         Version: '2011-07-01',
         Action: 'ListMarketplaceParticipations',
-        SellerId: 'SELLER_ID',
-        MWSAuthToken: 'MWS_AUTH_TOKEN'
+        SellerId: mwsAccount.SellerId,
+        MWSAuthToken: mwsAccount.MWSAuthToken
     }, function (error, response) {
         if (error) {
             console.log('error ', error);
             return;
         }
-        console.log('response', response);
+        console.log('response', JSON.stringify(response, null, 2));
     });
 };
 
