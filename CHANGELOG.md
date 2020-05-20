@@ -1,5 +1,9 @@
 0.0.28
     - Stop support for the lower than NodeJs 8 version
+    - Remove old examples
+    - Add the vscode config to ensure code standard on different PRs
+    - Remove the example
+    - Clean the README.md file
 
 0.0.27
     - Bug Fix Read Content Type
