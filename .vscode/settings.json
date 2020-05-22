@@ -15,8 +15,6 @@
     "workbench.iconTheme": "vscode-icons",
     "vsicons.dontShowNewVersionMessage": true,
     "cSpell.userWords": [
-        "acord",
-        "payfunnels",
         "promisify"
     ],
     "editor.minimap.enabled": false,
