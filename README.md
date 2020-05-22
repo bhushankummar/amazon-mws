@@ -21,7 +21,10 @@ You can testify API through without any installation.
 npm install amazon-mws --save
 ```
 
-```
+## Pull Request
+- Contributors can send their Pull Request to `development` branch.
+- Kindly validate test cases & linting before opening new PR.
+
 ## Do you need an expert?
 Are you finding a developer for your world-class product? If yes, please contact here. [Submit your project request here.](https://goo.gl/forms/UofdG5GY5iHMoUWg2)
 Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
