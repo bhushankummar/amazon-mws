@@ -30,4 +30,4 @@ Are you finding a developer for your world-class product? If yes, please contact
 Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
 
 ## Examples
-* ### [Feeds](https://fullstacktechnology.com/nodejs/amazon-mws/#feeds)
+* ### <a href="https://fullstacktechnology.com/nodejs/amazon-mws/#feeds" target="_blank">Feeds</a>
