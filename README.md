@@ -28,3 +28,6 @@ npm install amazon-mws --save
 ## Do you need an expert?
 Are you finding a developer for your world-class product? If yes, please contact here. [Submit your project request here.](https://goo.gl/forms/UofdG5GY5iHMoUWg2)
 Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
+
+## Examples
+* ### [Feeds](https://fullstacktechnology.com/nodejs/amazon-mws/#feeds)
