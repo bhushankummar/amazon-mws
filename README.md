@@ -30,6 +30,7 @@ Are you finding a developer for your world-class product? If yes, please contact
 Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
 
 ## Examples
+* ### <a href="https://fullstacktechnology.com/nodejs/amazon-mws/#easyship" target="_blank">EasyShip</a>
 * ### <a href="https://fullstacktechnology.com/nodejs/amazon-mws/#feeds" target="_blank">Feeds</a>
 * ### <a href="https://fullstacktechnology.com/nodejs/amazon-mws/#finances" target="_blank">Finances</a>
 * ### <a href="https://fullstacktechnology.com/nodejs/amazon-mws/#fulfillmentinboundshipment" target="_blank">FulfillmentInboundShipment</a>
@@ -41,4 +42,5 @@ Originally by [Bhushankumar L](mailto:bhushankumar.lilapara@gmail.com).
 * ### <a href="https://fullstacktechnology.com/nodejs/amazon-mws/#recommendations" target="_blank">Recommendations</a>
 * ### <a href="https://fullstacktechnology.com/nodejs/amazon-mws/#reports" target="_blank">Reports</a>
 * ### <a href="https://fullstacktechnology.com/nodejs/amazon-mws/#sellers" target="_blank">Sellers</a>
+* ### <a href="https://fullstacktechnology.com/nodejs/amazon-mws/#shipmentinvoicing" target="_blank">ShipmentInvoicing</a>
 * ### <a href="https://fullstacktechnology.com/nodejs/amazon-mws/#subscriptions" target="_blank">Subscriptions</a>
