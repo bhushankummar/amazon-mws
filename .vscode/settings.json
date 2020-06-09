@@ -1,0 +1,33 @@
+{
+    "explorer.confirmDragAndDrop": false,
+    "files.autoSave": "afterDelay",
+    "window.openFoldersInNewWindow": "on",
+    "javascript.preferences.importModuleSpecifier": "relative",
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "window.zoomLevel": 1,
+    "window.newWindowDimensions": "maximized",
+    "window.nativeTabs": true,
+    "window.openFilesInNewWindow": "on",
+    "window.openWithoutArgumentsInNewWindow": "on",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.iconTheme": "vscode-icons",
+    "vsicons.dontShowNewVersionMessage": true,
+    "cSpell.userWords": [
+        "promisify"
+    ],
+    "editor.minimap.enabled": false,
+    "javascript.format.insertSpaceAfterConstructor": true,
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "files.exclude": {
+        "**/*.js": {"when": "$(basename).ts"},
+        "**/*.js.map": true,
+    },
+    "workbench.startupEditor": "newUntitledFile",
+    "files.autoSaveDelay": 5000,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "explorer.confirmDelete": false,
+    "terminal.integrated.shell.osx": "/bin/bash",
+    "terminal.integrated.scrollback": 100000,
+}

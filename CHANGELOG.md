@@ -1,5 +1,12 @@
 0.0.28
     - Stop support for the lower than NodeJs 8 version
+    - Remove old examples
+    - Add the vscode config to ensure code standard on different PRs
+    - Remove the example
+    - Clean the README.md file
+    - Add the Result at the top of the response
+    - Add support for the easyShip API
+    - Add support for the shipmentInvoicing API
 
 0.0.27
     - Bug Fix Read Content Type

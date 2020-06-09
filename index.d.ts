@@ -62,6 +62,14 @@ declare class Sellers extends BaseAmazonMWS {
 
 }
 
+declare class EasyShip extends BaseAmazonMWS {
+
+}
+
+declare class ShipmentInvoicing extends BaseAmazonMWS {
+
+}
+
 declare class Subscriptions extends BaseAmazonMWS {
 
     create(params: any): Promise<any>;
@@ -74,6 +82,8 @@ declare class Subscriptions extends BaseAmazonMWS {
 
 declare class AmazonMWS {
 
+    easyShip: EasyShip;
+    shipmentInvoicing: ShipmentInvoicing;
     feeds: Feeds;
     finances: Finances;
     fulfillmentInboundShipment: FulfillmentInboundShipment;
