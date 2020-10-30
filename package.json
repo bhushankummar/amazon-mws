@@ -62,7 +62,7 @@
     "https-proxy-agent": "^2.2.2",
     "iconv-lite": "^0.4.23",
     "lodash": "^4.17.4",
-    "mocha": "^5.2.0",
+    "mocha": "^6.0.0",
     "object-assign": "^4.1.0",
     "qs": "^6.5.1",
     "xml2js": "^0.4.19"
