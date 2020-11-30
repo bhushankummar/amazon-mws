@@ -1,0 +1,12 @@
+###
+### mocha.opts
+###
+exclude: ./test/specs/fulfillmentInboundShipment.spec.js
+bail: true
+silly: true
+full-trace: true
+recursive: true
+timeout: 20000
+reporter: spec
+watch-files:
+  - ./test/specs/*.spec.js

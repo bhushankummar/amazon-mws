@@ -9,6 +9,7 @@
         "it": true
     },
     "rules": {
+        "multiline-ternary": "warn",
         "semi": [
             2,
             "always"
