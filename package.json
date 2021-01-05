@@ -57,7 +57,7 @@
   "dependencies": {
     "chai": "^4.1.2",
     "debug": "^3.1.0",
-    "fast-csv": "^2.4.0",
+    "fast-csv": "^4.3.6",
     "fs-extra": "^5.0.0",
     "https-proxy-agent": "^2.2.2",
     "iconv-lite": "^0.4.23",
