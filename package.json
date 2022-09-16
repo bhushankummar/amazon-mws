@@ -1,6 +1,6 @@
 {
   "name": "amazon-mws",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "description": "Amazon MWS API wrapper",
   "keywords": [
     "Amazon MWS",
